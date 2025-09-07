@@ -112,13 +112,63 @@
     section{padding:3.5rem 0}
     .section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.6rem;gap:1rem}
     .section-title{font:700 clamp(1.4rem,3vw,2rem) Poppins,Inter,sans-serif;color:var(--ink);margin:0}
-    .muted{color:var(--muted)}
+   /* Muted text */
+.muted {
+  color: #9ca3af; /* light slate gray */
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: color .25s ease;
+}
+
+/* Muted inside cards or sections */
+.card .muted {
+  color: #d1d5db; /* lighter gray for glassy cards */
+}
+
+/* Optional hover effect (for links using .muted) */
+.muted:hover {
+  color: #ff6ec4; /* neon pink accent */
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
     /* WHAT WE DO */
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem}
-    .card h4{margin:.2rem 0 .4rem;font:700 1.05rem Poppins,Inter,sans-serif}
-    .card p{margin:0;color:var(--muted)}
+  .card {
+  background: rgba(255, 255, 255, 0.08); /* glass effect */
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Card title */
+.card h4 {
+  margin: 0 0 .6rem;
+  font: 700 1.2rem Poppins, Inter, sans-serif;
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card description */
+.card p {
+  margin: 0;
+  color: #d1d5db; /* softer muted tone */
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
     @media (max-width: 920px){.grid-3{grid-template-columns:1fr}}
 
     /* CLIENTS STRIP */
