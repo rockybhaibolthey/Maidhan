@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maidhan | Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Outfit',sans-serif;background:#0a0a0f;color:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+
+    /* HEADER */
+    header{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0f;position:sticky;top:0;z-index:100}
+    header h1{font-weight:700;font-size:1.5rem;background:linear-gradient(90deg,#00c6ff,#0072ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+    /* HERO */
+    .hero{padding:6rem 2rem;text-align:center;max-width:900px;margin:auto}
+    .hero h2{font-size:3rem;font-weight:700;background:linear-gradient(90deg,#ff6ec4,#7873f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem}
+    .hero p{color:#ccc;font-size:1.1rem}
+
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;padding:4rem 2rem;max-width:1200px;margin:auto}
+    .card{position:relative;overflow:hidden;border-radius:1.5rem;background:#1a1a22;box-shadow:0 8px 20px rgba(0,0,0,.4);transform:translateY(30px);opacity:0;transition:all .6s ease-out}
+    .card img{width:100%;height:240px;object-fit:cover;transition:transform .6s ease}
+    .card:hover img{transform:scale(1.08)}
+    .card-content{padding:1.5rem}
+    .card-content h3{margin-bottom:.5rem;font-size:1.3rem}
+    .card-content p{color:#bbb;font-size:.95rem}
+
+    /* ANIMATIONS */
+    .show{opacity:1;transform:translateY(0)}
+
+    /* FOOTER */
+    footer{padding:2rem;text-align:center;background:#0a0a0f;color:#666;font-size:.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Maidhan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>We do all kinds of sports infra</h2>
+    <p>From world-class football turfs to indoor badminton courts, Maidhan builds infrastructure for every game.</p>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=800" alt="Football Turf">
+      <div class="card-content">
+        <h3>Football Turfs</h3>
+        <p>FIFA-spec artificial grass installations for pro-level play.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603297637632-0a679b76c94e?q=80&w=800" alt="Badminton Court">
+      <div class="card-content">
+        <h3>Badminton Courts</h3>
+        <p>Indoor courts with certified wooden & synthetic surfaces.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505842465776-3d90f616310d?q=80&w=800" alt="Tennis Court">
+      <div class="card-content">
+        <h3>Tennis Courts</h3>
+        <p>Clay, hard, or synthetic surfaces built to ITF standards.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1571731956672-d3fdf3566d39?q=80&w=800" alt="Basketball Court">
+      <div class="card-content">
+        <h3>Basketball Courts</h3>
+        <p>Indoor/outdoor courts with shock-absorbent flooring.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1621996346565-401e33ad0396?q=80&w=800" alt="Athletic Track">
+      <div class="card-content">
+        <h3>Athletic Tracks</h3>
+        <p>IAAF-standard synthetic running tracks for training & events.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1599058917212-d750089bcbe0?q=80&w=800" alt="Cricket Pitch">
+      <div class="card-content">
+        <h3>Cricket Nets & Pitches</h3>
+        <p>Practice nets & turf pitches for grassroots to pro cricket.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Maidhan. All rights reserved.
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      })
+    },{threshold:.2});
+    cards.forEach(c=>observer.observe(c));
+  </script>
+</body>
+</html>
