@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michezo Sports – Sports Infra & Courts</title>
-  <meta name="description" content="Michezo Sports builds world‑class tennis, football, cricket, badminton, pickleball, basketball courts and athletic tracks across India." />
+  <title>Maidhan – Sports Infra & Courts</title>
+  <meta name="description" content="Maidhan builds world-class tennis, football, cricket, badminton, pickleball, basketball courts and athletic tracks across India." />
   <meta name="theme-color" content="#0b3b4a" />
-  <meta property="og:title" content="Michezo Sports – Sports Infra & Courts" />
+  <meta property="og:title" content="Maidhan – Sports Infra & Courts" />
   <meta property="og:description" content="Sports infrastructure specialists: design to execution for courts & tracks across India." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1600&auto=format&fit=crop" />
@@ -21,9 +21,9 @@
       --brand-500:#17809a;
       --brand-300:#7bd3e1;
       --accent:#f7b500; /* warm gold */
-      --ink:#0f172a; /* slate‑900 */
-      --muted:#475569; /* slate‑600 */
-      --bg:#f8fafc; /* slate‑50 */
+      --ink:#0f172a; /* slate-900 */
+      --muted:#475569; /* slate-600 */
+      --bg:#f8fafc; /* slate-50 */
       --card:#ffffff;
       --radius:18px;
       --shadow:0 10px 30px rgba(16,24,40,.08);
@@ -35,9 +35,38 @@
     img{max-width:100%;display:block}
     .container{width:min(1120px,92%);margin-inline:auto}
     .btn{display:inline-flex;gap:.6rem;align-items:center;padding:.85rem 1.2rem;border-radius:12px;font-weight:600;border:1px solid transparent;cursor:pointer;transition:.2s ease-in-out}
-    .btn.primary{background:linear-gradient(135deg,var(--brand-700),var(--brand-500));color:#fff;box-shadow:0 10px 24px rgba(19,91,110,.25)}
-    .btn.primary:hover{transform:translateY(-1px)}
-    .btn.ghost{background:#fff;border-color:#dbe3ea}
+/* Primary button – bold gradient */
+.btn.primary {
+  background: linear-gradient(135deg, #ff6ec4, #7873f5); /* bright pink → purple */
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(120, 115, 245, 0.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(120, 115, 245, 0.45);
+}
+
+/* Ghost button – semi-transparent glassy */
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: background .2s ease, transform .2s ease;
+}
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
 
     /* NAV */
     header.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
@@ -135,7 +164,7 @@
     <div class="container nav" role="navigation" aria-label="Main Navigation">
       <a class="brand" href="#home">
         <span class="brand-logo" aria-hidden="true"></span>
-        <h1>Michezo Sports</h1>
+        <h1>Maidhan</h1>
       </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Toggle menu">☰</button>
@@ -159,9 +188,9 @@
           <span class="badge" title="We build courts">We Build</span>
           <span class="badge">Tennis • Football • Cricket • More</span>
         </div>
-        <h2>World‑class Sports Courts & Tracks, Built End‑to‑End</h2>
+        <h2>World-class Sports Courts & Tracks, Built End-to-End</h2>
         <p>
-          Michezo brings together a team of experienced professionals in sports infrastructure—delivering technically sound, commercially viable, and beautifully designed facilities across India.
+          Maidhan brings together a team of experienced professionals in sports infrastructure—delivering technically sound, commercially viable, and beautifully designed facilities across India.
         </p>
         <div class="hero-badges" aria-label="Specialisations">
           <span class="chip">Tennis</span>
@@ -192,7 +221,7 @@
             <p>Cities</p>
           </div>
           <div class="stat">
-            <h3>Pan‑India</h3>
+            <h3>Pan-India</h3>
             <p>Coverage</p>
           </div>
         </div>
@@ -201,7 +230,7 @@
       <div class="hero-card" aria-label="Featured visual">
         <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1600&auto=format&fit=crop" alt="Freshly built tennis courts with clean line markings" />
         <div class="meta">
-          <strong>Featured:</strong> High‑performance acrylic tennis surface meeting international standards.
+          <strong>Featured:</strong> High-performance acrylic tennis surface meeting international standards.
         </div>
       </div>
     </div>
@@ -212,21 +241,21 @@
     <div class="container">
       <div class="section-head">
         <h3 class="section-title">What We Do</h3>
-        <p class="muted">Design • Civil • Base • Surface • Line‑marking • Lighting • Fencing • Accessories</p>
+        <p class="muted">Design • Civil • Base • Surface • Line-marking • Lighting • Fencing • Accessories</p>
       </div>
 
       <div class="grid-3">
         <article class="card">
-          <h4>End‑to‑End Delivery</h4>
+          <h4>End-to-End Delivery</h4>
           <p>From concept and design to execution and handover—one accountable team for timelines and quality.</p>
         </article>
         <article class="card">
-          <h4>Multi‑Sport Expertise</h4>
+          <h4>Multi-Sport Expertise</h4>
           <p>Football turfs, tennis & badminton courts, cricket practice nets, pickleball, basketball, squash & athletic tracks.</p>
         </article>
         <article class="card">
           <h4>Built to Standards</h4>
-          <p>Specification‑driven construction aligned with international standards and usage profiles.</p>
+          <p>Specification-driven construction aligned with international standards and usage profiles.</p>
         </article>
       </div>
 
@@ -253,8 +282,8 @@
           <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1600&auto=format&fit=crop" alt="Indoor arena with acrylic surface" />
           <div class="info">
             <span class="tag">Karnataka</span>
-            <h4>Padukone‑Dravid Centre for Sports Excellence</h4>
-            <p class="muted">High‑spec surfaces for elite training & tournaments.</p>
+            <h4>Padukone-Dravid Centre for Sports Excellence</h4>
+            <p class="muted">High-spec surfaces for elite training & tournaments.</p>
             <a class="btn ghost" href="#contact">View Details</a>
           </div>
         </article>
@@ -272,9 +301,9 @@
         <article class="project">
           <img src="https://images.unsplash.com/photo-1603297632441-9a175f880d9a?q=80&w=1600&auto=format&fit=crop" alt="Football turf under lights" />
           <div class="info">
-            <span class="tag">Pan‑India</span>
+            <span class="tag">Pan-India</span>
             <h4>Football Turf Installations</h4>
-            <p class="muted">FIFA‑inspired specs for player safety & performance.</p>
+            <p class="muted">FIFA-inspired specs for player safety & performance.</p>
             <a class="btn ghost" href="#contact">View Details</a>
           </div>
         </article>
@@ -292,8 +321,8 @@
       <div class="testimonial">
         <img class="avatar" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=600&auto=format&fit=crop" alt="Portrait of Vivek Kumar" />
         <div>
-          <p class="quote">“What impressed us most was the in‑depth knowledge of sports surfaces and the options tailored to usage and budget. High standards and reliable service—this is Michezo.”</p>
-          <p class="muted" style="margin:.4rem 0 0"><strong>Vivek Kumar</strong> — Founder, Padukone‑Dravid CSE</p>
+          <p class="quote">“What impressed us most was the in-depth knowledge of sports surfaces and the options tailored to usage and budget. High standards and reliable service—this is Maidhan.”</p>
+          <p class="muted" style="margin:.4rem 0 0"><strong>Vivek Kumar</strong> — Founder, Padukone-Dravid CSE</p>
         </div>
       </div>
     </div>
@@ -327,17 +356,17 @@
         <h3>Let’s build your next sporting facility</h3>
         <p>Tell us about your site, sport, and timeline. We’ll propose the right spec and get you a detailed estimate.</p>
         <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-          <a class="btn primary" href="mailto:infra@michezosports.com">infra@michezosports.com</a>
-          <a class="btn ghost" href="tel:+918951980194">+91‑89519‑80194</a>
+          <a class="btn primary" href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+            <a class="btn ghost" href="tel:+917702245549">+91‑7702245549</a>
         </div>
       </div>
       <div>
         <div class="card" style="height:100%">
           <h4 style="margin:0 0 .4rem">Visit Us</h4>
-          <p class="muted" style="margin:.2rem 0 1rem">
-            509, 3rd Cross, 9th Main Rd, HAL 2nd Stage, Indiranagar, Bengaluru 560 038
+           <p class="muted" style="margin:.2rem 0 1rem">
+            1-33-116 , Rtc colony , tirumalagirri , secunderabad
           </p>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://maps.google.com/?q=HAL+2nd+Stage,+Indiranagar,+Bengaluru+560038">View on Google Maps</a>
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">View on Google Maps</a>
         </div>
       </div>
     </div>
@@ -347,23 +376,23 @@
   <footer>
     <div class="container foot-grid">
       <div class="foot">
-        <h5>Michezo</h5>
+        <h5>Maidhan</h5>
         <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
       </div>
       <div class="foot">
         <h5>Explore</h5>
         <a href="#about">About Us</a>
-        <a href="#projects">Projects</a>
+        <a href="projects.html">Projects</a>
         <a href="#surfaces">Surfaces</a>
         <a href="#contact">Contact</a>
         <a href="#">Download Brochure</a>
       </div>
       <div class="foot">
         <h5>Connect</h5>
-        <a href="mailto:infra@michezosports.com">infra@michezosports.com</a>
-        <a href="tel:+918951980194">+91‑89519‑80194</a>
-        <a href="https://instagram.com/michezo.sports" target="_blank" rel="noopener">@michezo.sports</a>
-        <div class="copy">© 2025 Michezo Sports. All rights reserved.</div>
+        <a href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a href="tel:+918951980194">+91-89519-80194</a>
+        <a href="https://instagram.com/maidhan" target="_blank" rel="noopener">@maidhan</a>
+        <div class="copy">© 2025 Maidhan. All rights reserved.</div>
       </div>
     </div>
   </footer>
