@@ -203,11 +203,11 @@
 </html>
  -->
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tennis Court Layout with Color Buttons</title>
+  <title>Responsive Tennis Court Layout with Color Buttons</title>
   <style>
     body {
       background-color: #2e8b57;
@@ -229,7 +229,7 @@
 
     .controls h2 {
       margin-bottom: 10px;
-      font-size: 20px;
+      font-size: clamp(16px, 2vw, 20px);
     }
 
     .color-buttons {
@@ -240,8 +240,8 @@
     }
 
     .color-button {
-      width: 40px;
-      height: 40px;
+      width: clamp(30px, 5vw, 40px);
+      height: clamp(30px, 5vw, 40px);
       border: 2px solid white;
       border-radius: 50%;
       cursor: pointer;
@@ -260,10 +260,11 @@
 
     .court-container {
       position: relative;
-      width: 600px;
-      height: 300px;
+      width: 100%;
+      max-width: 800px;          /* prevents being too wide */
+      aspect-ratio: 2 / 1;       /* keeps 2:1 ratio */
       background-color: #3cb371;
-      border: 4px solid white;
+      border: 0.5vw solid white;
       transition: background-color 0.3s ease;
     }
 
@@ -273,7 +274,7 @@
     }
 
     .baseline-top, .baseline-bottom {
-      height: 4px;
+      height: 0.6%;
       width: 100%;
       left: 0;
     }
@@ -287,7 +288,7 @@
     }
 
     .sideline-left, .sideline-right {
-      width: 4px;
+      width: 0.6%;
       height: 100%;
       top: 0;
     }
@@ -304,14 +305,14 @@
       top: 50%;
       left: 0;
       width: 100%;
-      height: 2px;
+      height: 0.3%;
       background-color: black;
       transform: translateY(-50%);
       z-index: 3;
     }
 
     .service-line-top, .service-line-bottom {
-      height: 2px;
+      height: 0.3%;
       width: 100%;
       left: 0;
     }
@@ -325,7 +326,7 @@
     }
 
     .center-service-line {
-      width: 2px;
+      width: 0.3%;
       height: 50%;
       top: 25%;
       left: 50%;
@@ -333,19 +334,29 @@
     }
 
     .center-mark-top, .center-mark-bottom {
-      width: 2px;
-      height: 10px;
+      width: 0.3%;
+      height: 3%;
       left: 50%;
       transform: translateX(-50%);
       background-color: white;
     }
 
     .center-mark-top {
-      top: -6px;
+      top: -1.5%;
     }
 
     .center-mark-bottom {
-      bottom: -6px;
+      bottom: -1.5%;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .controls h2 {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
