@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>We Build Football Turfs</title>
+  <title>Football Turf Construction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,41 +13,60 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       line-height: 1.6;
-      background-color: #f5f5f5;
+      background-color: #f4f6f8;
       color: #333;
     }
 
-    header {
-      background: url('https://images.unsplash.com/photo-1599059811694-cb3aa0aef5af') center/cover no-repeat;
-      height: 100vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    header h1 {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-
-    header p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-
-    section {
-      padding: 60px 20px;
+    .container {
       max-width: 1200px;
       margin: auto;
+      padding: 60px 20px;
     }
 
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1599059811694-cb3aa0aef5af?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      height: 90vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Section Titles */
     .section-title {
       text-align: center;
       font-size: 2.5rem;
@@ -54,116 +74,143 @@
       color: #0b6623;
     }
 
+    /* Images Section */
     .images {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
       justify-content: center;
+      margin-bottom: 60px;
     }
 
     .images img {
       width: 100%;
       max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Content Blocks */
+    .content-block {
+      background: white;
+      padding: 40px;
+      margin-bottom: 60px;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    .how-we-build {
-      background-color: #ffffff;
-      border-radius: 8px;
-      padding: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    .content-block h2 {
+      font-size: 2rem;
+      color: #0b6623;
+      margin-bottom: 20px;
     }
 
-    .how-we-build ul {
-      list-style-type: disc;
+    .content-block ul {
+      list-style: disc;
       padding-left: 20px;
+      font-size: 1.1rem;
     }
 
-    .why-choose {
-      background-color: #e8f5e9;
-      border-radius: 8px;
-      padding: 40px;
-      margin-top: 40px;
-    }
-
-    footer {
-      background-color: #0b6623;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer h2 {
+    .content-block ul li {
       margin-bottom: 10px;
     }
 
-    footer a {
-      color: #fff;
-      text-decoration: underline;
+    /* CTA */
+    .cta {
+      background-color: #0b6623;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 10px;
+      background: white;
+      color: #0b6623;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .cta a:hover {
+      background: #e1f5e5;
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
+      .hero h1 {
+        font-size: 2.2rem;
       }
 
-      header p {
-        font-size: 1rem;
+      .images {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header>
-    <h1>We Build Football Grounds</h1>
-    <p>From local community turfs to premium 5-a-side pitches, we turn open spaces into beautiful football fields.</p>
-  </header>
-
-  <!-- Images Section -->
-  <section>
-    <h2 class="section-title">Our Recent Projects</h2>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1587080413959-8a7fba76b807" alt="Football Turf 1" />
-      <img src="https://images.unsplash.com/photo-1607875840627-c63fe104b2a9" alt="Football Turf 2" />
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Expert Football Turf Construction</h1>
+      <p>We design and build top-tier football turfs for local communities, schools, and sports centers.</p>
     </div>
   </section>
 
-  <!-- How We Build Section -->
-  <section class="how-we-build">
-    <h2 class="section-title">How We Build</h2>
-    <p>Every football ground we build follows a structured and reliable process to ensure longevity, quality, and excellent play experience:</p>
-    <ul>
-      <li><strong>Site Analysis & Planning:</strong> We assess the terrain, drainage, and space availability to plan your turf precisely.</li>
-      <li><strong>Ground Preparation:</strong> Leveling, compaction, and base layer construction for solid foundation.</li>
-      <li><strong>Drainage System Installation:</strong> Proper water management to prevent flooding or waterlogging.</li>
-      <li><strong>Artificial Grass Laying:</strong> High-quality, durable turf installation with line markings.</li>
-      <li><strong>Perimeter Fencing & Lighting:</strong> Optional additions to secure and illuminate the space.</li>
-      <li><strong>Final Inspection & Handover:</strong> Delivered ready-to-play, with full quality assurance.</li>
-    </ul>
-  </section>
+  <!-- Content Container -->
+  <div class="container">
 
-  <!-- Why Choose Us -->
-  <section class="why-choose">
-    <h2 class="section-title">Why Choose Us?</h2>
-    <ul>
-      <li>✅ Years of experience in turf and sports ground construction</li>
-      <li>✅ Affordable and scalable solutions for all ground sizes</li>
-      <li>✅ Use of premium, eco-friendly materials</li>
-      <li>✅ Custom design based on your needs and available space</li>
-      <li>✅ Quick turnaround with professional support</li>
-    </ul>
-  </section>
+    <!-- Section: Images -->
+    <h2 class="section-title">Our Recent Football Projects</h2>
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1587080413959-8a7fba76b807?auto=format&fit=crop&w=800&q=80" alt="Turf 1">
+      <img src="https://images.unsplash.com/photo-1607875840627-c63fe104b2a9?auto=format&fit=crop&w=800&q=80" alt="Turf 2">
+    </div>
 
-  <!-- Contact Footer -->
-  <footer>
-    <h2>Ready to Build Your Football Turf?</h2>
-    <p>Contact us today for a free consultation and site visit.</p>
-    <p>Email us at: <a href="mailto:build@footballturfs.com">build@footballturfs.com</a></p>
-    <p>Call: +123-456-7890</p>
-  </footer>
+    <!-- Section: How We Build -->
+    <div class="content-block">
+      <h2>How We Build Football Turfs</h2>
+      <ul>
+        <li><strong>Site Analysis:</strong> We evaluate the ground layout, soil, drainage, and sunlight exposure.</li>
+        <li><strong>Base Layer Preparation:</strong> Grading, compaction, and proper drainage setup.</li>
+        <li><strong>Artificial Grass Installation:</strong> Premium synthetic turf laid with precision, including line markings.</li>
+        <li><strong>Perimeter & Accessories:</strong> Netting, fencing, and lighting as per your needs.</li>
+        <li><strong>Inspection & Handover:</strong> We test the surface, ensure safety, and hand over a play-ready turf.</li>
+      </ul>
+    </div>
+
+    <!-- Section: Why Choose Us -->
+    <div class="content-block" style="background-color: #e8f5e9;">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>✅ Local turf expertise with a focus on community spaces</li>
+        <li>✅ Fast, efficient, and budget-friendly execution</li>
+        <li>✅ High-quality materials with warranty options</li>
+        <li>✅ Customizable features: lighting, fencing, benches, and branding</li>
+        <li>✅ Long-term support and maintenance available</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Call To Action -->
+  <section class="cta">
+    <h2>Ready to Build Your Football Ground?</h2>
+    <p>Contact our team for a free site assessment and quote.</p>
+    <a href="mailto:build@footballturfs.com">Email Us</a>
+  </section>
 
 </body>
 </html>
