@@ -1,207 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Tennis Court Layout with Color Picker</title>
-  <style>
-    body {
-      background-color: #2e8b57;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: sans-serif;
-    }
-
-    .controls {
-      margin-bottom: 20px;
-      color: white;
-    }
-
-    .controls label {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    select#colorSelect {
-      padding: 8px 12px;
-      font-size: 16px;
-      border: 2px solid white;
-      border-radius: 4px;
-      color: white;
-      background-color: #3cb371;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .court-container {
-      position: relative;
-      width: 600px;
-      height: 300px;
-      background-color: #3cb371;
-      border: 4px solid white;
-      transition: background-color 0.3s ease;
-    }
-
-    .line {
-      position: absolute;
-      background-color: white;
-    }
-
-    .baseline-top, .baseline-bottom {
-      height: 4px;
-      width: 100%;
-      left: 0;
-    }
-
-    .baseline-top {
-      top: 0;
-    }
-
-    .baseline-bottom {
-      bottom: 0;
-    }
-
-    .sideline-left, .sideline-right {
-      width: 4px;
-      height: 100%;
-      top: 0;
-    }
-
-    .sideline-left {
-      left: 0;
-    }
-
-    .sideline-right {
-      right: 0;
-    }
-
-    .net {
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: black;
-      transform: translateY(-50%);
-      z-index: 3;
-    }
-
-    .service-line-top, .service-line-bottom {
-      height: 2px;
-      width: 100%;
-      left: 0;
-    }
-
-    .service-line-top {
-      top: 25%;
-    }
-
-    .service-line-bottom {
-      top: 75%;
-    }
-
-    .center-service-line {
-      width: 2px;
-      height: 50%;
-      top: 25%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .center-mark-top, .center-mark-bottom {
-      width: 2px;
-      height: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-    }
-
-    .center-mark-top {
-      top: -6px;
-    }
-
-    .center-mark-bottom {
-      bottom: -6px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="controls">
-    <label for="colorSelect">Court Color:</label>
-    <select id="colorSelect">
-      <option value="#228B22">Forest Green</option>
-      <option value="#7CFC00">Lawn Green</option>
-      <option value="#32CD32">Lime Green</option>
-      <option value="#3CB371" selected>Medium Sea Green</option>
-      <option value="#2E8B57">Sea Green</option>
-      <option value="#6B8E23">Olive Drab</option>
-      <option value="#556B2F">Dark Olive Green</option>
-      <option value="#008080">Teal</option>
-      <option value="#4682B4">Steel Blue</option>
-      <option value="#1E90FF">Dodger Blue</option>
-      <option value="#6495ED">Cornflower Blue</option>
-      <option value="#4169E1">Royal Blue</option>
-      <option value="#9370DB">Medium Purple</option>
-      <option value="#6A5ACD">Slate Blue</option>
-      <option value="#9932CC">Dark Orchid</option>
-      <option value="#DC143C">Crimson</option>
-      <option value="#B22222">Firebrick</option>
-      <option value="#FF6347">Tomato</option>
-      <option value="#FF4500">Orange Red</option>
-      <option value="#FF8C00">Dark Orange</option>
-      <option value="#DAA520">Goldenrod</option>
-      <option value="#FFD700">Gold</option>
-      <option value="#F4A460">Sandy Brown</option>
-      <option value="#D2691E">Chocolate</option>
-      <option value="#CD853F">Peru</option>
-    </select>
-  </div>
-
-  <div class="court-container" id="court">
-    <div class="line baseline-top"></div>
-    <div class="line baseline-bottom"></div>
-    <div class="line sideline-left"></div>
-    <div class="line sideline-right"></div>
-    <div class="line service-line-top"></div>
-    <div class="line service-line-bottom"></div>
-    <div class="line center-service-line"></div>
-    <div class="line center-mark-top"></div>
-    <div class="line center-mark-bottom"></div>
-    <div class="net"></div>
-  </div>
-
-  <script>
-    const colorSelect = document.getElementById("colorSelect");
-    const court = document.getElementById("court");
-
-    function updateCourtColor() {
-      const selectedColor = colorSelect.value;
-      court.style.backgroundColor = selectedColor;
-      colorSelect.style.backgroundColor = selectedColor;
-
-      // Adjust text color based on brightness
-      const rgb = selectedColor.replace('#', '');
-      const r = parseInt(rgb.substring(0, 2), 16);
-      const g = parseInt(rgb.substring(2, 4), 16);
-      const b = parseInt(rgb.substring(4, 6), 16);
-      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-
-      colorSelect.style.color = brightness > 128 ? 'black' : 'white';
-    }
-
-    // Initial load
-    updateCourtColor();
-
-    // Event listener
-    colorSelect.addEventListener("change", updateCourtColor);
-  </script>
-
-</body>
-</html>
- -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,9 +12,12 @@
       --border-thickness: 0.5vw;
       --line-width: 0.3%;
     }
+        /* HEADER */
+    header{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0f;position:sticky;top:0;z-index:100}
+    header h1{font-weight:700;font-size:1.5rem;background:linear-gradient(90deg,#00c6ff,#0072ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
-    body {
-      background-color: #1e2e26;
+    .layout {
+      background-color: #0a0a0f;
       margin: 0;
       padding: 20px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -228,6 +27,9 @@
       min-height: 100vh;
       color: var(--white);
     }
+         *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Outfit',sans-serif;background:#0a0a0f;color:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
 
     h2 {
       margin-bottom: 15px;
@@ -391,6 +193,20 @@
       transform: translateY(-50%);
       z-index: 2;
     }
+    .subtext {
+  text-align: center;
+  color: #ccc;
+  font-size: clamp(14px, 1.5vw, 16px);
+  margin-top: -10px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.txt {
+  margin-top: 10px;
+}
+
 
     @media (max-width: 600px) {
       .controls {
@@ -408,7 +224,13 @@
   </style>
 </head>
 <body>
-
+    <header>
+    <h1>Maidhan</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+<div class="layout">
   <div class="controls">
     <h2>Select Court Color</h2>
     <div class="color-buttons" id="colorButtonsContainer">
@@ -436,6 +258,9 @@
 
     <!-- Net -->
     <div class="net"></div>
+  </div>
+  <h2 class="txt">Choose from a wide range of professional-grade color finishes to match your facility's branding and performance needs.</h2>
+<p class="subtext">Not limited to these options — we can match any specific color requirement to suit your unique court design preferences.</p>
   </div>
 
   <script>
@@ -492,3 +317,5 @@
   </script>
 </body>
 </html>
+
+
