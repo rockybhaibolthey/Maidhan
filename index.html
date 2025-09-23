@@ -87,15 +87,16 @@
 
     /* HERO */
     .hero{position:relative;isolation:isolate}
-   .hero::before {
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: 
     radial-gradient(1200px 600px at 80% -10%, rgba(255, 165, 0, 0.25), transparent),
-    linear-gradient(180deg, #ffffff, rgba(255, 165, 0, 0.6));
+    linear-gradient(180deg, rgba(255, 165, 0, 0.6), #ffffff);
   z-index: -1;
 }
+
 
     .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2.2rem;align-items:center;padding:4.2rem 0 3rem}
     .hero h2{font:700 clamp(2rem,4.6vw,3.2rem) Poppins,Inter,sans-serif;margin:0;color:var(--brand-900);letter-spacing:-.5px}
