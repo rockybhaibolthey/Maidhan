@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maidhan | Projects</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -14,6 +16,22 @@
     /* HEADER */
     header{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0f;position:sticky;top:0;z-index:100}
     header h1{font-weight:700;font-size:1.5rem;background:linear-gradient(90deg,#00c6ff,#0072ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-icon {
+  color: #999;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.edit-icon:hover {
+  color: #fff;
+  cursor: pointer;
+}
 
     /* HERO */
     .hero{padding:6rem 2rem;text-align:center;max-width:900px;margin:auto}
@@ -59,13 +77,14 @@
       </div>
     </div>
 <!-- Badminton Court -->
+<!-- Badminton Court -->
 <div class="card">
   <img src="https://tennex.in/cdn/shop/articles/Badminton_Court_Tennex.png?v=1688638217&width=1000" alt="Badminton Court">
   <div class="card-content">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="card-header">
       <h3>Badminton Courts</h3>
-      <a href="court_ui.html" title="Edit">
-        🖉
+      <a href="court_ui.html" class="edit-icon" title="Edit">
+        <i class="fas fa-pen"></i>
       </a>
     </div>
     <p>Indoor courts with certified wooden & synthetic surfaces.</p>
@@ -76,15 +95,16 @@
 <div class="card">
   <img src="https://alchetron.com/cdn/tennis-court-3d23e3aa-e974-4595-8981-da1c2b0f93e-resize-750.jpg" alt="Tennis Court">
   <div class="card-content">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="card-header">
       <h3>Tennis Courts</h3>
-      <a href="court_ui.html" title="Edit">
-        🖉
+      <a href="court_ui.html" class="edit-icon" title="Edit">
+        <i class="fas fa-pen"></i>
       </a>
     </div>
     <p>Clay, hard, or synthetic surfaces built to ITF standards.</p>
   </div>
 </div>
+
 
     <div class="card">
       <img src="https://whosonthemove.com/wp-content/uploads/2019/07/Byerly-Basketball-Court.jpg" alt="Basketball Court">
