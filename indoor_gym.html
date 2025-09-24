@@ -1,92 +1,212 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indoor Gym Courts | Maidhan Sports Infra</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg: #0b1018;
-  --card: #1c2530;
-  --accent1: #ff6b6b;
-  --accent2: #f06595;
-  --muted: #9fb6c6;
-  --radius: 12px;
-  --maxw:1200px;
-}
-body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#fff;line-height:1.5}
-header{padding:20px;text-align:center;background:linear-gradient(90deg,var(--accent1),var(--accent2));position:sticky;top:0;z-index:1000}
-header h1{margin:0;font-size:2.5rem}
-header p{margin-top:6px;color:#f0e6e6;font-weight:400}
-.hero{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;padding:40px}
-.hero img{width:100%;max-width:450px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,0.4)}
-.hero-text{max-width:500px}
-.hero-text h2{font-size:2rem;margin-bottom:10px;color:var(--accent2)}
-.hero-text p{color:#ddd}
-.section{padding:40px 20px;max-width:var(--maxw);margin:auto}
-.section h2{font-size:1.8rem;margin-bottom:20px;color:var(--accent1);text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:var(--card);border-radius:var(--radius);padding:20px;transition:transform 0.3s,box-shadow 0.3s}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.5)}
-.card h3{color:var(--accent2);margin-bottom:10px}
-.card p{color:#ccc}
-footer{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:20px;text-align:center;font-size:0.9em;margin-top:40px}
-@media (max-width:600px){.hero{flex-direction:column}.hero img,.hero-text{margin:10px 0}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indoor Gym Courts | Maidhan — Sports Infra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #071225;
+      --muted: #9fb6c6;
+      --card: #0e2630;
+      --accent1: #0fb5a7;
+      --accent2: #0a9fdd;
+      --accent-contrast: #071225;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --easing: cubic-bezier(.16,.84,.24,1);
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial; background:radial-gradient(900px 300px at 8% 12%, rgba(11,159,221,0.03), transparent), var(--bg); color:#e7fbfb; -webkit-font-smoothing:antialiased; line-height:1.5;
+    }
+
+    header{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0));border-bottom:1px solid rgba(255,255,255,0.02)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:var(--accent-contrast);font-weight:800}
+    .brand h1{font-size:1rem;margin:0}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+    nav a:hover{color:#fff}
+    .cta{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:var(--accent-contrast);padding:8px 12px;border-radius:10px;font-weight:700}
+    .menu-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:20px}
+
+    .hero{max-width:var(--maxw);margin:28px auto;display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:center;padding:0 24px}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));padding:28px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 40px rgba(2,10,20,0.5)}
+    .kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(15,181,167,0.08);color:var(--accent1);font-weight:700}
+    .hero-card h2{font-size:2.05rem;margin:14px 0;color:var(--accent2)}
+    .hero-card p{color:var(--muted)}
+    .hero-actions{display:flex;gap:12px;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:10px;cursor:pointer;border:0;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:var(--accent-contrast)}
+    .btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+
+    .visual{height:380px;border-radius:var(--radius);overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:0 18px 60px rgba(2,10,20,0.6)}
+    .visual::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,16,36,0.06), rgba(4,32,51,0.16));}
+    .badge{position:absolute;left:18px;top:18px;background:rgba(255,255,255,0.04);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px);font-weight:700;color:var(--accent-contrast)}
+
+    .section{max-width:var(--maxw);margin:28px auto;padding:0 24px}
+    .section h3{color:var(--accent2);font-size:1.25rem;margin-bottom:10px}
+    .grid{display:grid;gap:18px}
+    .cards{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);display:flex;gap:14px;align-items:flex-start;transition:transform .22s var(--easing)}
+    .feature:hover{transform:translateY(-8px);box-shadow:0 14px 40px rgba(2,10,20,0.5)}
+    .feature svg{width:44px;height:44px;flex-shrink:0}
+
+    .types{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .type-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.02)}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+    form{background:var(--glass);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    input,textarea,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;margin-bottom:10px}
+    label{display:block;color:var(--muted);font-size:0.9rem;margin-bottom:6px}
+
+    footer{margin-top:34px;padding:26px 24px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-top:1px solid rgba(255,255,255,0.02)}
+    .footer-grid{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+    .muted{color:var(--muted)}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;padding:0 18px}.visual{height:260px}nav{display:none}.menu-toggle{display:inline-flex}.contact-grid{grid-template-columns:1fr}}
+    @media (max-width:480px){.hero-card h2{font-size:1.5rem}.gallery img{height:100px}}
+
+    .toast{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:var(--accent-contrast);padding:12px 16px;border-radius:10px;box-shadow:0 8px 30px rgba(2,10,20,0.45);display:none}
+  </style>
 </head>
 <body>
-<header>
-  <h1>Indoor Gym Courts</h1>
-  <p>Designing and building multipurpose indoor gym courts for schools, clubs & communities.</p>
-</header>
-<section class="hero">
-  <div class="hero-text">
-    <h2>Train. Play. Compete.</h2>
-    <p>Our indoor gym courts are equipped with high-quality flooring, proper lighting, and safety features, suitable for basketball, badminton, volleyball, and other indoor sports. We ensure durability, comfort, and a professional feel for every facility.</p>
-  </div>
-  <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800" alt="Indoor Gym Court">
-  <img src="https://images.unsplash.com/photo-1591012911200-4a4bcf90b1d4?q=80&w=800" alt="Indoor Sports Players">
-</section>
-<section class="section">
-  <h2>How We Build</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>1. Flooring & Surface</h3>
-      <p>Durable hardwood or synthetic sports flooring with shock absorption and anti-slip technology.</p>
+  <header>
+    <div class="brand">
+      <div class="logo">IG</div>
+      <div>
+        <h1 style="font-size:1rem;margin:0">Maidhan</h1>
+        <div class="muted" style="font-size:0.82rem">Indoor Gym Courts & Facilities</div>
+      </div>
     </div>
-    <div class="card">
-      <h3>2. Court Layout & Markings</h3>
-      <p>Multipurpose layout with clear markings for various indoor sports and adjustable equipment.</p>
+    <nav aria-label="Primary Navigation">
+      <a href="#how">How we build</a>
+      <a href="#types">Court types</a>
+      <a href="#why">Why choose us</a>
+      <a href="#gallery">Gallery</a>
+      <a class="cta" href="#contact">Get a quote</a>
+    </nav>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle">☰</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <span class="kicker">Safe • Durable • Versatile</span>
+        <h2>Indoor gym courts designed for all sports & training</h2>
+        <p class="muted">We deliver multi-sport indoor courts including basketball, volleyball, badminton, and fitness zones, with high-quality flooring, lighting, and safety standards.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="location.href='#contact'">Request a Quote</button>
+          <button class="btn btn-ghost" onclick="location.href='#gallery'">View Gallery</button>
+        </div>
+      </div>
+      <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1599058917216-0a09c8d64a05?auto=format&fit=crop&w=1350&q=80')" aria-hidden>
+        <div class="badge">Indoor Training & Courts</div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h3>How We Build</h3>
+      <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <div class="feature"><div><strong>1. Site Prep & Flooring</strong><div class="muted">Proper leveling, moisture control, and professional indoor flooring installation for multi-sport use.</div></div></div>
+        <div class="feature"><div><strong>2. Lighting & Ventilation</strong><div class="muted">Optimized light angles, brightness, and ventilation for safe and consistent play.</div></div></div>
+        <div class="feature"><div><strong>3. Safety & Finishes</strong><div class="muted">Shock-absorbent layers, boundary markings, and durable wall padding for full protection.</div></div></div>
+      </div>
+    </section>
+
+    <section id="types" class="section">
+      <h3>Court Types</h3>
+      <div class="types">
+        <div class="type-card"><strong>Basketball</strong><div class="muted" style="margin-top:6px">Indoor basketball court flooring and hoops for training and competition.</div></div>
+        <div class="type-card"><strong>Volleyball</strong><div class="muted" style="margin-top:6px">Court setup with professional flooring, nets, and lighting for matches.</div></div>
+        <div class="type-card"><strong>Badminton</strong><div class="muted" style="margin-top:6px">Multi-court arrangements with cushioned flooring and proper line markings.</div></div>
+        <div class="type-card"><strong>Fitness Zones</strong><div class="muted" style="margin-top:6px">Spaces for gym, functional training, and warm-up areas.</div></div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <h3>Why Choose Our Indoor Gym Courts?</h3>
+      <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        <div class="feature"><div><strong>Durable Surfaces</strong><div class="muted">High-quality flooring ensures long-lasting performance for various sports.</div></div></div>
+        <div class="feature"><div><strong>Safe Play</strong><div class="muted">Shock-absorbing and non-slip surfaces protect athletes from injuries.</div></div></div>
+        <div class="feature"><div><strong>Custom Solutions</strong><div class="muted">Layouts tailored to client requirements with lighting, ventilation, and equipment options.</div></div></div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <h3>Gallery</h3>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1603133872871-f0d7a0a7614b?auto=format&fit=crop&w=800&q=60" alt="gym-1">
+        <img src="https://images.unsplash.com/photo-1599058917216-0a09c8d64a05?auto=format&fit=crop&w=800&q=60" alt="gym-2">
+        <img src="https://images.unsplash.com/photo-1599058917244-0b9b8e12345?auto=format&fit=crop&w=800&q=60" alt="gym-3">
+        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=60" alt="gym-4">
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3>Get a Quote</h3>
+      <div class="contact-grid">
+        <div>
+          <p class="muted">Fill out the form and our team will reach out with a customized solution and quote for your indoor gym court.</p>
+        </div>
+        <form id="quoteForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" required>
+          <label for="courtType">Preferred Court Type</label>
+          <select id="courtType" required>
+            <option value="">Select type</option>
+            <option>Basketball</option>
+            <option>Volleyball</option>
+            <option>Badminton</option>
+            <option>Fitness Zone</option>
+          </select>
+          <label for="message">Additional Details</label>
+          <textarea id="message" rows="4"></textarea>
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>&copy; 2025 Maidhan. All rights reserved.</div>
+      <div class="muted">Designed & Developed with ❤️</div>
     </div>
-    <div class="card">
-      <h3>3. Lighting & Ventilation</h3>
-      <p>Optimized LED lighting and proper ventilation systems for consistent visibility and comfort.</p>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <h2>Why Choose Our Indoor Gym Courts?</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Professional Quality</h3>
-      <p>Designed to meet sports federation standards for safe and competitive play.</p>
-    </div>
-    <div class="card">
-      <h3>Durable & Long-lasting</h3>
-      <p>High-quality materials and construction techniques ensure longevity and low maintenance.</p>
-    </div>
-    <div class="card">
-      <h3>Versatile Use</h3>
-      <p>Suitable for basketball, badminton, volleyball, and other indoor sports training and events.</p>
-    </div>
-  </div>
-</section>
-<footer>
-  © <span id="year"></span> Maidhan — Indoor Gym Courts Built for Excellence
-</footer>
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  </footer>
+
+  <div class="toast" id="toast">Form submitted successfully!</div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => {
+      const nav = document.querySelector('nav');
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !expanded);
+      nav.style.display = expanded ? 'none' : 'flex';
+    });
+
+    // Form submission
+    const form = document.getElementById('quoteForm');
+    const toast = document.getElementById('toast');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      toast.style.display = 'block';
+      setTimeout(() => toast.style.display = 'none', 3000);
+      form.reset();
+    });
+  </script>
 </body>
 </html>
