@@ -1,95 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Football Turfs | Sports Infra</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: Arial, sans-serif;
       background: #0f1722;
-      color: #fff;
+      color: #ffffff;
+      line-height: 1.6;
     }
-        header{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0f;position:sticky;top:0;z-index:100}
-    header h1{font-weight:700;font-size:1.5rem;background:linear-gradient(90deg,#00c6ff,#0072ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
     header {
-      background: #0b6e4f;
-      padding: 20px;
-      text-align: center;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0a0a0f;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     header h1 {
-      margin: 0;
-      font-size: 2.5em;
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-left: 1rem;
+      padding: 0.5rem 1rem;
+      background: #0ea98a;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #0c856a;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 2rem 1rem 0.5rem;
+    }
+
+    p {
+      text-align: center;
+      margin: 0 1rem 2rem;
+      color: #cccccc;
+    }
+
     .hero {
       display: flex;
       flex-wrap: wrap;
-      padding: 40px;
-      align-items: center;
+      padding: 2rem;
       justify-content: center;
+      align-items: center;
+      gap: 20px;
     }
+
     .hero img {
       width: 100%;
       max-width: 450px;
       border-radius: 12px;
-      margin: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
+
     .hero-text {
       max-width: 500px;
-      margin: 10px;
+      padding: 10px;
     }
+
     .hero-text h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #0ea98a;
     }
+
+    .hero-text p {
+      color: #dddddd;
+    }
+
     .section {
-      padding: 40px 20px;
+      padding: 3rem 1.5rem;
       max-width: 1100px;
       margin: auto;
     }
+
     .section h2 {
-      font-size: 1.8em;
-      margin-bottom: 15px;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
       color: #0ea98a;
+      text-align: center;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
+
     .card {
       background: #1a2532;
       border-radius: 12px;
       padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      color: #00c6ff;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #cccccc;
+    }
+
     footer {
       background: #0b6e4f;
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0.5rem 0 0 0;
+        display: inline-block;
+      }
     }
   </style>
 </head>
 <body>
-    <header>
+  <header>
     <h1>Maidhan</h1>
     <nav>
       <a href="index.html">Home</a>
     </nav>
   </header>
- 
-    <h1>Football Turfs & Grounds</h1>
-    <p>We build community football spaces designed for play, not stadiums.</p>
 
+  <h1>Football Turfs & Grounds</h1>
+  <p>We build community football spaces designed for play, not stadiums.</p>
 
   <section class="hero">
     <div class="hero-text">
       <h2>Play. Train. Compete.</h2>
       <p>
-        Our football turfs are designed for local clubs, schools, and communities. 
-        We focus on durability, safety, and playability, creating spaces where everyone 
+        Our football turfs are designed for local clubs, schools, and communities.
+        We focus on durability, safety, and playability, creating spaces where everyone
         can enjoy the game — year-round.
       </p>
     </div>
@@ -142,7 +225,6 @@
   </script>
 </body>
 </html>
-
 
 
 
