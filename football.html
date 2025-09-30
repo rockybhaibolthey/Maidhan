@@ -6,6 +6,406 @@
   <title>Football Turfs | Maidhan — Sports Infra</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-900: #071024;
+      --bg-800: #0b1830;
+      --surface: #0f1b2a;
+      --card: #0f2a3a;
+      --muted: #9fb0c4;
+      --accent-gradient: linear-gradient(90deg,#00d4a6,#2fb6ff);
+      --accent-color: #00d4a6;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --easing: cubic-bezier(.16,.84,.24,1);
+      --max-width: 1200px;
+      --content-pad: 24px;
+      --text: #e9f3fa;
+      --muted-2: rgba(255,255,255,0.70);
+      --card-border: rgba(255,255,255,0.03);
+    }
+
+    /* Reset & base */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:
+        radial-gradient(1200px 400px at 12% 10%, rgba(47,182,255,0.03), transparent),
+        radial-gradient(900px 300px at 92% 90%, rgba(0,212,166,0.02), transparent),
+        linear-gradient(180deg,var(--bg-900),var(--bg-800) 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.5;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-font-feature-settings: "liga" 1;
+      padding:0;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{display:block; max-width:100%; height:auto}
+
+    /* container */
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 var(--content-pad);}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      border-bottom: 1px solid var(--card-border);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px var(--content-pad);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:44px;height:44px; border-radius:10px; display:grid; place-items:center;
+      background:var(--accent-gradient);
+      color:#042033; font-weight:700; font-size:18px;
+      box-shadow: 0 6px 22px rgba(47,182,255,0.06), inset 0 -6px 18px rgba(255,255,255,0.04);
+    }
+    .brand h1{font-size:1rem; margin:0; line-height:1}
+    .brand .sub{font-size:0.78rem; color:var(--muted); margin-top:2px}
+
+    nav{display:flex; gap:12px; align-items:center}
+    nav a{
+      color:var(--muted); font-weight:600; padding:8px 12px; border-radius:8px;
+      transition: all .22s var(--easing); font-size:0.95rem;
+    }
+    nav a:hover, nav a:focus{color:var(--text); transform:translateY(-2px); outline:none}
+    .cta{background:var(--accent-color); color:#042033; padding:8px 14px; border-radius:10px; font-weight:700; box-shadow:0 6px 18px rgba(0,212,166,0.08)}
+
+    .menu-toggle{display:none; background:transparent; border:0; color:var(--muted); font-size:1.1rem; padding:8px; border-radius:8px}
+    .menu-toggle:focus{outline:2px solid rgba(47,182,255,0.12)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1fr 480px; gap:28px; align-items:center; margin:28px auto 8px; max-width:var(--max-width); padding:0 var(--content-pad);}
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+      border-radius: var(--radius); padding:30px; box-shadow: 0 10px 40px rgba(2,10,20,0.45);
+      border: 1px solid var(--card-border);
+    }
+    .kicker{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(47,182,255,0.08); color:#c7f6ee; font-weight:600; font-size:0.82rem}
+    .hero h2{font-size:2rem; margin:14px 0 8px; color:var(--text)}
+    .hero p{color:var(--muted); margin-bottom:18px; font-size:0.98rem}
+    .hero-actions{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .btn{padding:10px 14px; border-radius:10px; cursor:pointer; border:0; font-weight:700; transition:transform .18s var(--easing); font-size:0.95rem}
+    .btn:active{transform:scale(.99)}
+    .btn-primary{background-image:var(--accent-gradient); color:#042033; border:0; box-shadow:0 10px 30px rgba(47,182,255,0.08)}
+    .btn-ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04)}
+
+    .pills{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .pill{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.02); color:var(--muted); font-weight:600; font-size:0.92rem}
+
+    .hero-visual{
+      height:380px; border-radius:var(--radius); overflow:hidden; position:relative; box-shadow: 0 20px 60px rgba(2,10,20,0.6);
+      background-size:cover; background-position:center; background-repeat:no-repeat; border:1px solid var(--card-border);
+      display:flex; align-items:flex-end; justify-content:flex-start;
+      padding:18px;
+    }
+    .hero-visual .badge{
+      background:rgba(0,0,0,0.45); padding:8px 12px; border-radius:999px; font-weight:600; color:#e9fdf7; backdrop-filter: blur(4px);
+    }
+    .hero-visual::after{
+      content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,16,36,0.12), rgba(4,32,51,0.22));
+    }
+
+    /* Sections */
+    .section{max-width:var(--max-width); margin:28px auto; padding:0 var(--content-pad)}
+    .section h3{color:var(--accent-color); font-size:1.25rem; margin-bottom:12px}
+    .grid{display:grid; gap:18px}
+    .cards{grid-template-columns: repeat(auto-fit, minmax(220px,1fr));}
+
+    .feature{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.012));
+      padding:16px; border-radius:12px; border:1px solid var(--card-border);
+      display:flex; gap:14px; align-items:flex-start; transition: transform .25s var(--easing), box-shadow .25s var(--easing);
+    }
+    .feature svg{width:44px;height:44px; flex-shrink:0}
+    .feature:hover{transform:translateY(-6px); box-shadow: 0 14px 40px rgba(2,10,20,0.45)}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px}
+    .gallery img{width:100%; height:140px; object-fit:cover; border-radius:10px; display:block; transition:transform .22s}
+    .gallery img:hover{transform:scale(1.03)}
+
+    /* Contact / form */
+    .contact-grid{display:grid; grid-template-columns: 1fr 340px; gap:24px; align-items:start}
+    .card{background:var(--glass); padding:20px; border-radius:12px; border:1px solid var(--card-border)}
+    form .label{display:block; font-size:0.9rem; margin-bottom:8px; color:var(--muted)}
+    form input, form textarea{
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.03);
+      background:transparent; color:inherit; margin-bottom:10px; font-size:0.95rem;
+    }
+    form textarea{min-height:96px; resize:vertical}
+    form button{width:100%}
+
+    /* Footer */
+    footer{margin-top:34px; padding:26px var(--content-pad); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-top:1px solid var(--card-border)}
+    .footer-grid{display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; align-items:center}
+    .small{color:var(--muted); font-size:0.92rem}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns: 1fr; padding:0 18px}
+      .hero-visual{height:260px}
+      nav{display:none}
+      .menu-toggle{display:inline-flex}
+      .contact-grid{grid-template-columns:1fr}
+      .gallery img{height:120px}
+    }
+
+    @media (max-width:600px){
+      .hero h2{font-size:1.5rem}
+      .gallery img{height:100px}
+      .hero-visual{height:220px}
+      .hero{gap:18px}
+    }
+
+    /* Accessibility: focus */
+    a:focus, button:focus, input:focus, textarea:focus{outline:2px solid rgba(47,182,255,0.12); outline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden>MH</div>
+      <div>
+        <h1 style="font-size:1rem; margin:0">Maidhan</h1>
+        <div class="sub">Football Turfs & Community Grounds</div>
+      </div>
+    </div>
+
+    <nav aria-label="Primary Navigation">
+      <a href="#services">Services</a>
+      <a href="#process">How we build</a>
+      <a href="#gallery">Gallery</a>
+      <a class="cta" href="#contact">Get a quote</a>
+    </nav>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-card container" style="padding:28px;">
+        <span class="kicker">Local • Durable • Safe</span>
+        <h2 id="hero-heading">We design football turfs for local clubs, schools & communities</h2>
+        <p class="muted">Not professional stadiums — practical, playable turfs and small grounds built to be used every day. Drainage, shock absorption, and long-lasting surfaces — we deliver spaces where players feel confident and safe.</p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="location.href='#contact'">Request a Quote</button>
+          <button class="btn btn-ghost" onclick="location.href='#gallery'">View Gallery</button>
+        </div>
+
+        <div class="pills">
+          <div class="pill">Quick installs</div>
+          <div class="pill">Local materials</div>
+          <div class="pill">Maintenance plans</div>
+        </div>
+      </div>
+
+      <div class="hero-visual" role="img" aria-label="Football turf photo" style="background-image: url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1350&q=80')">
+        <div class="badge">Trusted by clubs & schools</div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <h3>How We Build</h3>
+        <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+          <div class="feature" role="article">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M3 12h18" stroke="#2fb6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6h.01M6 18h.01M12 6h.01M12 18h.01M18 6h.01M18 18h.01" stroke="#00d4a6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>1. Site Survey & Prep</strong>
+              <div class="muted">We evaluate soil, slope, and drainage; then clear and level to create a stable base.</div>
+            </div>
+          </div>
+
+          <div class="feature" role="article">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><rect x="3" y="7" width="18" height="12" rx="2" stroke="#2fb6ff" stroke-width="1.6"/><path d="M12 7v12" stroke="#00d4a6" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <div>
+              <strong>2. Sub-base & Drainage</strong>
+              <div class="muted">Compacted stone layers and engineered drains keep the field playable in monsoon and dry seasons.</div>
+            </div>
+          </div>
+
+          <div class="feature" role="article">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M4 19c6-6 8-8 16-7" stroke="#2fb6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13c6-6 8-8 16-7" stroke="#00d4a6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <strong>3. Turf Installation</strong>
+              <div class="muted">We fit high-quality artificial turf (or natural turf on request), line markings, and goalpost anchoring.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h3>Why Choose Our Football Turfs?</h3>
+        <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><circle cx="12" cy="12" r="9" stroke="#00d4a6" stroke-width="1.6"/></svg>
+            <div>
+              <strong>Durability</strong>
+              <div class="muted">Materials built to handle frequent community use and regional weather.</div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 2v20" stroke="#2fb6ff" stroke-width="1.6"/><path d="M4 8h16" stroke="#00d4a6" stroke-width="1.6"/></svg>
+            <div>
+              <strong>Player Safety</strong>
+              <div class="muted">Shock-absorbing layers and compliant installation reduce injury risk.</div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M3 12h18" stroke="#2fb6ff" stroke-width="1.6"/><path d="M7 8v8" stroke="#00d4a6" stroke-width="1.6"/></svg>
+            <div>
+              <strong>Community First</strong>
+              <div class="muted">Designed for training, school matches, and local leagues — not commercial stadiums.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <h3>Gallery</h3>
+        <div class="gallery" aria-live="polite">
+          <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=900&q=60" alt="Football turf - wide view">
+          <img src="https://images.unsplash.com/photo-1505842465776-3d4b46b8f9a1?auto=format&fit=crop&w=900&q=60" alt="Kids training on turf">
+          <img src="https://images.unsplash.com/photo-1547480052-2f1f7f1a4f56?auto=format&fit=crop&w=900&q=60" alt="Turf close-up">
+          <img src="https://images.unsplash.com/photo-1543168254-6e4e6b6d7f0e?auto=format&fit=crop&w=900&q=60" alt="Evening match on turf">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" style="padding-bottom:44px;">
+      <div class="container">
+        <h3>Get a Quote</h3>
+        <div class="contact-grid" style="margin-top:12px;">
+          <div class="card">
+            <p class="muted">Tell us about your site — size, surface preference (artificial/natural), and timeline. We’ll respond with a free, no-obligation estimate and implementation plan.</p>
+            <ul style="margin-top:8px; color:var(--muted);">
+              <li>Free site visit & feasibility check</li>
+              <li>Local supply & labor</li>
+              <li>Maintenance packages available</li>
+            </ul>
+          </div>
+
+          <form class="card" id="quoteForm" aria-label="Request a quote form" onsubmit="return submitQuote(event)">
+            <label class="label">Your name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Ram Kumar" required>
+
+            <label class="label">Phone or Email</label>
+            <input type="text" id="contact" name="contact" placeholder="mobile or email" required>
+
+            <label class="label">Project details</label>
+            <textarea id="details" name="details" placeholder="Approx area, turf preference, timeline" required></textarea>
+
+            <button type="submit" class="btn btn-primary">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" style="align-items:center;">
+      <div>
+        <div style="font-weight:700">Maidhan</div>
+        <div class="small muted">Designing playable football spaces for communities</div>
+      </div>
+      <div class="small muted">© <span id="year">2025</span> Maidhan — All rights reserved</div>
+    </div>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile nav toggle: progressive enhancement
+    const btn = document.getElementById('menuToggle');
+    btn && btn.addEventListener('click', () => {
+      const nav = document.querySelector('nav');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (!expanded) {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.right = '18px';
+        nav.style.top = '68px';
+        nav.style.background = 'linear-gradient(180deg, rgba(6,18,32,0.95), rgba(6,18,32,0.98))';
+        nav.style.padding = '12px';
+        nav.style.borderRadius = '10px';
+        nav.style.boxShadow = '0 10px 40px rgba(2,10,20,0.6)';
+      } else {
+        nav.style.display = '';
+        nav.style.position = '';
+        nav.style.right = '';
+        nav.style.top = '';
+        nav.style.background = '';
+        nav.style.padding = '';
+        nav.style.borderRadius = '';
+        nav.style.boxShadow = '';
+        nav.style.flexDirection = '';
+      }
+    });
+
+    // smooth scroll for anchor links (works even with mobile nav)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+          // close mobile nav
+          if (window.innerWidth <= 980) {
+            const nav = document.querySelector('nav');
+            nav.style.display = '';
+            document.getElementById('menuToggle').setAttribute('aria-expanded', 'false');
+          }
+        }
+      })
+    });
+
+    // simple local form "submission" placeholder - replace with API call as needed
+    function submitQuote(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const details = document.getElementById('details').value.trim();
+      if(!name || !contact || !details){
+        alert('Please complete the form.');
+        return false;
+      }
+      // TODO: integrate with your backend/API
+      alert('Thanks, ' + name + '! We received your request. We will contact you soon.');
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Football Turfs | Maidhan — Sports Infra</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
     :root{
       --bg: #071024;
