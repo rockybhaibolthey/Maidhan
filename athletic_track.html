@@ -32,13 +32,107 @@
       -webkit-font-smoothing:antialiased; line-height:1.5;
     }
 
-    header{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
-      border-bottom:1px solid rgba(0,0,0,0.06)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--accent1));color:#000;font-weight:800}
-    .brand h1{font-size:1rem;margin:0;color: #000}
-    .muted{color:var(--muted)}
+/* Sticky, blurred header with gradient */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: saturate(140%) blur(10px);
+}
+
+/* Main nav container */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* Brand section */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* Navigation links */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  color: var(--muted, #666);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  background: #eef4f7;
+  color: var(--accent1, #1e40af);
+}
+
+/* CTA */
+.nav-links .cta {
+  background: var(--accent1, #3b82f6);
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.nav-links .cta:hover {
+  background: var(--accent2, #1e40af);
+}
+
+/* Mobile menu toggle button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Responsive: Mobile Nav */
+@media (max-width: 920px) {
+  .nav-links {
+    position: fixed;
+    inset: 64px 0 auto 0;
+    background: #fff;
+    border-bottom: 1px solid #e8eef3;
+    display: none;
+    flex-direction: column;
+    padding: 1rem 5vw;
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
 
     nav{display:flex;gap:12px;align-items:center}
     nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
@@ -100,24 +194,25 @@
   </style>
 </head>
 <body>
-  <header>
+<header class="site-header">
+  <div class="nav">
     <div class="brand">
-      <div class="logo">AT</div>
-      <div>
-        <h1 style="font-size:1rem;margin:0">Maidhan</h1>
-        <div class="muted" style="font-size:0.82rem">Athletic Tracks & Performance Surfaces</div>
-      </div>
+      <a href="#home">
+        <img src="logo.png" alt="Maidhan Logo" class="brand-logo" />
+      </a>
     </div>
 
-    <nav aria-label="Primary Navigation">
+    <div class="nav-links" id="mobile-menu">
       <a href="#how">How we build</a>
       <a href="#types">Surface types</a>
       <a href="#gallery">Gallery</a>
       <a class="cta" href="#contact">Get a quote</a>
-    </nav>
+    </div>
 
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle">☰</button>
-  </header>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle">☰</button>
+  </div>
+</header>
+
 
   <main>
     <section class="hero">
