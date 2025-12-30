@@ -12,7 +12,7 @@
       --bg-bottom: #FFFFFF;  /* white */
       --bg: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
       --muted: #333333;      /* darker muted for legibility on light background */
-      --card: #ffffff;
+      --card: #f8f8f8;
       --accent1: #0fb5a7; /* teal (kept) */
       --accent2: #0a9fdd; /* blue (kept) */
       --accent-contrast: #000000;
@@ -26,19 +26,48 @@
     body{
       margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
       /* apply requested background gradient */
-      background: var(--bg);
+      background: #f2f2f2;
       /* make primary text black */
       color:#000000;
       -webkit-font-smoothing:antialiased; line-height:1.5;
     }
 
     /* header */
-    header{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-      border-bottom:1px solid rgba(0,0,0,0.06)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent1),var(--accent2));color:var(--accent-contrast);font-weight:800}
-    .brand h1{font-size:1rem;margin:0;color:#000}
+   header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.01),
+        rgba(255,255,255,0)
+    );
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Brand */
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #ffffff; /* brand text white */
+}
+
+/* Logo */
+.logo {
+    width: 90px;
+    height: 46px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #ffffff; /* logo background white */
+    color: #000000; /* logo text/icon dark for contrast */
+    font-weight: 800;
+} .brand h1{font-size:1rem;margin:0;color:#000}
     nav{display:flex;gap:12px;align-items:center}
     nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
     nav a:hover{color:#000}
@@ -99,19 +128,136 @@
       .gallery img{height:100px}
     }
 
+
+
+
+    /* ================= MH CTA ================= */
+.mh-cta-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.2rem;
+}
+
+.mh-cta-box {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 3rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0b0b0b, #121212);
+  color: #ffffff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Badge */
+.mh-cta-badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.6rem;
+}
+
+/* Typography */
+.mh-cta-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.7rem;
+}
+
+.mh-cta-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Actions */
+.mh-cta-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.mh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mh-btn-primary {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+.mh-btn-primary:hover {
+  background: #f4f4f4;
+  transform: translateY(-2px);
+}
+
+.mh-btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: transparent;
+}
+
+.mh-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Side Card */
+.mh-cta-card {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.6rem;
+}
+
+.mh-cta-card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.mh-cta-muted {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .mh-cta-box {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .mh-cta-title {
+    font-size: 1.6rem;
+  }
+}
+
     /* toast */
     .toast{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:var(--accent-contrast);padding:12px 16px;border-radius:10px;box-shadow:0 8px 30px rgba(16,24,40,0.06);display:none}
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">
-      <div class="logo">HK</div>
-      <div>
-        <h1 style="font-size:1rem;margin:0">Maidhan</h1>
-        <div class="muted" style="font-size:0.82rem">Hockey Fields & Artificial Pitches</div>
-      </div>
-    </div>
+     <a class="brand" href="#home">
+        <!-- <span class="brand-logo" aria-hidden="true"></span> -->
+       <img src="Logo1.png" alt="Maidhan Logo" class = "logo">
+
+      </a>
 
     <nav aria-label="Primary Navigation">
       <a href="#how">How we build</a>
@@ -127,96 +273,176 @@
   <main>
     <section class="hero">
       <div class="hero-card">
-        <span class="kicker">Fast • True • Durable</span>
-        <h2>Hockey fields engineered to FIH-grade playability</h2>
-        <p class="muted">We build water-based and sand-dressed artificial pitches, plus natural grass restoration, focused on ball roll, player safety, drainage, and low long-term maintenance.</p>
+  <span class="kicker">Fast • Safe • Long-Lasting</span>
 
-        <div class="hero-actions">
-          <button class="btn btn-primary" onclick="location.href='#contact'">Request a Quote</button>
-          <button class="btn btn-ghost" onclick="location.href='#gallery'">View Gallery</button>
-        </div>
+  <h2>High-Performance Hockey Surfaces Built for Every Level</h2>
 
-        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-          <div style="padding:6px 10px;border-radius:999px;background:rgba(15,181,167,0.03);font-weight:700;color:var(--muted)">FIH-compliant options</div>
-          <div style="padding:6px 10px;border-radius:999px;background:rgba(15,181,167,0.03);font-weight:700;color:var(--muted)">Installation & resurfacing</div>
-        </div>
-      </div>
+  <p class="muted">
+    We design and install premium hockey playing surfaces including artificial grass,
+    advanced artificial turf, indoor smooth courts, and durable hard courts — engineered
+    for consistent ball roll, player safety, excellent drainage, and minimal maintenance.
+  </p>
 
-      <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1350&q=80')" aria-hidden>
+  <div class="hero-actions">
+    <button class="btn btn-primary" onclick="location.href='#contact'">Request a Quote</button>
+    <button class="btn btn-ghost" onclick="location.href='#gallery'">View Gallery</button>
+  </div>
+
+  <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+    <div style="padding:6px 10px;border-radius:999px;background:rgba(15,181,167,0.03);font-weight:700;color:var(--muted)">
+      Artificial Grass & Turf
+    </div>
+    <div style="padding:6px 10px;border-radius:999px;background:rgba(15,181,167,0.03);font-weight:700;color:var(--muted)">
+      Indoor Smooth & Hard Courts
+    </div>
+    <div style="padding:6px 10px;border-radius:999px;background:rgba(15,181,167,0.03);font-weight:700;color:var(--muted)">
+      Installation • Upgrades • Resurfacing
+    </div>
+  </div>
+</div>
+
+
+      <div class="visual" style="background-image:url('https://th.bing.com/th/id/OIP.T2Zv5fbvyRtPM6FPPVxN4QHaE8?w=278&h=186&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3')" aria-hidden>
         <div class="badge">Competition & Practice</div>
       </div>
     </section>
 
-    <section id="how" class="section">
-      <h3>How We Build</h3>
-      <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-        <div class="feature">
-          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0"><path d="M3 12h18" stroke="currentColor" stroke-width="1.4"/></svg>
-          <div>
-            <strong>1. Site Survey & Prep</strong>
-            <div class="muted">Geotechnical checks, grading, and sub-base design ensure pitch stability and even surface response.</div>
-          </div>
-        </div>
+ <section id="how" class="section">
+  <h3>How We Build Your Hockey Surface</h3>
 
-        <div class="feature">
-          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg>
-          <div>
-            <strong>2. Drainage & Base</strong>
-            <div class="muted">Engineered drainage and fine-graded stone base reduce water pooling and preserve surface integrity.</div>
-          </div>
-        </div>
+  <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
 
-        <div class="feature">
-          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/></svg>
-          <div>
-            <strong>3. Surface Installation</strong>
-            <div class="muted">Water-based, sand-dressed or sand-filled carpets installed and line-marked to specification with secure shock-pad options where required.</div>
-          </div>
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0">
+        <path d="M3 12h18" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <div>
+        <strong>1. Site Inspection & Planning</strong>
+        <div class="muted">
+          We visit your location to understand ground conditions, space availability,
+          usage needs, and budget. Based on this, we recommend the right surface
+          (turf, artificial grass, indoor smooth, or hard court).
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="types" class="section">
-      <h3>Surface Types</h3>
-      <div class="types">
-        <div class="type-card">
-          <strong>Water-based</strong>
-          <div class="muted" style="margin-top:6px">Premium competition surface — needs irrigation before play but delivers true ball roll and player speed.</div>
-        </div>
-
-        <div class="type-card">
-          <strong>Sand-dressed</strong>
-          <div class="muted" style="margin-top:6px">Good balance of speed and cushioning — popular for multi-use venues.</div>
-        </div>
-
-        <div class="type-card">
-          <strong>Sand-filled</strong>
-          <div class="muted" style="margin-top:6px">Cost-effective with good wear resistance for club-level play.</div>
-        </div>
-
-        <div class="type-card">
-          <strong>Natural Grass / Hybrid</strong>
-          <div class="muted" style="margin-top:6px">Restoration or hybrid turf systems for venues preferring natural aesthetics and playability.</div>
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0">
+        <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <div>
+        <strong>2. Base Work & Drainage</strong>
+        <div class="muted">
+          A strong foundation is created using proper leveling, stone layers, and
+          drainage systems. This prevents water stagnation, uneven surfaces,
+          and increases the life of the hockey court.
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="why" class="section">
-      <h3>Why Choose Our Hockey Fields?</h3>
-      <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <div class="feature"><div><strong>FIH & Competition Ready</strong><div class="muted">We deliver fields that meet competition tolerances for dimensions, line-marking and surface performance.</div></div></div>
-        <div class="feature"><div><strong>Playability & Speed</strong><div class="muted">Careful selection of carpet and infill ensures predictable ball behaviour and player comfort.</div></div></div>
-        <div class="feature"><div><strong>Maintenance Plans</strong><div class="muted">We offer scheduled maintenance, grooming, and watering/irrigation plans for long-term performance.</div></div></div>
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <div>
+        <strong>3. Surface Installation & Marking</strong>
+        <div class="muted">
+          We install the selected hockey surface with precise alignment and secure fixing.
+          Line markings are added as per hockey standards, followed by final quality
+          checks to ensure smooth play and player safety.
+        </div>
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
+
+ <section id="types" class="section">
+  <h3>Hockey Surface Types We Offer</h3>
+
+  <div class="types">
+
+    <div class="type-card">
+      <strong>Artificial Hockey Turf</strong>
+      <div class="muted" style="margin-top:6px">
+        High-quality synthetic turf designed for smooth ball roll and fast gameplay.
+        Ideal for academies, clubs, schools, and outdoor hockey fields with long-term durability.
+      </div>
+    </div>
+
+    <div class="type-card">
+      <strong>Artificial Grass (Multi-Purpose)</strong>
+      <div class="muted" style="margin-top:6px">
+        Cost-effective and versatile surface suitable for training grounds,
+        recreational play, and multi-sport use with low maintenance requirements.
+      </div>
+    </div>
+
+    <div class="type-card">
+      <strong>Indoor Smooth Hockey Surface</strong>
+      <div class="muted" style="margin-top:6px">
+        Seamless, non-slip smooth flooring specially designed for indoor hockey,
+        providing consistent speed, controlled bounce, and player safety.
+      </div>
+    </div>
+
+    <div class="type-card">
+      <strong>Hard Court Hockey Surface</strong>
+      <div class="muted" style="margin-top:6px">
+        Strong and durable court system suitable for outdoor and semi-outdoor hockey,
+        built to withstand heavy usage and varying weather conditions.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="why" class="section">
+  <h3>Why Choose Us for Your Hockey Surface?</h3>
+
+  <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+
+    <div class="feature">
+      <div>
+        <strong>Built for Hockey Standards</strong>
+        <div class="muted">
+          Our hockey surfaces are designed with correct dimensions, markings,
+          and surface quality to support training, tournaments, and competitive play.
+        </div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div>
+        <strong>Safe & Consistent Play</strong>
+        <div class="muted">
+          We use proven materials and installation methods to ensure smooth ball roll,
+          controlled speed, shock absorption, and reduced risk of player injuries.
+        </div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div>
+        <strong>Low Maintenance & Long Life</strong>
+        <div class="muted">
+          Our surfaces are designed to withstand heavy use with minimal upkeep,
+          helping schools, academies, and clubs save on long-term maintenance costs.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <section id="gallery" class="section">
       <h3>Gallery</h3>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1563237026-9c7ecb5d6e0b?auto=format&fit=crop&w=800&q=60" alt="hockey-1">
-        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=800&q=60" alt="hockey-2">
-        <img src="https://images.unsplash.com/photo-1530253839319-4e6d9d59f01b?auto=format&fit=crop&w=800&q=60" alt="hockey-3">
-        <img src="https://images.unsplash.com/photo-1545156521-7bdd8dfee1a1?auto=format&fit=crop&w=800&q=60" alt="hockey-4">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.DAsBOot4FtkyXOxaM4hCDQHaFj?pid=ImgDet&w=184&h=138&c=7&dpr=1.3&o=7&rm=3" alt="hockey-1">
+        <img src="https://th.bing.com/th/id/OIP.RLfBfaINrW-XCDqT8xSsTwHaEK?w=324&h=182&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="hockey-2">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.6cnNODWOaTWTWQP-MQ1degHaEK?pid=ImgDet&w=184&h=103&c=7&dpr=1.3&o=7&rm=3" alt="hockey-3">
+        <img src="https://th.bing.com/th/id/R.11dc26922c2f639243fb45929c875f48?rik=%2fxlKB0amF5sL7g&riu=http%3a%2f%2fcdn.sqhk.co%2fsportcourt%2f2015%2f6%2fgfjgSyd%2f884975_10153532896980023_2064351744_o.jpg&ehk=7ykGdYPs7lW85Pq5h4ZITbhcXhc8jmUZ4HHI%2feK5zXE%3d&risl=&pid=ImgRaw&r=0" alt="hockey-4">
       </div>
     </section>
 
@@ -232,26 +458,37 @@
           </ul>
         </div>
 
-        <form id="quoteForm">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="e.g. Ankit Verma" required>
+       <section class="mh-cta-wrap" id="contact">
+  <div class="mh-cta-box">
+    <div class="mh-cta-main">
+      <span class="mh-cta-badge">Step into a field of possibilities</span>
+      <h3 class="mh-cta-title">Let’s build your next sporting facility</h3>
+      <p class="mh-cta-text">
+        Tell us about your site, sport, and timeline. We’ll propose the right spec and get you a detailed estimate.
+      </p>
+      <div class="mh-cta-actions">
+        <a class="mh-btn mh-btn-primary" href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a class="mh-btn mh-btn-outline" href="tel:+917702245549">+91-7702245549</a>
+      </div>
+    </div>
 
-          <label for="contactInput">Phone or Email</label>
-          <input id="contactInput" name="contact" type="text" placeholder="mobile or email" required>
+    <div class="mh-cta-side">
+      <div class="mh-cta-card">
+        <h4 class="mh-cta-card-title">Visit Us</h4>
+        <p class="mh-cta-muted">
+          1-33-116, RTC Colony, Tirumalagiri, Secunderabad
+        </p>
+        <a class="mh-btn mh-btn-outline"
+           target="_blank"
+           rel="noopener"
+           href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">
+          View on Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <label for="surface">Preferred surface</label>
-          <select id="surface" name="surface">
-            <option>Water-based</option>
-            <option>Sand-dressed</option>
-            <option>Sand-filled</option>
-            <option>Natural / Hybrid</option>
-          </select>
-
-          <label for="details">Project details</label>
-          <textarea id="details" name="details" placeholder="Approx dimensions, location, timeline" rows="5"></textarea>
-
-          <button type="submit" class="btn btn-primary" style="width:100%">Send Request</button>
-        </form>
       </div>
     </section>
 
