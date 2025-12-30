@@ -8,7 +8,7 @@
   <style>
     :root{
       /* THEME: top light orange -> bottom white, black text */
-      --bg-top: #FFDAB9;     /* light orange */
+      --bg-top: #FFFFFF;   /* light orange */
       --bg-bottom: #FFFFFF;  /* white */
       --bg: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
       --muted: #333333;      /* darker muted for legibility on light background */
@@ -32,12 +32,44 @@
     }
 
     /* Header */
-    header{position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
-      border-bottom:1px solid rgba(0,0,0,0.06)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--accent1));color:#000;font-weight:800}
-    .brand h1{font-size:1rem;margin:0;color:#000}
+       /* header */
+   header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.01),
+        rgba(255,255,255,0)
+    );
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Brand */
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #ffffff; /* brand text white */
+}
+
+/* Logo */
+.logo {
+    width: 90px;
+    height: 46px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #ffffff; /* logo background white */
+    color: #000000; /* logo text/icon dark for contrast */
+    font-weight: 800;
+} 
+
+ .brand h1{font-size:1rem;margin:0;color:#000}
     nav{display:flex;gap:12px;align-items:center}
     nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
     nav a:hover{color:#000}
@@ -96,20 +128,158 @@
       .hero-card h2{font-size:1.5rem}
       .gallery img{height:100px}
     }
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 26px;
+  line-height: 56px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  text-decoration: none;
+  z-index: 9999;
+}
+
+.whatsapp-float:hover {
+  background-color: #1ebe5d;
+}
+
+
+
+/* ================= MH CTA ================= */
+.mh-cta-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.2rem;
+}
+
+.mh-cta-box {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 3rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0b0b0b, #121212);
+  color: #ffffff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Badge */
+.mh-cta-badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.6rem;
+}
+
+/* Typography */
+.mh-cta-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.7rem;
+}
+
+.mh-cta-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Actions */
+.mh-cta-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.mh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mh-btn-primary {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+.mh-btn-primary:hover {
+  background: #f4f4f4;
+  transform: translateY(-2px);
+}
+
+.mh-btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: transparent;
+}
+
+.mh-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Side Card */
+.mh-cta-card {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.6rem;
+}
+
+.mh-cta-card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.mh-cta-muted {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .mh-cta-box {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .mh-cta-title {
+    font-size: 1.6rem;
+  }
+}
+
 
     /* toast */
     .toast{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#000;padding:12px 16px;border-radius:10px;box-shadow:0 8px 30px rgba(16,24,40,0.06);display:none}
   </style>
 </head>
 <body>
+
   <header>
-    <div class="brand">
-      <div class="logo">VB</div>
-      <div>
-        <h1 style="font-size:1rem;margin:0">Maidhan</h1>
-        <div class="muted" style="font-size:0.82rem">Volleyball Courts & Beach Setups</div>
-      </div>
-    </div>
+    <a class="brand" href="#home">
+        <!-- <span class="brand-logo" aria-hidden="true"></span> -->
+       <img src="Logo1.png" alt="Maidhan Logo" class = "logo">
+
+      </a>
 
     <nav aria-label="Primary Navigation">
       <a href="#how">How we build</a>
@@ -122,6 +292,14 @@
   </header>
 
   <main>
+    <!-- <a href="https://wa.me/6309284460" 
+   class="whatsapp-float"
+   target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+       alt="WhatsApp"
+       width="28">
+</a> -->
+
     <section class="hero">
       <div class="hero-card">
         <span class="kicker">Serve • Spike • Play</span>
@@ -139,7 +317,7 @@
         </div>
       </div>
 
-      <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1505842465776-3a6b09f45c8c?auto=format&fit=crop&w=1350&q=80')" aria-hidden>
+      <div class="visual" style="background-image:url('https://tse2.mm.bing.net/th/id/OIP._U6eduMhRUURtSiu7FOILwHaFj?pid=ImgDet&w=184&h=138&c=7&dpr=1.3&o=7&rm=3')" aria-hidden>
         <div class="badge">Indoor & Beach</div>
       </div>
     </section>
@@ -173,38 +351,49 @@
       </div>
     </section>
 
-    <section id="types" class="section">
-      <h3>Court Types</h3>
-      <div class="types">
-        <div class="type-card">
-          <strong>Indoor Sport Floor</strong>
-          <div class="muted" style="margin-top:6px">Sprung timber or synthetic multi-layer systems for community halls and competition venues.</div>
-        </div>
+  <section id="types" class="section">
+  <h3>Court Types</h3>
+  <div class="types">
 
-        <div class="type-card">
-          <strong>Outdoor Acrylic</strong>
-          <div class="muted" style="margin-top:6px">Hard, textured surfaces with proper drainage and UV-stable coatings for outdoor play.</div>
-        </div>
-
-        <div class="type-card">
-          <strong>Beach Sand Courts</strong>
-          <div class="muted" style="margin-top:6px">Engineered sand depth, perimeter containment and drainage for true beach volleyball play.</div>
-        </div>
-
-        <div class="type-card">
-          <strong>Portable / Multi-use</strong>
-          <div class="muted" style="margin-top:6px">Interchangeable systems for events, schools and pop-up tournaments.</div>
-        </div>
+    <div class="type-card">
+      <strong>Indoor Sports Floor</strong>
+      <div class="muted" style="margin-top:6px">
+        Smooth and comfortable flooring for indoor halls and gyms, suitable for regular training and matches.
       </div>
-    </section>
+    </div>
+
+    <div class="type-card">
+      <strong>Outdoor Acrylic Court</strong>
+      <div class="muted" style="margin-top:6px">
+        Strong outdoor surfaces with a textured finish that offer good grip and long-term use in open areas.
+      </div>
+    </div>
+
+    <div class="type-card">
+      <strong>Beach Sand Courts</strong>
+      <div class="muted" style="margin-top:6px">
+        Natural sand courts prepared at the right level and depth for comfortable and enjoyable beach play.
+      </div>
+    </div>
+
+    <div class="type-card">
+      <strong>Portable / Multi-use Courts</strong>
+      <div class="muted" style="margin-top:6px">
+        Easy-to-set-up court systems for schools, events, and temporary sports activities.
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <section id="gallery" class="section">
       <h3>Gallery</h3>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1505842465776-3a6b09f45c8c?auto=format&fit=crop&w=800&q=60" alt="volleyball-1">
-        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c44367b?auto=format&fit=crop&w=800&q=60" alt="volleyball-2">
-        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=60" alt="volleyball-3">
-        <img src="https://images.unsplash.com/photo-1509221965891-123d5a80d3a6?auto=format&fit=crop&w=800&q=60" alt="volleyball-4">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.GjB5igax7qjzuWk8hyn9_QAAAA?pid=ImgDet&w=184&h=111&c=7&dpr=1.3&o=7&rm=3" alt="volleyball-1">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.gD16pRphAkzFZJInrDQzhQHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.3&o=7&rm=3" alt="volleyball-2">
+        <img src="https://th.bing.com/th/id/OIP.4FGU0SSwz6eJf6JQxATUxAHaFG?w=294&h=202&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="volleyball-3">
+        <img src="https://th.bing.com/th/id/OIP.MqJnh9OFuRyWzNonQ71fewHaHa?w=181&h=181&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="volleyball-4">
       </div>
     </section>
 
@@ -220,26 +409,37 @@
           </ul>
         </div>
 
-        <form id="quoteForm">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="e.g. Meera Joshi" required>
+ <section class="mh-cta-wrap" id="contact">
+  <div class="mh-cta-box">
+    <div class="mh-cta-main">
+      <span class="mh-cta-badge">Step into a field of possibilities</span>
+      <h3 class="mh-cta-title">Let’s build your next sporting facility</h3>
+      <p class="mh-cta-text">
+        Tell us about your site, sport, and timeline. We’ll propose the right spec and get you a detailed estimate.
+      </p>
+      <div class="mh-cta-actions">
+        <a class="mh-btn mh-btn-primary" href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a class="mh-btn mh-btn-outline" href="tel:+917702245549">+91-7702245549</a>
+      </div>
+    </div>
 
-          <label for="contactInput">Phone or Email</label>
-          <input id="contactInput" name="contact" type="text" placeholder="mobile or email" required>
+    <div class="mh-cta-side">
+      <div class="mh-cta-card">
+        <h4 class="mh-cta-card-title">Visit Us</h4>
+        <p class="mh-cta-muted">
+          1-33-116, RTC Colony, Tirumalagiri, Secunderabad
+        </p>
+        <a class="mh-btn mh-btn-outline"
+           target="_blank"
+           rel="noopener"
+           href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">
+          View on Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <label for="courtType">Court type</label>
-          <select id="courtType" name="courtType">
-            <option>Indoor sport floor</option>
-            <option>Outdoor acrylic</option>
-            <option>Beach sand court</option>
-            <option>Portable / multi-use</option>
-          </select>
-
-          <label for="details">Project details</label>
-          <textarea id="details" name="details" placeholder="Approx area, number of courts, timeline" rows="5"></textarea>
-
-          <button type="submit" class="btn btn-primary" style="width:100%">Send Request</button>
-        </form>
       </div>
     </section>
 
