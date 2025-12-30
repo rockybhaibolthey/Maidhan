@@ -276,7 +276,20 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
+ .subtext {
+  text-align: center;
+  color: #000000;
+  font-size: clamp(14px, 1.5vw, 16px);
+  margin-top: -10px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.txt {
+  margin-top: 10px;
+  color: #000000;
+}
 
 </style>
 </head>
@@ -294,10 +307,7 @@ footer {
     
     </div>
   </header>
-  <div class="description">
-    Welcome! 🎨 Choose the colors for your badminton court and surrounding area.  
-    Use the sliders below to customize your court and see it instantly.
-  </div>
+ 
 
   <h3>Select Outer Area Color</h3>
   <div class="color-slider-container">
@@ -331,8 +341,23 @@ footer {
     Badminton Court
   </h3>
 </main>
+  <h class="txt">Choose from a wide range of professional-grade color finishes to match your facility's branding and performance needs.</h3>
+<p class="subtext">Not limited to these options — we can match any specific color requirement to suit your unique court design preferences.</p>
+
 <div class="courts-container">
-  <h2>Have a Look At</h2>
+ <h2 style="
+    color: #000; 
+    text-align: center; 
+    font-family: 'Poppins', Arial, sans-serif; 
+    font-weight: 700; 
+    font-size: 2rem; 
+    margin: 30px 0 20px; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+">
+    Have a Look At
+</h2>
+
   <div class="court-buttons">
     
  <button onclick="window.location.href='pickleball_court.html'" class="court-btn">
