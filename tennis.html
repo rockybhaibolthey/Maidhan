@@ -8,7 +8,7 @@
   <style>
     :root{
       /* THEME: top light orange -> bottom white, black text */
-      --bg-top: #FFDAB9;     /* light orange */
+      --bg-top: #FFFFFF;      /* light orange */
       --bg-bottom: #FFFFFF;  /* white */
       --bg: linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
       --surface: #ffffff;
@@ -101,20 +101,173 @@
       .contact-grid{grid-template-columns:1fr}
     }
 
+
+
+        /* header */
+   header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.01),
+        rgba(255,255,255,0)
+    );
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Brand */
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #ffffff; /* brand text white */
+}
+
+/* Logo */
+.logo {
+    width: 90px;
+    height: 46px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #ffffff; /* logo background white */
+    color: #000000; /* logo text/icon dark for contrast */
+    font-weight: 800;
+} 
+
+
+/* ================= MH CTA ================= */
+.mh-cta-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.2rem;
+}
+
+.mh-cta-box {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 3rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0b0b0b, #121212);
+  color: #ffffff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Badge */
+.mh-cta-badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.6rem;
+}
+
+/* Typography */
+.mh-cta-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.7rem;
+}
+
+.mh-cta-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Actions */
+.mh-cta-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.mh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mh-btn-primary {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+.mh-btn-primary:hover {
+  background: #f4f4f4;
+  transform: translateY(-2px);
+}
+
+.mh-btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: transparent;
+}
+
+.mh-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Side Card */
+.mh-cta-card {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.6rem;
+}
+
+.mh-cta-card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.mh-cta-muted {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .mh-cta-box {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .mh-cta-title {
+    font-size: 1.6rem;
+  }
+}
+
     /* toast */
     .toast{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#000;padding:12px 16px;border-radius:10px;box-shadow:0 8px 30px rgba(16,24,40,0.06);display:none}
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">
-      <div class="logo">TN</div>
-      <div>
-        <h1 style="font-size:1rem;margin:0">Maidhan</h1>
-        <div class="muted" style="font-size:0.82rem">Tennis Courts & Performance Spaces</div>
-      </div>
-    </div>
+     <a class="brand" href="#home">
+        <!-- <span class="brand-logo" aria-hidden="true"></span> -->
+       <img src="Logo1.png" alt="Maidhan Logo" class = "logo">
 
+      </a>
     <nav aria-label="Primary Navigation">
       <a href="#how">How we build</a>
       <a href="#types">Court types</a>
@@ -126,56 +279,79 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-card">
-        <span class="kicker">Precision • Durability • Play</span>
-        <h2>Court surfacing engineered for players — from academy to tournament</h2>
-        <p class="muted">We design tennis courts with comfort, consistent ball bounce, and long-term performance in mind — choosing the right surface, drainage and lighting to suit your location and usage.</p>
+<section class="hero">
+  <div class="hero-card">
+    <span class="kicker">Durable • Comfortable • Playable</span>
+    <h2>Tennis Courts Built for Everyone — From Practice to Matches</h2>
+    <p class="muted">
+      We create tennis courts that are comfortable to play on and easy to maintain.  
+      Our surfaces are designed to give consistent ball bounce and long-lasting performance, using simple, reliable materials suitable for your location and everyday use.
+    </p>
 
-        <div class="hero-actions">
-          <button class="btn btn-primary" onclick="location.href='#contact'">Request a Quote</button>
-          <button class="btn btn-ghost" onclick="location.href='#gallery'">View Gallery</button>
-        </div>
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="location.href='#contact'">Request a Quote</button>
+      <button class="btn btn-ghost" onclick="location.href='#gallery'">View Gallery</button>
+    </div>
 
-        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
-          <div style="padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.03);font-weight:700;color:var(--muted)">ITF compliant options</div>
-          <div style="padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.03);font-weight:700;color:var(--muted)">Installation & maintenance</div>
+    <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+      <div style="padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.03);font-weight:700;color:var(--muted)">
+        Easy-to-install surfaces
+      </div>
+      <div style="padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.03);font-weight:700;color:var(--muted)">
+        Low-maintenance and practical
+      </div>
+    </div>
+  </div>
+
+  <div class="visual" style="background-image:url('https://th.bing.com/th/id/OIP.Pn_OiUiKDWYWSZGq8z9qbQHaDV?w=299&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3')" aria-hidden>
+    <div class="badge">Indoor & Outdoor</div>
+  </div>
+</section>
+
+
+ <section id="how" class="section">
+  <h3>How We Build Tennis Courts</h3>
+  <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0">
+        <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <div>
+        <strong>1. Site Prep & Base</strong>
+        <div class="muted">
+          We check the ground, level the area, and create a solid base so the court stays stable and ready for play.
         </div>
       </div>
+    </div>
 
-      <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1598971639058-2188b5a8e3ed?auto=format&fit=crop&w=1350&q=80')" aria-hidden>
-        <div class="badge">Indoor & Outdoor</div>
-      </div>
-    </section>
-
-    <section id="how" class="section">
-      <h3>How We Build</h3>
-      <div class="grid cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-        <div class="feature">
-          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg>
-          <div>
-            <strong>1. Site Survey & Prep</strong>
-            <div class="muted">We evaluate slope, soil, and drainage; prepare a compacted sub-base for stability.</div>
-          </div>
-        </div>
-
-        <div class="feature">
-          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0"><path d="M12 2v20" stroke="currentColor" stroke-width="1.4"/></svg>
-          <div>
-            <strong>2. Surface & Lines</strong>
-            <div class="muted">Acrylic/hard, clay, grass or indoor synthetic surfaces with precision line marking and net systems.</div>
-          </div>
-        </div>
-
-        <div class="feature">
-          <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/></svg>
-          <div>
-            <strong>3. Lighting & Drainage</strong>
-            <div class="muted">Glare-controlled LED lighting and engineered drains keep the court playable year-round.</div>
-          </div>
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0">
+        <path d="M12 2v20" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <div>
+        <strong>2. Surface & Lines</strong>
+        <div class="muted">
+          We install simple, durable surfaces like acrylic, clay, or synthetic, and mark lines clearly for matches and practice.
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="feature">
+      <svg viewBox="0 0 24 24" fill="none" style="width:44px;height:44px;flex-shrink:0">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+      <div>
+        <strong>3. Lighting & Net Setup</strong>
+        <div class="muted">
+          We add simple lights for evening use and install nets securely so you can play anytime safely.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <section id="types" class="section">
       <h3>Court Types</h3>
@@ -202,10 +378,10 @@
     <section id="gallery" class="section">
       <h3>Gallery</h3>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1560264280-7d9bba8f78a2?auto=format&fit=crop&w=800&q=60" alt="tennis-1">
-        <img src="https://images.unsplash.com/photo-1508606572321-901ea443707f?auto=format&fit=crop&w=800&q=60" alt="tennis-2">
-        <img src="https://images.unsplash.com/photo-1543165794-840f6a5b5e92?auto=format&fit=crop&w=800&q=60" alt="tennis-3">
-        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=60" alt="tennis-4">
+        <img src="https://th.bing.com/th/id/OIP.BxoWerOybaVCs0QHRafigQHaFj?w=211&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="tennis-1">
+        <img src="https://th.bing.com/th/id/OIP.UePs-LS5gCXl1ihpbbsa3AHaE8?w=228&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="tennis-2">
+        <img src="https://th.bing.com/th/id/OIP.lZoUAqbWrRrMIO2r_OzHJQHaEK?w=330&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="tennis-3">
+        <img src="https://th.bing.com/th/id/OIP.na2COsPUUzGQP7bibQvVwAHaEL?w=275&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="tennis-4">
       </div>
     </section>
 
@@ -221,18 +397,37 @@
           </ul>
         </div>
 
-        <form id="quoteForm">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" placeholder="e.g. Rohit Sharma" required>
+       <section class="mh-cta-wrap" id="contact">
+  <div class="mh-cta-box">
+    <div class="mh-cta-main">
+      <span class="mh-cta-badge">Step into a field of possibilities</span>
+      <h3 class="mh-cta-title">Let’s build your next sporting facility</h3>
+      <p class="mh-cta-text">
+        Tell us about your site, sport, and timeline. We’ll propose the right spec and get you a detailed estimate.
+      </p>
+      <div class="mh-cta-actions">
+        <a class="mh-btn mh-btn-primary" href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a class="mh-btn mh-btn-outline" href="tel:+917702245549">+91-7702245549</a>
+      </div>
+    </div>
 
-          <label for="contactInput">Phone or Email</label>
-          <input id="contactInput" name="contact" type="text" placeholder="mobile or email" required>
+    <div class="mh-cta-side">
+      <div class="mh-cta-card">
+        <h4 class="mh-cta-card-title">Visit Us</h4>
+        <p class="mh-cta-muted">
+          1-33-116, RTC Colony, Tirumalagiri, Secunderabad
+        </p>
+        <a class="mh-btn mh-btn-outline"
+           target="_blank"
+           rel="noopener"
+           href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">
+          View on Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <label for="details">Project details</label>
-          <textarea id="details" name="details" placeholder="Approx area, surface preference, timeline" rows="5"></textarea>
-
-          <button type="submit" class="btn btn-primary" style="width:100%">Send Request</button>
-        </form>
       </div>
     </section>
 
