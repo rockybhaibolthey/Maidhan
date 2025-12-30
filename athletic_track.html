@@ -1,6 +1,631 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Athletic Tracks | Maidhan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#d94f3d;
+  --accent-soft:#ff8a65;
+  --muted:#444;
+  --radius:16px;
+  --shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+/* RESET */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Poppins,system-ui;
+  background:linear-gradient(180deg,#FFDAB9,#fff);
+  color:#000;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+/* ================= HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  color: #111;
+}
+
+.menu-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hide on desktop */
+@media (min-width: 821px) {
+  .menu-icon {
+    display: none;
+  }
+}
+
+/* NAV BAR */
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* BRAND / LOGO */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  display: block;
+  height: 38px;
+  max-width: 100%;
+}
+
+
+/* DESKTOP NAV */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* CTA BUTTON */
+.cta {
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* MOBILE MENU BUTTON */
+.menu-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* MOBILE FIX */
+@media (max-width: 480px) {
+  .nav {
+    padding: 12px;
+  }
+}
+/* ================= MOBILE ================= */
+@media (max-width: 820px) {
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+  }
+}
+
+/* ================= HERO ================= */
+.hero{
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:28px;
+}
+.hero-card{
+  background:rgba(255,255,255,.92);
+  padding:32px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.hero h1{
+  font-size:2.2rem;
+  color:var(--accent);
+}
+.hero p{color:var(--muted)}
+.hero-actions{margin-top:18px;display:flex;gap:14px;flex-wrap:wrap}
+
+.visual{
+  min-height:320px;
+  border-radius:var(--radius);
+  background:url("https://th.bing.com/th/id/OIP.hOehhDN-6r3ucULDLwztxQHaFj?w=249&h=187&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3") center/cover;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.visual span{
+  position:absolute;
+  bottom:16px;left:16px;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+/* MOBILE HERO */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:1.7rem}
+  .visual{min-height:220px}
+}
+
+/* ================= SECTIONS ================= */
+.section{
+  max-width:1200px;
+  margin:60px auto;
+  padding:0 20px;
+}
+.section h2{
+  color:var(--accent);
+  margin-bottom:24px;
+}
+
+/* HOW WE BUILD */
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+.step{
+  background:#fff;
+  padding:22px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.step span{
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--accent-soft);
+}
+
+/* SURFACE TYPES */
+.surface-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:18px;
+}
+.surface{
+  padding:22px;
+  border-radius:var(--radius);
+  background:linear-gradient(180deg,#fff,#fff3ee);
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+.surface:hover{transform:translateY(-6px)}
+
+/* GALLERY */
+.gallery{
+  column-count:4;
+  column-gap:14px;
+}
+.gallery img{
+  margin-bottom:14px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+}
+
+@media(max-width:1000px){.gallery{column-count:3}}
+@media(max-width:700px){.gallery{column-count:2}}
+@media(max-width:420px){.gallery{column-count:1}}
+
+/* WHY */
+.why{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.why-card{
+  background:#fff;
+  padding:24px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.why-card h3{color:var(--accent)}
+
+/* CONTACT */
+.contact{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+}
+.contact-info{
+  background:linear-gradient(135deg,var(--accent-soft),var(--accent));
+  padding:26px;
+  border-radius:var(--radius);
+}
+form{
+  background:#fff;
+  padding:26px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+input,textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  margin-bottom:12px;
+  font-family:inherit;
+}
+button{
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--accent-soft),var(--accent));
+  font-weight:700;
+}
+
+/* MOBILE CONTACT */
+@media(max-width:900px){
+  .contact{grid-template-columns:1fr}
+}
+
+/* FOOTER */
+footer{
+  margin-top:60px;
+  padding:24px;
+  background:#fff;
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,.06);
+}
+
+
+
+
+/* ================= MH CTA ================= */
+.mh-cta-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 1.2rem;
+}
+
+.mh-cta-box {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 3rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0b0b0b, #121212);
+  color: #ffffff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Badge */
+.mh-cta-badge {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.6rem;
+}
+
+/* Typography */
+.mh-cta-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.7rem;
+}
+
+.mh-cta-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Actions */
+.mh-cta-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.mh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mh-btn-primary {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+.mh-btn-primary:hover {
+  background: #f4f4f4;
+  transform: translateY(-2px);
+}
+
+.mh-btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: transparent;
+}
+
+.mh-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Side Card */
+.mh-cta-card {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.6rem;
+}
+
+.mh-cta-card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.mh-cta-muted {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .mh-cta-box {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .mh-cta-title {
+    font-size: 1.6rem;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- <header>
+  <div class="nav">
+    <div class="brand"><img src="Logo1.png" alt="Maidhan"></div>
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#how">Build</a>
+      <a href="#types">Surfaces</a>
+      <a href="#gallery">Gallery</a>
+      <a class="cta" href="#contact">Get Quote</a>
+    </div>
+  </div>
+</header>-->
+<header> 
+  <nav class="nav">
+    <a class="brand" href="/">
+      <img src="Logo1.png" alt="Logo">
+    </a>
+
+    <!-- <button class="menu-btn"  id="menuBtn">☰</button> -->
+<div class="menu-icon" id="menuBtn" aria-label="Menu" role="button">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M3 6h18M3 12h18M3 18h18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"/>
+  </svg>
+</div>
+
+   
+  </nav>
+   <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+    
+      <a href="#contact" class="cta">Contact</a>
+    </div>
+</header>
+
+<section class="hero">
+  <div class="hero-card">
+    <h1>Athletic Tracks Built for Champions</h1>
+    <p>We design and build high-quality athletic tracks for schools, clubs, and professional competitions. Choose from indoor, outdoor, artificial, grass, and synthetic tracks — all built for safety, durability, and top performance.</p>
+    <div class="hero-actions">
+      <a class="cta" href="#contact">Request a Quote</a>
+      <a href="#gallery">View Gallery</a>
+    </div>
+  </div>
+  <div class="visual"><span>Competition Ready</span></div>
+</section>
+
+
+<section id="how" class="section">
+  <h2>How We Build</h2>
+  <div class="timeline">
+    <div class="step">
+      <span>01</span>
+      <p><strong>Sub-base & Drainage Engineering:</strong> We start by preparing a strong foundation that ensures proper drainage and stability. This step is crucial for all track types — whether indoor, outdoor, artificial, grass, or synthetic — to guarantee long-lasting performance and safety.</p>
+    </div>
+    <div class="step">
+      <span>02</span>
+      <p><strong>High-Performance Surface Application:</strong> Depending on your choice of track, we apply the appropriate surface — synthetic layers for professional competition, artificial for low-maintenance needs, or natural grass for softer, eco-friendly options. Each surface is installed with precision for consistent traction and durability.</p>
+    </div>
+    <div class="step">
+      <span>03</span>
+      <p><strong>Precision Markings & Quality Testing:</strong> Finally, we add all necessary track markings for lanes, sprints, and curves, ensuring they meet official standards. Every track is rigorously tested for safety, evenness, and performance, so athletes can train and compete with confidence.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="types" class="section">
+  <h2>Track Types We Offer</h2>
+  <div class="surface-grid">
+    <div class="surface">
+      <strong>Indoor Tracks</strong><br>
+      Perfect for all-weather training and competitions, with surfaces designed for speed and safety.
+    </div>
+    <div class="surface">
+      <strong>Outdoor Tracks</strong><br>
+      Durable tracks built to withstand sun, rain, and heavy use, ideal for schools, clubs, and stadiums.
+    </div>
+    <div class="surface">
+      <strong>Artificial Tracks</strong><br>
+      Low-maintenance, long-lasting surfaces that provide consistent performance for athletes of all levels.
+    </div>
+    <div class="surface">
+      <strong>Grass Tracks</strong><br>
+      Natural surfaces that are gentle on joints, perfect for school sports and community fields.
+    </div>
+    <div class="surface">
+      <strong>Synthetic Tracks</strong><br>
+      Professional-grade polyurethane or rubber surfaces designed for competitions and high-speed performance.
+    </div>
+  </div>
+</section>
+
+
+<section id="gallery" class="section">
+  <h2>Our Work</h2>
+  <div class="gallery">
+    <img src="https://tse3.mm.bing.net/th/id/OIP.Z4IPnsoXX1wuVWsx7fxC0gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3">
+    <img src="https://en.reformsports.com/oxegrebi/2020/10/atletizm-pisti-rs-4-600x450.jpg">
+    <img src="https://th.bing.com/th/id/OIP.nL6pL--uEq3yAENHnOrKEgHaFj?w=254&h=191&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+    <img src="https://th.bing.com/th/id/OIP.uJhX4ay7XRMIWViUDM_-5wHaE7?w=292&h=195&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Why Maidhan</h2>
+  <div class="why">
+    <div class="why-card"><h3>Competition Ready</h3><p>Meets international standards.</p></div>
+    <div class="why-card"><h3>Durable</h3><p>Long life surfaces.</p></div>
+    <div class="why-card"><h3>Maintenance</h3><p>End-to-end support.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Get a Quote</h2>
+  <div class="contact">
+    <div class="contact-info">
+      <h3>Let’s Build Your Track</h3>
+      <p>Share your requirements and timeline.</p>
+    </div>
+     <section class="mh-cta-wrap" id="contact">
+  <div class="mh-cta-box">
+    <div class="mh-cta-main">
+      <span class="mh-cta-badge">Step into a field of possibilities</span>
+      <h3 class="mh-cta-title">Let’s build your next sporting facility</h3>
+      <p class="mh-cta-text">
+        Tell us about your site, sport, and timeline. We’ll propose the right spec and get you a detailed estimate.
+      </p>
+      <div class="mh-cta-actions">
+        <a class="mh-btn mh-btn-primary" href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a class="mh-btn mh-btn-outline" href="tel:+917702245549">+91-7702245549</a>
+      </div>
+    </div>
+
+    <div class="mh-cta-side">
+      <div class="mh-cta-card">
+        <h4 class="mh-cta-card-title">Visit Us</h4>
+        <p class="mh-cta-muted">
+          1-33-116, RTC Colony, Tirumalagiri, Secunderabad
+        </p>
+        <a class="mh-btn mh-btn-outline"
+           target="_blank"
+           rel="noopener"
+           href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">
+          View on Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</section>
+
+<footer>© 2025 Maidhan — Sports Infrastructure</footer>
+
+<script>
+const btn=document.getElementById("menuBtn");
+const nav=document.getElementById("navLinks");
+btn.onclick=()=>nav.classList.toggle("open");
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Athletic Tracks | Maidhan — Sports Infra</title>
@@ -380,7 +1005,7 @@ header.site-header {
     });
   </script>
 </body>
-</html>
+</html> -->
 
 
 <!-- <!doctype html>
