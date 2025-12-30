@@ -271,9 +271,29 @@ height: 10%;
 }
 
     /* TESTIMONIALS */
-    .testimonial{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.1rem}
-    .avatar{width:100%;height:120px;border-radius:12px;object-fit:cover}
-    .quote{font-size:1rem;color:var(--ink)}
+.testimonial {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  align-items: center; /* centers avatar + text vertically */
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem;
+}
+
+.avatar {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.quote {
+  font-size: 1rem;
+  color: var(--ink);
+}
+
 
     /* SURFACES */
     .chips{display:flex;flex-wrap:wrap;gap:.6rem}
@@ -294,22 +314,27 @@ height: 10%;
     @media (max-width: 920px){.foot-grid{grid-template-columns:1fr}}
 
 
-    .slider {
+ .slider {
   position: relative;
   width: 100%;
   max-width: 900px;
-  height: 250px;
+  height: 300px;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .slider {
+    height: 400px;
+  }
 }
 
 .slide {
   position: absolute;
   width: 100%;
   height: 100%;
-  justify-items: center;
-  align-items: start;
-  
   display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
@@ -317,6 +342,7 @@ height: 10%;
 .slide.active {
   opacity: 1;
 }
+
 
 
 
@@ -753,7 +779,7 @@ height: 10%;
             stunning and performs flawlessly.
         </p>
 
-        <a href="badminton_court.html" class="view-btn">View Color Options</a>
+        <a href="badminton_custom_court.html" class="view-btn">View Color Options</a>
     </div>
 
 </div>
@@ -849,7 +875,7 @@ height: 10%;
     </div>
   </section>
  <section id="testimonials">
-    <div class="container slider">
+    <div class=" container slider">
       <div class="section-head">
         <h3 class="section-title">Our Happy Customers</h3>
       </div>
