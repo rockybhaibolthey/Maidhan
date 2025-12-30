@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pickleball Court Color Picker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --court-color: hsl(120, 40%, 35%);
+  --wrapper-color: hsl(120, 50%, 45%);
+  --border-color: #ffffff;
+  --line-width: 3px;
+}
+
+/* ====== General Styles ====== */
+body {
+  margin: 0;
+  background: #fff;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ====== AppBar / Header ====== */
+html, body {
+  overflow-x: hidden;
+}
+@media (max-width: 600px) {
+  .court-wrapper {
+    padding: 16px;
+  }
+}
+.color-slider-container {
+  padding: 0 10px;
+}
+
+input[type="range"] {
+  max-width: 100%;
+}
+
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+@media (max-width: 480px) {
+  .court {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+/* ====== Main Content ====== */
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 90%;
+}
+ header.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand-logo{width:90px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand-900),var(--brand-500));box-shadow:inset 0 0 0 2px #fff}
+    
+h2 {
+  margin: 16px 0 8px;
+  color: #000;
+  text-align: center;
+}
+
+/* ====== Description ====== */
+.description {
+  text-align: center;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+/* ====== Court Styles ====== */
+.court-wrapper {
+  padding: clamp(20px, 6vw, 80px);
+  border: 6px solid var(--border-color);
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  background: var(--wrapper-color);
+  margin: 0 auto 30px;
+}
+
+.court {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: var(--court-color);
+  border: var(--line-width) solid #fff;
+  box-sizing: border-box;
+}
+
+.line {
+  position: absolute;
+  background: #fff;
+}
+
+/* Net */
+.net {
+  width: var(--line-width);
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* Kitchen */
+.kitchen-left,
+.kitchen-right {
+  width: var(--line-width);
+  height: 100%;
+}
+
+.kitchen-left { left: 35%; }
+.kitchen-right { right: 35%; }
+
+/* Service lines */
+.service-left,
+.service-right {
+  height: var(--line-width);
+  width: 35%;
+}
+
+.service-left {
+  top: 50%;
+  left: 0;
+}
+
+.service-right {
+  top: 50%;
+  right: 0;
+}
+
+/* ====== Sliders ====== */
+.color-slider-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto 30px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    red,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    magenta,
+    red
+  );
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #000;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #000;
+}
+
+
+  
+footer {
+    padding: 2.5rem 0 2rem;
+    border-top: 1px solid #e9eef3;
+    background: #fff;
+    color: #000; /* default text color black */
+}
+
+.foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.foot h5 {
+    font: 700 1rem Poppins, Inter, sans-serif;
+    margin: 0.3rem 0 0.6rem;
+    color: #000; /* heading text black */
+}
+
+.foot a {
+    display: block;
+    color: #000; /* link text black */
+    padding: 0.25rem 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.foot a:hover {
+    color: #1e40af; /* keep hover color for contrast */
+}
+
+.copy {
+    margin-top: 1.2rem;
+    color: #000; /* copyright text black */
+    font-size: 0.9rem;
+}
+
+/* Responsive layout and padding */
+@media (max-width: 920px) {
+    .foot-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* slightly bigger gap for stacked items */
+    }
+
+    footer {
+        padding: 2.5rem 1.5rem 2rem; /* reduced horizontal padding on small screens */
+    }
+}
+
+
+ .subtext {
+  text-align: center;
+  color: #000000;
+  font-size: clamp(14px, 1.5vw, 16px);
+  margin-top: -10px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.txt {
+  margin-top: 10px;
+  color: #000000;
+}
+</style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav" role="navigation" aria-label="Main Navigation">
+      <a class="brand" href="#home">
+        <!-- <span class="brand-logo" aria-hidden="true"></span> -->
+       <img src="Logo1.png" alt="Maidhan Logo" class = "brand-logo">
+
+      </a>
+
+    
+    </div>
+  </header>
+
+<!-- Main Content -->
+<main>
+  <!-- <div class="description">
+    Welcome! 🎨 Here you can choose any color you like for the pickleball court and the surrounding area.  
+    Use the sliders below to customize your court and see the changes instantly.
+  </div> -->
+
+<h3 style="color: #000; text-align: center;">Select Outer Area Color</h3>
+
+  <div class="color-slider-container">
+    <input type="range" min="0" max="360" value="120" id="wrapperSlider">
+  </div>
+
+<h3 style="color: #000; text-align: center;">Select Court Color</h3>
+
+  <div class="color-slider-container">
+    <input type="range" min="0" max="360" value="120" id="courtSlider">
+  </div>
+
+  <div class="court-wrapper" id="courtWrapper">
+    <div class="court" id="court">
+      <div class="line net"></div>
+      <div class="line kitchen-left"></div>
+      <div class="line kitchen-right"></div>
+      <div class="line service-left"></div>
+      <div class="line service-right"></div>
+    </div>
+  </div>
+  <h3 style="color: #000000; font-family: Arial, sans-serif; font-weight: 600; margin: 0; text-align: center;">
+  Pickleball Court
+</h3>
+  <h3 class="txt">Choose from a wide range of professional-grade color finishes to match your facility's branding and performance needs.</h3>
+<p class="subtext">Not limited to these options — we can match any specific color requirement to suit your unique court design preferences.</p>
+
+</main>
+
+<!-- Footer -->
+ <footer>
+    <div class="container foot-grid">
+      <div class="foot">
+        <h5>Maidhan</h5>
+        <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
+      </div>
+      <div class="foot">
+        <h5>Explore</h5>
+        <a href="index.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+     
+      </div>
+      <div class="foot">
+        <h5>Connect</h5>
+        <a href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a href="tel:+917702245549">+91-7702245549</a>
+      
+        <div class="copy">© 2025 Maidhan. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+const wrapperSlider = document.getElementById("wrapperSlider");
+const courtSlider = document.getElementById("courtSlider");
+
+/* Outer area color */
+wrapperSlider.addEventListener("input", () => {
+  document.documentElement.style.setProperty(
+    "--wrapper-color",
+    `hsl(${wrapperSlider.value}, 60%, 45%)`
+  );
+});
+
+/* Court color */
+courtSlider.addEventListener("input", () => {
+  document.documentElement.style.setProperty(
+    "--court-color",
+    `hsl(${courtSlider.value}, 50%, 40%)`
+  );
+});
+</script>
+
+</body>
+</html>
