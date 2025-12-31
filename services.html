@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maidhan | Projects</title>
+  <title>Maidaan | Projects</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-RXf+QSDCUQs6DhD/qPLUAYA9YVAXgFyv1I3VzvbYOPxfN3E3xaQa58ae0q/QAdctesziqGlUZzHZ37mxvGU5EA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      referrerpolicy="no-referrer">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
 
@@ -183,6 +186,75 @@ header{
     opacity:1;
     transform:translateY(0)
   }
+
+  
+        .contact-container {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000;
+    }
+
+    /* Main button */
+    .contact-btn {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #0b3b4a, #135b6e);
+        border-radius: 50%;
+        color: white;
+        font-size: 26px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .contact-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* Icon list */
+    .contact-options {
+        position: absolute;
+        bottom: 75px;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .contact-options.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    /* Individual icon buttons */
+    .contact-options a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 22px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        transition: transform 0.2s ease;
+        text-decoration: none;
+    }
+
+    .contact-options a:hover {
+        transform: scale(1.1);
+    }
+
+    .mail { background: #e74c3c; }
+    .whatsapp { background: #25D366; }
+    .call { background: #3498db; }
 </style>
 
 </head>
@@ -196,7 +268,7 @@ header{
 
   <section class="hero">
     <h2>We do all kinds of sports infra</h2>
-    <p>From world-class football turfs to indoor badminton courts, Maidhan builds infrastructure for every game.</p>
+    <p>From world-class football turfs to indoor badminton courts, Maidaan builds infrastructure for every game.</p>
   </section>
 
   <section class="grid">
@@ -309,10 +381,33 @@ header{
 
   </section>
 
+<div class="contact-container">
+    <div class="contact-options" id="contactOptions">
+        <!-- Email link -->
+        <a class="mail" href="mailto:Naresh@maidaansportsinfra.com">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <!-- WhatsApp link -->
+        <a class="whatsapp" href="https://wa.me/917702245549" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <!-- Phone call link -->
+        <a class="call" href="tel:+917702245549">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <button class="contact-btn" onclick="toggleContacts()">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+</div>
+
 <footer>
     <div class="container foot-grid">
       <div class="foot">
-        <h5>Maidhan</h5>
+        <h5>Maidaan</h5>
         <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
       </div>
       <div class="foot">
@@ -324,14 +419,18 @@ header{
       </div>
       <div class="foot">
         <h5>Connect</h5>
-        <a href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a href="mailto:Naresh@maidaansportsinfra.com">Naresh@maidaansportsinfra.com</a>
         <a href="tel:+917702245549">+91-7702245549</a>
-        <div class="copy">© 2025 Maidhan. All rights reserved.</div>
+        <div class="copy">© 2025 Maidaan. All rights reserved.</div>
       </div>
     </div>
   </footer>
 
   <script>
+     function toggleContacts() {
+        document.getElementById("contactOptions").classList.toggle("show");
+    }
+
     // Reveal on scroll
     const cards = document.querySelectorAll('.card');
     const observer = new IntersectionObserver(entries=>{
