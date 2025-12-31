@@ -62,10 +62,20 @@ main {
   margin: 0 auto;
   width: 90%;
 }
- header.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
-    .brand{display:flex;align-items:center;gap:.75rem}
-    .brand-logo{width:90px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand-900),var(--brand-500));box-shadow:inset 0 0 0 2px #fff}
+.brand-logo{
+  width:120px;
+  height:40px;
+  border-radius:6px;
+  background:transparent;
+  box-shadow:none;
+  opacity:0.85;
+  transition:opacity 0.3s ease;
+}
+
+.brand-logo:hover{
+  opacity:1;
+}
+  header.site-header{position:sticky; padding:0.5rem 1rem;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
     
 h2 {
   margin: 16px 0 8px;
@@ -255,15 +265,11 @@ footer {
 <body>
 
   <header class="site-header">
-    <div class="container nav" role="navigation" aria-label="Main Navigation">
-      <a class="brand" href="#home">
+    
         <!-- <span class="brand-logo" aria-hidden="true"></span> -->
        <img src="Logo1.png" alt="Maidhan Logo" class = "brand-logo">
 
-      </a>
-
     
-    </div>
   </header>
 
 <!-- Main Content -->
@@ -306,7 +312,7 @@ footer {
  <footer>
     <div class="container foot-grid">
       <div class="foot">
-        <h5>Maidhan</h5>
+        <h5>Maidaan</h5>
         <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
       </div>
       <div class="foot">
@@ -318,10 +324,10 @@ footer {
       </div>
       <div class="foot">
         <h5>Connect</h5>
-        <a href="mailto:infra@maidhan.com">infra@maidhan.com</a>
+        <a href="mailto:Naresh@maidaansportsinfra.com">Naresh@maidaansportsinfra.com</a>
         <a href="tel:+917702245549">+91-7702245549</a>
       
-        <div class="copy">© 2025 Maidhan. All rights reserved.</div>
+        <div class="copy">© 2025 Maidaan. All rights reserved.</div>
       </div>
     </div>
   </footer>
