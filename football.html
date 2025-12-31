@@ -72,12 +72,18 @@ header.site-header {
   text-decoration: none;
 }
 
-.brand-logo {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: inset 0 0 0 2px #fff;
+.brand-logo{
+  width:120px;
+  height:40px;
+  border-radius:6px;
+  background:transparent;
+  box-shadow:none;
+  opacity:0.85;
+  transition:opacity 0.3s ease;
+}
+
+.brand-logo:hover{
+  opacity:1;
 }
 
 
@@ -267,20 +273,13 @@ header.site-header {
 <body>
 <header class="site-header">
   <div class="nav">
-    <div class="brand">
+  
       <a href="#home">
         <img src="Logo1.png" alt="Maidhan Logo" class="brand-logo" />
       </a>
-    </div>
+  
 
-    <div class="nav-links" id="mobile-menu">
-      <a href="#services">Services</a>
-      <a href="#process">How we build</a>
-      <a href="#gallery">Gallery</a>
-      <a class="cta" href="#contact">Get a quote</a>
-    </div>
-
-    <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle">☰</button>
+   
   </div>
 </header>
 
@@ -1327,5 +1326,4 @@ btn && btn.addEventListener('click', () => {
   </script>
 </body>
 </html> -->
-
 
