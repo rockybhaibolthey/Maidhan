@@ -1,197 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maidhan | Projects</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-RXf+QSDCUQs6DhD/qPLUAYA9YVAXgFyv1I3VzvbYOPxfN3E3xaQa58ae0q/QAdctesziqGlUZzHZ37mxvGU5EA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Outfit',sans-serif;background:#0a0a0f;color:#fff;line-height:1.6}
-    a{text-decoration:none;color:inherit}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maidaan Recent Work</title>
 
-    /* HEADER */
-    header{padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#0a0a0f;position:sticky;top:0;z-index:100}
-    header h1{font-weight:700;font-size:1.5rem;background:linear-gradient(90deg,#00c6ff,#0072ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+<style>
+ .face {
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Inter, Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #111827;
+    line-height: 1.5;
+}
+
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: normal;
     }
 
-    .edit-icon {
-      color: #999;
-      font-size: 1rem;
-      transition: color 0.3s ease;
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
     }
 
-    .edit-icon:hover {
-      color: #fff;
-      cursor: pointer;
+    .card {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
     }
 
-    /* HERO */
-    .hero{padding:6rem 2rem;text-align:center;max-width:900px;margin:auto}
-    .hero h2{font-size:3rem;font-weight:700;background:linear-gradient(90deg,#ff6ec4,#7873f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem}
-    .hero p{color:#ccc;font-size:1.1rem}
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+    }
 
-    /* GRID */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;padding:4rem 2rem;max-width:1200px;margin:auto}
-    .card{position:relative;overflow:hidden;border-radius:1.5rem;background:#1a1a22;box-shadow:0 8px 20px rgba(0,0,0,.4);transform:translateY(30px);opacity:0;transition:all .6s ease-out}
-    .card img{width:100%;height:240px;object-fit:cover;transition:transform .6s ease}
-    .card:hover img{transform:scale(1.08)}
-    .card-content{padding:1.5rem}
-    .card-content h3{margin-bottom:.5rem;font-size:1.3rem}
-    .card-content p{color:#bbb;font-size:.95rem}
+    .card-content {
+        padding: 12px;
+    }
 
-    /* ANIMATIONS */
-    .show{opacity:1;transform:translateY(0)}
+    .court-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
 
-    /* FOOTER */
-    footer{padding:2rem;text-align:center;background:#0a0a0f;color:#666;font-size:.9rem}
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Maidhan</h1>
-    <nav>
-      <a href="index.html">Home</a>
-    </nav>
-  </header>
+    .place-name {
+        font-size: 14px;
+        color: #333;
+    }
 
-  <section class="hero">
-    <h2>We do all kinds of sports infra</h2>
-    <p>From world-class football turfs to indoor badminton courts, Maidhan builds infrastructure for every game.</p>
-  </section>
+    .city-name {
+        font-size: 13px;
+        color: #666;
+    }
 
-  <section class="grid">
-    <!-- Existing ones -->
-    <a href="football.html" style="text-decoration: none; color: inherit;">
-      <div class="card">
-        <img src="https://www.tualatinfarmersmarket.com/wp-content/uploads/2023/02/footbal-pitch-la-gi-3.jpg" alt="Football Turf">
-        <div class="card-content">
-          <h3>Football Turfs</h3>
-          <p>FIFA-spec artificial grass installations for pro-level play.</p>
-        </div>
-      </div>
-    </a>
-
-    <!-- Badminton Court -->
-    <a href="badminton.html" style="text-decoration: none; color: inherit;">
-  <div class="card">
-  <img src="https://tennex.in/cdn/shop/articles/Badminton_Court_Tennex.png?v=1688638217&width=1000" alt="Badminton Court">
-  <div class="card-content">
-    <h3>Badminton Courts</h3>
-    <p>Indoor courts with certified wooden & synthetic surfaces.</p>
-  </div>
-</div>
-  </a>
-   
-
-    <!-- Tennis Court -->
-      <!-- <a href="badminton.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://alchetron.com/cdn/tennis-court-3d23e3aa-e974-4595-8981-da1c2b0f93e-resize-750.jpg" alt="Tennis Court">
-      <div class="card-content">
-        <div class="card-header">
-          <h3>Tennis Courts</h3>
-          <a href="court_ui.html" class="edit-icon" title="Edit">
-            <i class="fas fa-pen"></i> Edit
-          </a>
-        </div>
-        <p>Clay, hard, or synthetic surfaces built to ITF standards.</p>
-      </div>
-    </div>
-         
-         </a> -->
- <a href="tennis.html" style="text-decoration: none; color: inherit;">
-  <div class="card">
-    <img src="https://alchetron.com/cdn/tennis-court-3d23e3aa-e974-4595-8981-da1c2b0f93e-resize-750.jpg" alt="Tennis Court">
-    <div class="card-content">
-      <h3>Tennis Courts</h3>
-      <p>Clay, hard, or synthetic surfaces built to ITF standards.</p>
-    </div>
-  </div>
-</a>
-
-        <a href="athletic_track.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://sportsandsafetysurfaces.co.uk/wp-content/uploads/2015/01/Victoria-Park-Warrington-018.jpg" alt="Athletic Track">
-      <div class="card-content">
-        <h3>Athletic Tracks</h3>
-        <p>IAAF-standard synthetic running tracks for training & events.</p>
-      </div>
-    </div>
-           </a>
-             <a href="cricket_ground.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://t3.ftcdn.net/jpg/02/66/06/18/360_F_266061854_ELjfKSRqdoyhmc9D2WHMZfHCEVvBbMef.jpg" alt="Cricket Pitch">
-      <div class="card-content">
-        <h3>Cricket Nets & Pitches</h3>
-        <p>Practice nets & turf pitches for grassroots to pro cricket.</p>
-      </div>
-    </div>
-                </a>
-
-    <!-- New ones added -->
-                  <a href="volleyball.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://pmfloor.com/wp-content/uploads/2023/07/China-PVC-Volleyball-Court-Floor-2.jpg" alt="Volleyball Court">
-      <div class="card-content">
-        <h3>Volleyball Courts</h3>
-        <p>Outdoor/indoor volleyball courts with proper nets and lighting.</p>
-      </div>
-    </div>
-                     </a>
-
-                       <a href="hockey.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://th.bing.com/th/id/R.db948c9fddccfe4b56c0535afa633bb3?rik=LZQ0rwGJnjJnsA&riu=http%3a%2f%2fcdn.sqhk.co%2fsportcourtcfl%2f2015%2f10%2fgjfPib1%2frh6100.jpg&ehk=CnN1TnqMS2tex7dKSMLVolidKroYZP7miQTh0fdKiBo%3d&risl=&pid=ImgRaw&r=0" alt="Field Hockey">
-      <div class="card-content">
-        <h3>Hockey Fields</h3>
-        <p>Field hockey pitches with synthetic turf surfaces.</p>
-      </div>
-    </div>
- </a>
-                            <a href="indoor_gym.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://www.alphafit.com.au/assets/webshop/cms/20/1220.jpg?1712900006" alt="Indoor Gym">
-      <div class="card-content">
-        <h3>Indoor Gym & Stadiums</h3>
-        <p>Multipurpose indoor arenas equipped for basketball, badminton, events.</p>
-      </div>
-    </div>
-                               </a>
-   <a href="athletic_track.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-      <img src="https://tse4.mm.bing.net/th/id/OIP.O5hD1kJ6ucBFTaLB9AhBHAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3&" alt="Track & Field">
-      <div class="card-content">
-        <h3>Athletics & Track Events</h3>
-        <p>Standard tracks, long jump, high jump, shot put and other field events.</p>
-      </div>
-    </div>
-      </a>
-
-  </section>
-
-  <footer>
-    © 2025 Maidhan. All rights reserved.
-  </footer>
-
-  <script>
-    // Reveal on scroll
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
         }
-      })
-    },{threshold:.2});
-    cards.forEach(c=>observer.observe(c));
-  </script>
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    .brand-logo{
+  width:120px;
+  height:40px;
+  border-radius:6px;
+  background:transparent;
+  box-shadow:none;
+  opacity:0.85;
+  transition:opacity 0.3s ease;
+}
+
+.brand-logo:hover{
+  opacity:1;
+}
+  header.site-header{position:sticky; padding:0.5rem 1rem;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
+    
+
+    
+
+footer {
+    padding: 2.5rem 0 2rem;
+    border-top: 1px solid #e9eef3;
+    background: #fff;
+}
+
+.foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.foot h5 {
+    font: 700 1rem Poppins, Inter, sans-serif;
+    margin: 0.3rem 0 0.6rem;
+}
+
+.foot a {
+    display: block;
+    color: var(--muted, #6b7280); /* fallback if --muted is not defined */
+    padding: 0.25rem 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.foot a:hover {
+    color: #1e40af;
+}
+
+.copy {
+    margin-top: 1.2rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Responsive layout and padding */
+@media (max-width: 920px) {
+    .foot-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;          /* optional: slightly bigger gap for stacked items */
+    }
+
+    footer {
+        padding: 2.5rem 1.5rem 2rem; /* reduced horizontal padding for small screens */
+    }
+}
+</style>
+</head>
+
+<body>
+<header class="site-header"> 
+ 
+  
+      <img src="Logo1.png" alt="Logo" class="brand-logo">
+  
+
+    <!-- <button class="menu-btn"  id="menuBtn">☰</button> -->
+
+</header>
+<div class="face">
+<h2>Maidaan's Recent Work</h2>
+
+<div class="grid" id="courtGrid"></div>
+</div>
+
+
+<footer>
+    <div class="container foot-grid">
+      <div class="foot">
+        <h5>Maidaan</h5>
+        <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
+      </div>
+      <div class="foot">
+        <h5>Explore</h5>
+        <a href="index.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+       
+      </div>
+      <div class="foot">
+        <h5>Connect</h5>
+        <a href="mailto:Naresh@maidaansportsinfra.com">Naresh@maidaansportsinfra.com</a>
+        <a href="tel:+917702245549">+91-7702245549</a>
+     
+        <div class="copy">© 2025 Maidaan. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+<script>
+const courts = [
+    { type: "Pickleball Court", place: "Greenfield Sports Complex", city: "Bengaluru", image: "https://th.bing.com/th/id/OIP.oqPSwP6aubbJ1q3TBBxZTAHaEH?w=329&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Tennis Court", place: "Elite Tennis Academy", city: "Chennai", image: "https://th.bing.com/th/id/OIP.Crh-ToIzczDMe5bcH4sMBAHaE8?w=235&h=150&c=6&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Basketball Court", place: "Downtown Sports Arena", city: "Ahmedabad", image: "https://th.bing.com/th/id/OIP.U8LbVgeL6qtHbujBdifcDgHaFj?w=186&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Volleyball Court", place: "Sunrise Recreation Centre", city: "Hyderabad", image: "https://th.bing.com/th/id/OIP.tyqm0HwmB_hZpKEb2gqr3AHaFj?w=176&h=150&c=6&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Badminton Court", place: "Lakeside Indoor Stadium", city: "Hyderabad", image: "https://tse4.mm.bing.net/th/id/OIP.CM4Ssomm8TLLXtYRPXFkfQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3" },
+
+    { type: "Indoor Gym Interior", place: "City Fitness Hub", city: "Delhi", image: "https://th.bing.com/th/id/OIP.ta2pzwEh61Xrxl8_AzT2VwHaE8?w=361&h=197&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Box Cricket Arena", place: "PowerPlay Sports Zone", city: "Ahmedabad", image: "https://th.bing.com/th/id/OIP.21mqi21vXRpODyCJ8DeyRgHaDt?w=350&h=175&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Pickleball Court", place: "Metro Sports Centre", city: "Gurugram", image: "https://th.bing.com/th/id/OIP.hGNtPi6334AK9R5FxINRKwHaFj?w=244&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Tennis Court", place: "Royal Tennis Club", city: "Kolkata", image: "https://th.bing.com/th/id/OIP.mOcXy5jwlpgTBTjjIUjKlQHaE7?w=233&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Basketball Court", place: "Northside Indoor Arena", city: "Noida", image: "https://th.bing.com/th/id/OIP.e_9RdPRJM1f1bvPF5c4TpgHaFj?w=246&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+
+    { type: "Cricket Ground", place: "Hilltop Cricket Ground", city: "Vijayawada", image: "https://th.bing.com/th/id/OIP.qrIp2kEGdinKsmV5_kkLOgAAAA?w=201&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Football Ground", place: "Palm Sports Complex", city: "Kochi", image: "https://tse4.mm.bing.net/th/id/OIP.QIgwkV6hlaAYJvZ4aIN1PgHaES?pid=ImgDet&w=184&h=106&c=7&dpr=1.3&o=7&rm=3" },
+    { type: "Badminton Court", place: "Urban Smash Arena", city: "Surat", image: "https://tse2.mm.bing.net/th/id/OIP.SD78OYaBp14QKM4fWNksoQHaFj?pid=ImgDet&w=184&h=138&c=7&dpr=1.3&o=7&rm=3" },
+    { type: "Pickleball Court", place: "Riverfront Sports Facility", city: "Hyderabad", image: "https://th.bing.com/th/id/OIP.inPHDBCNdCNv4X3aZ7BGnQHaFj?w=244&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+
+    { type: "Tennis Court", place: "Grand Slam Sports Club", city: "Hyderabad", image: "https://th.bing.com/th/id/OIP.wJmgX-Lqqv5_I2Hm8BrN_QHaDt?w=347&h=174&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Volleyball Court", place: "Skyline Sports Arena", city: "Vijayawada", image: "https://tse3.mm.bing.net/th/id/OIP.bswZQtCqnXk2zhssr1clWAHaHa?pid=ImgDet&w=184&h=184&c=7&dpr=1.3&o=7&rm=3" },
+    { type: "Indoor Gym Interior", place: "Ace Fitness Centre", city: "Coimbatore", image: "https://th.bing.com/th/id/OIP.gwOXIbQiJr65x-6KyIJfCAHaEJ?w=279&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Basketball Court", place: "West End Sports Courts", city: "Hyderabad", image: "https://th.bing.com/th/id/OIP.sScyQbEQLQiARcigsQyPUgHaEK?w=326&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+    { type: "Football Ground", place: "Community Sports Park", city: "Ahmedabad", image: "https://img.freepik.com/premium-photo/aerial-view-lush-green-football-field-which-appears-wellmaintained-ideal-athletic-competition_213438-7694.jpg" }
+];
+
+
+    const grid = document.getElementById("courtGrid");
+
+    courts.forEach(court => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <img src="${court.image}" alt="${court.type}">
+            <div class="card-content">
+                <div class="court-name">${court.type}</div>
+                <div class="place-name">${court.place}</div>
+                <div class="city-name">${court.city}</div>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+</script>
+
 </body>
 </html>
