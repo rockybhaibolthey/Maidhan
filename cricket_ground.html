@@ -246,7 +246,21 @@
 
 
 
+.brand-logo{
+  width:120px;
+  height:40px;
+  border-radius:6px;
+  background:transparent;
+  box-shadow:none;
+  opacity:0.85;
+  transition:opacity 0.3s ease;
+}
 
+.brand-logo:hover{
+  opacity:1;
+}
+  header.site-header{position:sticky; padding:0.5rem 1rem;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
+ 
 
 
 
@@ -255,21 +269,13 @@
   </style>
 </head>
 <body>
-  <header>
-     <a class="brand" href="#home">
+  <header class="site-header">
+     
         <!-- <span class="brand-logo" aria-hidden="true"></span> -->
-       <img src="Logo1.png" alt="Maidhan Logo" class = "logo">
+       <img src="Logo1.png" alt="Maidhan Logo" class = "brand-logo">
 
-      </a>
+     
 
-    <nav aria-label="Primary Navigation">
-      <a href="#how">How we build</a>
-      <a href="#types">Pitch & Net types</a>
-      <a href="#gallery">Gallery</a>
-      <a class="cta" href="#contact">Get a quote</a>
-    </nav>
-
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" id="menuToggle">☰</button>
   </header>
 
   <main>
