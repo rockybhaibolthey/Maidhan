@@ -445,7 +445,21 @@ footer{
     font-size: 1.6rem;
   }
 }
+.brand-logo{
+  width:120px;
+  height:40px;
+  border-radius:6px;
+  background:transparent;
+  box-shadow:none;
+  opacity:0.85;
+  transition:opacity 0.3s ease;
+}
 
+.brand-logo:hover{
+  opacity:1;
+}
+  header.site-header{position:sticky; padding:0.5rem 1rem;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
+    
 
 </style>
 </head>
@@ -464,30 +478,14 @@ footer{
     </div>
   </div>
 </header>-->
-<header> 
-  <nav class="nav">
-    <a class="brand" href="/">
-      <img src="Logo1.png" alt="Logo">
-    </a>
+<header class="site-header"> 
+ 
+  
+      <img src="Logo1.png" alt="Logo" class="brand-logo">
+  
 
     <!-- <button class="menu-btn"  id="menuBtn">☰</button> -->
-<div class="menu-icon" id="menuBtn" aria-label="Menu" role="button">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M3 6h18M3 12h18M3 18h18"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"/>
-  </svg>
-</div>
 
-   
-  </nav>
-   <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-    
-      <a href="#contact" class="cta">Contact</a>
-    </div>
 </header>
 
 <section class="hero">
