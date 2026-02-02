@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Build Courts</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #111;
+  }
+
+  .hero {
+    position: relative;
+    height: 70vh;
+    min-height: 60vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+
+  /* Two layers for smooth cross-fade */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1.2s ease-in-out;
+  }
+
+  .bg.top {
+    opacity: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+  }
+
+  .text-content {
+    position: relative;
+    z-index: 2;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 90%;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+  }
+
+  .constant {
+    display: block;
+    opacity: 0.9;
+    margin-bottom: 8px;
+  }
+
+  .changing {
+    display: block;
+    color: #00ffcc;
+    animation: fadeText 1s ease;
+  }
+
+  @keyframes fadeText {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .hero { height: 55vh; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="bg bottom" id="bg1"></div>
+  <div class="bg top" id="bg2"></div>
+  <div class="overlay"></div>
+
+  <div class="text-content">
+    <span class="constant">We Build</span>
+    <span class="changing" id="courtText">Tennis Court</span>
+  </div>
+</div>
+
+<script>
+  const courts = [
+    {
+      name: "Tennis Court",
+      image: "https://images.unsplash.com/photo-1635089877059-500eb3720c61?w=1600"
+    },
+    {
+      name: "Cricket Ground",
+      image: "https://images.unsplash.com/photo-1702957317929-cd95c4fefbb9?w=1600"
+    },
+    {
+      name: "Badminton Court",
+      image: "https://images.unsplash.com/photo-1617696618050-b0fef0c666af?w=1600"
+    },
+    {
+      name: "Pickleball Court",
+      image: "https://plus.unsplash.com/premium_photo-1709932754766-92fb73829f76?w=1600"
+    },
+    {
+      name: "Football Ground",
+      image: "https://images.unsplash.com/photo-1652732876761-47eb529fa714?w=1600"
+    }
+  ];
+
+  const textEl = document.getElementById("courtText");
+  const bg1 = document.getElementById("bg1");
+  const bg2 = document.getElementById("bg2");
+
+  let index = 0;
+  let showTop = false;
+
+  /* 🔥 PRELOAD IMAGES */
+  const preloadImages = courts.map(court => {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.src = court.image;
+      img.onload = resolve;
+    });
+  });
+
+  Promise.all(preloadImages).then(startAnimation);
+
+  function startAnimation() {
+    bg1.style.backgroundImage = `url('${courts[0].image}')`;
+
+    setInterval(() => {
+      index = (index + 1) % courts.length;
+
+      const nextBg = showTop ? bg1 : bg2;
+      const currentBg = showTop ? bg2 : bg1;
+
+      nextBg.style.backgroundImage = `url('${courts[index].image}')`;
+      nextBg.style.opacity = 1;
+      currentBg.style.opacity = 0;
+
+      textEl.textContent = courts[index].name;
+      textEl.classList.remove("changing");
+      void textEl.offsetWidth;
+      textEl.classList.add("changing");
+
+      showTop = !showTop;
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
