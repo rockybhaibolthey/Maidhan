@@ -546,6 +546,46 @@ height: 10%;
 .brand-logo:hover{
   opacity:1;
 }
+
+
+
+   .floating-video {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+ 
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      z-index: 9999;
+    }
+
+    .floating-video video {
+      width: auto;
+      height: 250px;
+      display: block;
+    }
+
+    .floating-video .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 28px;
+      text-align: center;
+    }
+
+    .floating-video .close-btn:hover {
+      background: rgba(255, 0, 0, 0.8);
+    }
   </style>
 </head>
 <body>
@@ -933,6 +973,17 @@ height: 10%;
       </div>
     </div>
   </section>
+   <div class="floating-video" id="floatingVideo">
+    <button class="close-btn" onclick="closeVideo()">×</button>
+    <video
+      src="C:\Users\Mahesh\Downloads\overlay.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+    ></video>
+  </div>
   <!-- FOOTER -->
   <footer>
     <div class="container foot-grid">
@@ -957,6 +1008,9 @@ height: 10%;
 
   <script>
     // Mobile nav toggle
+     function closeVideo() {
+      document.getElementById('floatingVideo').style.display = 'none';
+    }
  function toggleContacts() {
         document.getElementById("contactOptions").classList.toggle("show");
     }
