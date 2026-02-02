@@ -240,7 +240,6 @@ body{
   gap:40px;
   align-items:center;
   justify-content:center;
-  max-width:1200px;
 }
 
 /* ================= COURT ================= */
@@ -291,33 +290,38 @@ body{
 }
 
 /* Tabs */
-.tabs{
-  position:absolute;
-  top:-18px;
-  left:16px;
-  display:flex;
-  gap:10px;
-}
+  .tabs {
+    position: absolute;
+    top: -18px;
+    left: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* allow wrap */
+   /* limit width to force wrap */
+  }
 
-.tab{
-  padding:6px 16px;
-  border:2px solid #000;
-  border-bottom:none;
-  border-radius:10px 10px 0 0;
-  background:#fff;
-  font-weight:500;
-}
+  .tab {
+    padding: 6px 16px;
+    border: 2px solid #000;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    background: #fff;
+    font-weight: 500;
+    white-space: nowrap; /* prevent tab text from breaking */
+  }
 
 .tab.active{color:#007bff}
 
 /* Sections */
 .section{
   margin-top:10px;
+  justify-content: center;
 }
 
 .section-title{
   font-size:18px;
   margin-bottom:10px;
+  margin-top: 40px;
 }
 
 /* Colors */
@@ -462,47 +466,51 @@ body{
   </div>
 
   <!-- CONTROLS -->
+
+    <div >
+          <div class="court-title" style="display: flex; justify-content: center;">Customize your court color</div>
   <div class="court-box">
 
- <div class="tabs">
-  <div class="tab active" data-src="tennis.png">Tennis</div>
-  <div class="tab" data-src="pickleball.png">Pickle Ball</div>
-  <div class="tab" data-src="basketball.png">Basketball</div>
-</div>
+      <div class="tabs">
+        <div class="tab active" data-src="tennis.png">Tennis</div>
+        <div class="tab" data-src="pickleball.png">Pickle Ball</div>
+        <div class="tab" data-src="basketball.png">Basketball</div>
+      </div>
 
-    <div class="court-title">Customize your court color</div>
 
     <!-- INSIDE -->
-    <div class="section">
-      <div class="section-title">Inside Color</div>
-      <div class="colors" data-type="inside">
-        <div class="color c1"></div>
-        <div class="color c2"></div>
-        <div class="color c3"></div>
-        <div class="color c4"></div>
-        <div class="color c5"></div>
-        <div class="color c6"></div>
-        <div class="color c7"></div>
-        <div class="color c8"></div>
-        <div class="color c9"></div>
-      </div>
-    </div>
+          <div class="section">
+            
+            <div class="section-title">Inside Color</div>
+            <div class="colors" data-type="inside">
+              <div class="color c1"></div>
+              <div class="color c2"></div>
+              <div class="color c3"></div>
+              <div class="color c4"></div>
+              <div class="color c5"></div>
+              <div class="color c6"></div>
+              <div class="color c7"></div>
+              <div class="color c8"></div>
+              <div class="color c9"></div>
+            </div>
+          </div>
 
-    <!-- OUTSIDE -->
-    <div class="section">
-      <div class="section-title">Outside Color</div>
-      <div class="colors" data-type="outside">
-        <div class="color c1"></div>
-        <div class="color c2"></div>
-        <div class="color c3"></div>
-        <div class="color c4"></div>
-        <div class="color c5"></div>
-        <div class="color c6"></div>
-        <div class="color c7"></div>
-        <div class="color c8"></div>
-        <div class="color c9"></div>
-      </div>
-    </div>
+          <!-- OUTSIDE -->
+          <div class="section">
+            <div class="section-title">Outside Color</div>
+            <div class="colors" data-type="outside">
+              <div class="color c1"></div>
+              <div class="color c2"></div>
+              <div class="color c3"></div>
+              <div class="color c4"></div>
+              <div class="color c5"></div>
+              <div class="color c6"></div>
+              <div class="color c7"></div>
+              <div class="color c8"></div>
+              <div class="color c9"></div>
+            </div>
+          </div>
+            </div>
 
   </div>
 
