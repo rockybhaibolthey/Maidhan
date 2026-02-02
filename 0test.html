@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>We Build Courts</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 <style>
   * {
     box-sizing: border-box;
@@ -12,9 +13,10 @@
 
   body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #111;
+   font-family: 'Poppins', sans-serif;
+    background: white;
   }
+
 
   .hero {
     position: relative;
@@ -77,6 +79,199 @@
   @media (max-width: 600px) {
     .hero { height: 55vh; }
   }
+
+
+
+
+
+
+
+
+
+
+  
+    /* GRID CONTAINER */
+    .courts-grid {
+      display: grid;
+      padding: 20px;
+      grid-template-columns: 1fr; /* mobile default */
+      gap: 16px;
+    }
+
+    /* TABLET */
+    @media (min-width: 600px) {
+      .courts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* LAPTOP / DESKTOP */
+    @media (min-width: 1024px) {
+      .courts-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* CARD */
+    .court-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .court-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    /* IMAGE */
+    .court-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* TEXT OVERLAY */
+    .court-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.2),
+        transparent
+      );
+      color: #fff;
+    }
+
+    .court-type {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .court-place {
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    .court-city {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+
+
+
+
+        /* CTA SECTION */
+    .build-cta {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 60px;
+      color: #fff;
+      background-image: url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGZvb3RiYWxsJTIwZmllbGR8ZW58MHx8MHx8fDA%3D");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    /* Dark overlay for readability */
+    .build-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    /* CONTENT */
+    .cta-content {
+      position: relative;
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .cta-content h1 {
+      font-size: 48px;
+      margin: 0 0 20px;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 0.9s ease forwards;
+    }
+
+    .cta-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 0 32px;
+      opacity: 0;
+      transform: translateX(60px);
+      animation: slideRight 0.9s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .cta-content a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 0.9s ease forwards;
+      animation-delay: 0.8s;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-content a:hover {
+      background: #43a047;
+      transform: translateX(0) scale(1.05);
+    }
+
+    /* ANIMATIONS */
+    @keyframes slideLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .build-cta {
+        padding: 40px 24px;
+        min-height: 60vh;
+      }
+
+      .cta-content h1 {
+        font-size: 36px;
+      }
+
+      .cta-content p {
+        font-size: 16px;
+      }
+    }
 </style>
 </head>
 
@@ -93,6 +288,17 @@
   </div>
 </div>
 
+
+<section class="build-cta">
+    <div class="cta-content">
+      <h1>Wanna Build?</h1>
+      <p>
+        From cricket nets to tennis courts — we bring your sports vision to life.
+      </p>
+      <a href="#">Start a Project</a>
+    </div>
+  </section>
+  <div class="courts-grid" id="courtsGrid"></div>
 <script>
   const courts = [
     {
@@ -156,6 +362,35 @@
       showTop = !showTop;
     }, 3000);
   }
+
+     const courts1 = [
+      { type: "Pickleball Court", place: "Greenfield Sports Complex", city: "Bengaluru", image: "https://th.bing.com/th/id/OIP.oqPSwP6aubbJ1q3TBBxZTAHaEH?w=329&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Tennis Court", place: "Elite Tennis Academy", city: "Chennai", image: "https://th.bing.com/th/id/OIP.Crh-ToIzczDMe5bcH4sMBAHaE8?w=235&h=150&c=6&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Basketball Court", place: "Downtown Sports Arena", city: "Ahmedabad", image: "https://th.bing.com/th/id/OIP.U8LbVgeL6qtHbujBdifcDgHaFj?w=186&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Volleyball Court", place: "Sunrise Recreation Centre", city: "Hyderabad", image: "https://th.bing.com/th/id/OIP.tyqm0HwmB_hZpKEb2gqr3AHaFj?w=176&h=150&c=6&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Badminton Court", place: "Lakeside Indoor Stadium", city: "Hyderabad", image: "https://tse4.mm.bing.net/th/id/OIP.CM4Ssomm8TLLXtYRPXFkfQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3" },
+      { type: "Indoor Gym Interior", place: "City Fitness Hub", city: "Delhi", image: "https://th.bing.com/th/id/OIP.ta2pzwEh61Xrxl8_AzT2VwHaE8?w=361&h=197&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Box Cricket Arena", place: "PowerPlay Sports Zone", city: "Ahmedabad", image: "https://th.bing.com/th/id/OIP.21mqi21vXRpODyCJ8DeyRgHaDt?w=350&h=175&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Football Ground", place: "Community Sports Park", city: "Ahmedabad", image: "https://img.freepik.com/premium-photo/aerial-view-lush-green-football-field-which-appears-wellmaintained-ideal-athletic-competition_213438-7694.jpg" }
+    ];
+
+    const grid = document.getElementById("courtsGrid");
+
+    courts1.forEach(court => {
+      const card = document.createElement("div");
+      card.className = "court-card";
+
+      card.innerHTML = `
+        <img src="${court.image}" alt="${court.type}">
+        <div class="court-info">
+          <div class="court-type">${court.type}</div>
+          <div class="court-place">${court.place}</div>
+          <div class="court-city">${court.city}</div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
 </script>
 
 </body>
