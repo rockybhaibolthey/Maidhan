@@ -242,7 +242,7 @@ body{
 }
 
 /* ================= COURT ================= */
-.container{
+.background{
   position:relative;
   width:100%;
   max-width:420px;
@@ -516,6 +516,54 @@ body{
         font-size: 24px;
       }
     }
+
+    
+    
+  footer{
+    padding:2.5rem 0 2rem;
+    border-top:1px solid #e5e5e5;
+    background:#ffffff;
+    color:#333
+  }
+
+  .foot-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:1rem;
+    max-width:1200px;
+    margin:auto;
+    padding:0 2rem
+  }
+
+  .foot h5{
+    font-weight:700;
+    margin:.3rem 0 .6rem;
+    color:#111
+  }
+
+  .foot a{
+    display:block;
+    color:#444;
+    padding:.25rem 0;
+    transition:color .3s ease
+  }
+
+  .foot a:hover{
+    color:#0072ff
+  }
+
+  .copy{
+    margin-top:1.2rem;
+    color:#777;
+    font-size:.9rem
+  }
+
+  @media(max-width:920px){
+    .foot-grid{
+      grid-template-columns:1fr;
+      gap:1.5rem
+    }
+  }
 </style>
 </head>
 
@@ -526,7 +574,7 @@ body{
 <div class="page-wrapper">
 
   <!-- COURT -->
-  <div class="container">
+  <div class="background">
     <div class="overlay">
   <img src="tennis.png" alt="Court Image" id="courtImage">
 
@@ -549,34 +597,35 @@ body{
     <!-- INSIDE -->
           <div class="section">
             
-            <div class="section-title">Inside Color</div>
-            <div class="colors" data-type="inside">
-              <div class="color c1"></div>
-              <div class="color c2"></div>
-              <div class="color c3"></div>
-              <div class="color c4"></div>
-              <div class="color c5"></div>
-              <div class="color c6"></div>
-              <div class="color c7"></div>
-              <div class="color c8"></div>
-              <div class="color c9"></div>
-            </div>
+            <div class="section-title" id="insideTitle">Inside Color</div>
+<div class="colors" data-type="inside">
+  <div class="color c1"></div>
+  <div class="color c2"></div>
+  <div class="color c3"></div>
+  <div class="color c4"></div>
+  <div class="color c5"></div>
+  <div class="color c6"></div>
+  <div class="color c7"></div>
+  <div class="color c8"></div>
+  <div class="color c9"></div>
+</div>
           </div>
 
           <!-- OUTSIDE -->
           <div class="section">
-            <div class="section-title">Outside Color</div>
-            <div class="colors" data-type="outside">
-              <div class="color c1"></div>
-              <div class="color c2"></div>
-              <div class="color c3"></div>
-              <div class="color c4"></div>
-              <div class="color c5"></div>
-              <div class="color c6"></div>
-              <div class="color c7"></div>
-              <div class="color c8"></div>
-              <div class="color c9"></div>
-            </div>
+       <div class="section-title" id="outsideTitle">Outside Color</div>
+<div class="colors" data-type="outside">
+  <div class="color c1"></div>
+  <div class="color c2"></div>
+  <div class="color c3"></div>
+  <div class="color c4"></div>
+  <div class="color c5"></div>
+  <div class="color c6"></div>
+  <div class="color c7"></div>
+  <div class="color c8"></div>
+  <div class="color c9"></div>
+</div>
+
           </div>
             </div>
 
@@ -590,28 +639,60 @@ body{
   style="padding: 10px;">
     <div class="card">
       <img src="https://images.unsplash.com/photo-1668507911709-0249e832618d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fHRlbm5pcyUyMGNvdXJ0fGVufDB8fDB8fHww" alt="Pacific Blue & Green">
-      <div class="card-name">Pacific Blue & Green</div>
+      <div class="card-name">Brick Red & Olympic Green</div>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1566241121793-3e25f3586e43?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fHRlbm5pcyUyMGNvdXJ0fGVufDB8fDB8fHww" alt="Olympic Green & Grey">
-      <div class="card-name">Olympic Green & Grey</div>
+      <div class="card-name">Olympic Green & Blue Ribbon</div>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1557561371-160934834af4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fHRlbm5pcyUyMGNvdXJ0fGVufDB8fDB8fHww" alt="Blue & Yellow">
-      <div class="card-name">Blue & Yellow</div>
+      <div class="card-name">Olympic green & Green</div>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1586027488945-be0155ba002c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAwfHx0ZW5uaXMlMjBjb3VydHxlbnwwfHwwfHx8MA%3D%3D" alt="Red & Black">
-      <div class="card-name">Red & Black</div>
+      <div class="card-name">Peach & Sonic Silver</div>
     </div>
 
   
   </div>
+<footer>
+    <div class="container foot-grid">
+      <div class="foot">
+        <h5>Maidaan</h5>
+        <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
+      </div>
+      <div class="foot">
+        <h5>Explore</h5>
+        <a href="index.html">About Us</a>
+        <a href="projects.html">Projects</a>
+        <a href="services.html">Services</a>
+       
+      </div>
+      <div class="foot">
+        <h5>Connect</h5>
+        <a href="mailto:Naresh@maidaansportsinfra.com">Naresh@maidaansportsinfra.com</a>
+        <a href="tel:+917702245549">+91-7702245549</a>
+        <div class="copy">© 2025 Maidaan. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
 <!-- SCRIPT -->
 <script>
+const colorNames = {
+  c1: "Pacific Blue",
+  c2: "Blue Bayoux",
+  c3: "Blue Ribbon",
+  c4: "Oxford Green",
+  c5: "Olympic Green",
+  c6: "Brick Red",
+  c7: "Coffee Brown",
+  c8: "Sonic Silver",
+  c9: "Selective Yellow"
+};
 
 
  const tabs = document.querySelectorAll('.tab');
@@ -633,21 +714,32 @@ body{
 const container = document.querySelector(".container");
 const innerCourt = document.querySelector(".overlay img");
 
+const outsideTitle = document.getElementById("outsideTitle");
+const insideTitle = document.getElementById("insideTitle");
+
 document.querySelectorAll(".colors").forEach(group => {
   group.addEventListener("click", e => {
     if (!e.target.classList.contains("color")) return;
 
     const color = getComputedStyle(e.target).backgroundColor;
 
+    // Find color class (c1, c2, etc.)
+    const colorClass = [...e.target.classList].find(c => /^c\d+$/.test(c));
+
+    const colorName = colorNames[colorClass] || "Custom";
+
     if (group.dataset.type === "outside") {
       container.style.backgroundColor = color;
+      outsideTitle.textContent = `Outside Color : ${colorName}`;
     }
 
     if (group.dataset.type === "inside") {
       innerCourt.style.backgroundColor = color;
+      insideTitle.textContent = `Inside Color : ${colorName}`;
     }
   });
 });
+
 </script>
 
 </body>
