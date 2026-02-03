@@ -798,6 +798,105 @@ align-items: center;
 .floating-video .close-btn:hover {
     background: rgba(255, 0, 0, 0.8);
 }
+
+
+
+
+
+
+        .custom-color-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .custom-color-image {
+            flex: 1 1 45%;
+             background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("https://images.unsplash.com/photo-1550422487-27fe1986dd89?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHx0ZW5uaXMlMjBjb3VydHxlbnwwfHwwfHx8MA%3D%3D");
+                /* background-image: url("https://images.unsplash.com/photo-1550422487-27fe1986dd89?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHx0ZW5uaXMlMjBjb3VydHxlbnwwfHwwfHx8MA%3D%3D");
+            background: linear-gradient(135deg, #1e90ff, #32cd32); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #fff;
+                background-size: cover;
+    background-position: center;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .custom-color-content {
+            flex: 1 1 55%;
+            padding: 45px;
+        }
+
+        .custom-color-content h2 {
+            font-size: 34px;
+            color: #1c1c1c;
+            margin-bottom: 18px;
+        }
+
+        .custom-color-content p {
+            font-size: 16.5px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .sport-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .sport-item {
+            background: #f0f3f7;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #1e90ff;
+            font-weight: 600;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 38px;
+            background: linear-gradient(135deg, #1e90ff, #00b894);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        .view-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+        }
+
 </style>
 </head>
 
@@ -813,6 +912,7 @@ align-items: center;
 
       <nav id="navmenu" class="nav-links">
         <a href="#services">Services</a>
+        <a href="#colors">Custom Colors</a>
         <a href="0projects.html">Projects</a> 
         <a href="#contact">Contact</a>     <a class="btn primary" href="mailto:Naresh@maidaansportsinfra.com">Mail us</a>
       </nav>
@@ -966,6 +1066,50 @@ align-items: center;
         </div>
     </div>
 </div>
+
+<a href="test.html" style="text-decoration: none; color: inherit;">
+    <div class="custom-color-container" id="colors">
+
+        <div class="custom-color-image">
+            Colors
+        </div>
+
+       <div class="custom-color-content">
+    <h2>Custom Court Colors</h2>
+
+    <p>
+        Every court has a unique identity. Our
+        <span class="highlight">custom color solutions</span> are designed
+        to match your sport, vision, and environment.
+    </p>
+
+    <p>
+        Choose bold, classic, or modern combinations to personalize both the
+        <span class="highlight">playing surface</span> and
+        <span class="highlight">outer court areas</span> with a clean,
+        professional finish.
+    </p>
+
+    <div class="sport-list">
+        <div class="sport-item">🎾 Tennis</div>
+        <div class="sport-item">🏸 Badminton</div>
+        <div class="sport-item">🏓 Pickleball</div>
+        <div class="sport-item">🏟️ Custom Courts</div>
+    </div>
+
+    <p>
+        Built for durability, visibility, and visual impact — ensuring
+        long-lasting performance and standout design.
+    </p>
+
+    <a href="badminton_court.html" class="view-btn">
+        View Color Options
+    </a>
+</div>
+
+
+    </div>
+    </a>
 
 <h1 style="text-align: center; color: #0f0f14; margin-top: 50px;">Build With Us</h1>
 <div class="cta-card" id="contact">
