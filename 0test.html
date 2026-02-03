@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We Build Courts</title> 
+<title>We Build Courts</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -753,6 +753,47 @@
     text-decoration: none;
 }
 
+
+
+
+
+
+
+.floating-video {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 9999;
+    text-align: center;
+    padding: 10px;
+}
+
+.floating-video video {
+    width: auto;
+    max-width: 300px; /* adjust for smaller screens */
+    height: 250px;
+    display: block;
+    border-radius: 8px;
+}
+
+.floating-video .close-btn {
+    display: flex;
+    margin-bottom: 8px; /* space above video */
+    width: auto;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.floating-video .close-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
 </style>
 </head>
 
@@ -939,7 +980,17 @@
     </div>
 </div>
   <!-- <div class="courts-grid" id="courtsGrid"></div> -->
-
+   <div class="floating-video" id="floatingVideo">
+    <button class="close-btn" onclick="closeVideo()">×</button>
+    <video
+      src="C:\Users\Mahesh\Downloads\overlay.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      controls
+    ></video>
+  </div>
   <footer>
     <div class="container foot-grid">
       <div class="foot">
@@ -961,6 +1012,14 @@
     </div>
   </footer>
 <script>
+
+
+
+function closeVideo() {
+    document.getElementById('floatingVideo').style.display = 'none';
+}
+
+
 
 
       let slides = document.querySelectorAll(".slide");
