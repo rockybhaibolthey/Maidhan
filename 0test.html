@@ -272,6 +272,111 @@
         font-size: 16px;
       }
     }
+
+
+
+
+
+
+
+
+
+    /* =======================
+       SERVICES SECTION
+    ======================== */
+    .services-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .services-section h1 {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+
+    /* GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Tablet */
+    @media (min-width: 600px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Laptop */
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* CARD */
+    .services-card {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* IMAGE (slides from LEFT) */
+    .services-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: services-slide-left 0.8s ease forwards;
+    }
+
+    /* TEXT OVERLAY (slides from RIGHT) */
+    .services-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #fff;
+      animation: services-slide-right 0.8s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    .services-card-content h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes services-slide-left {
+      from {
+        transform: translateX(-60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes services-slide-right {
+      from {
+        transform: translateX(60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
 </style>
 </head>
 
@@ -296,6 +401,42 @@
         From cricket nets to tennis courts — we bring your sports vision to life.
       </p>
       <a href="#">Start a Project</a>
+    </div>
+  </section>
+   
+  <section class="services-section">
+    <h1>Our Services</h1>
+
+    <div class="services-grid">
+
+      <div class="services-card">
+        <img src="https://images.unsplash.com/photo-1597893311798-9911ea4af043?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRlbm5pcyUyMGNvdXJ0fGVufDB8fDB8fHww" alt="Tennis Court">
+        <div class="services-card-content">
+          <h3>Tennis Courts</h3>
+        </div>
+      </div>
+
+      <div class="services-card">
+        <img src="https://images.unsplash.com/photo-1604412132568-9d5c14de13c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZvb3RiYWxsJTIwZ3JvdW5kfGVufDB8fDB8fHww" alt="Football Turf">
+        <div class="services-card-content">
+          <h3>Football Grounds</h3>
+        </div>
+      </div>
+
+      <div class="services-card">
+        <img src="https://plus.unsplash.com/premium_photo-1663039984787-b11d7240f592?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGJhZG1pbnRvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Badminton Court">
+        <div class="services-card-content">
+          <h3>Badminton Courts</h3>
+        </div>
+      </div>
+
+      <div class="services-card">
+        <img src="https://images.unsplash.com/photo-1617646339087-654bc92e57c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGF0aGxldGljJTIwdHJhY2t8ZW58MHx8MHx8fDA%3D" alt="Athletic Track">
+        <div class="services-card-content">
+          <h3>Athletic Tracks</h3>
+        </div>
+      </div>
+
     </div>
   </section>
   <div class="courts-grid" id="courtsGrid"></div>
