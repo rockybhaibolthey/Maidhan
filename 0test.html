@@ -377,6 +377,121 @@
       }
     }
     
+
+
+    
+/* 📱 Mobile */
+.impact-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 📟 Tablet */
+@media (min-width: 600px) {
+    .impact-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 18px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+}
+
+/* 💻 Laptop & Desktop */
+@media (min-width: 1024px) {
+    .impact-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 18px;
+    }
+}
+
+/* =========================
+   VIDEO BACKGROUND
+   ========================= */
+.impact-container video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+/* =========================
+   STATS CONTENT
+   ========================= */
+.stats {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 40px 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 🔠 SMALLER, SAFE TEXT */
+.stats h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.stat {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.stat .number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #00ffd5;
+}
+
+.stat p {
+    margin-top: 6px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* 📱 Extra small phones */
+@media (max-width: 400px) {
+    .stats h2 {
+        font-size: 24px;
+    }
+
+    .stat .number {
+        font-size: 30px;
+    }
+
+    .stat p {
+        font-size: 13px;
+    }
+}
+
+/* 💻 Bigger screens */
+@media (min-width: 1024px) {
+    .stats h2 {
+        font-size: 32px;
+    }
+
+    .stat .number {
+        font-size: 42px;
+    }
+
+    .stat p {
+        font-size: 16px;
+    }
+}
 </style>
 </head>
 
@@ -469,8 +584,69 @@
 
     </div>
   </section>
+
+
+
+<div class="impact-container">
+    <video autoplay muted loop playsinline>
+        <source src="stats.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="stats">
+        <h2>Our Impact</h2>
+
+        <div class="stat">
+            <div class="number" data-target="200">0</div>
+            <p>+ Cities</p>
+        </div>
+
+        <div class="stat">
+            <div class="number" data-target="4000">0</div>
+            <p>+ Projects</p>
+        </div>
+
+        <div class="stat">
+            <div class="number" data-target="1600000">0</div>
+            <p>+ Hours Worked</p>
+        </div>
+
+        <div class="stat">
+            <div class="number" data-target="60">0</div>
+            <p>International Coverage</p>
+        </div>
+    </div>
+</div>
+
+
   <div class="courts-grid" id="courtsGrid"></div>
 <script>
+
+
+const counters = document.querySelectorAll('.number');
+
+counters.forEach(counter => {
+    let start = 0;
+    const end = Number(counter.dataset.target);
+    const duration = 2000;
+    const step = Math.max(1, Math.floor(end / (duration / 20)));
+
+    const interval = setInterval(() => {
+        start += step;
+        if (start >= end) {
+            counter.textContent = end.toLocaleString();
+            clearInterval(interval);
+        } else {
+            counter.textContent = start.toLocaleString();
+        }
+    }, 20);
+});
+
+
+
+
+
   const courts = [
     {
       name: "Tennis Court",
