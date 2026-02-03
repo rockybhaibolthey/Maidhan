@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recent Build</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+     
+  body {
+    margin: 0;
+   font-family: 'Poppins', sans-serif;
+    background: white;
+  }
+
+
+        h1 {
+            text-align: center;
+            color: #0f0f14;
+            margin-top: 50px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #0f0f14;
+           
+        }
+
+    .list {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile default */
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px 80px;
+}
+@media (min-width: 768px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Laptop & Desktop */
+@media (min-width: 1024px) {
+    .list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+        .card {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+
+        /* Background image */
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: translateX(-120%);
+            transition: transform 1.1s cubic-bezier(.22,1,.36,1);
+        }
+
+        .card:nth-child(1)::before {
+            background-image: url("sri.PNG");
+        }
+
+        .card:nth-child(2)::before {
+            background-image: url("basil.PNG");
+        }
+
+        .card:nth-child(3)::before {
+            background-image: url("global.PNG");
+        }
+          .card:nth-child(4)::before {
+            background-image: url("srisch.PNG");
+        }
+          .card:nth-child(5)::before {
+            background-image: url("one.PNG");
+        }
+          .card:nth-child(6)::before {
+            background-image: url("flm.PNG");
+        }
+          .card:nth-child(7)::before {
+            background-image: url("gre.PNG");
+        }
+
+        /* Dark overlay */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+            z-index: 1;
+        }
+
+        /* Text content */
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            max-width: 65%;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: all 1.1s cubic-bezier(.22,1,.36,1);
+        }
+
+        .txt {
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-weight: 400;
+            margin: 0 0 8px;
+            color: #fff;
+        }
+
+        h4 {
+            font-weight: 300;
+            margin: 0;
+            color: #aaa;
+        }
+
+        /* Active animation */
+        .card.active::before {
+            transform: translateX(0);
+        }
+
+        .card.active .content {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content {
+                max-width: 100%;
+            }
+        }
+
+
+
+
+
+
+
+
+
+               header.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand-logo{height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand-900),var(--brand-500));}
+    .brand h1{font:700 1.2rem Poppins,Inter,sans-serif;margin:0}
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{padding:.5rem .75rem;border-radius:10px;color:var(--muted);font-weight:600}
+    .nav-links a:hover{background:#eef4f7;color:var(--brand-900)}
+    .nav-toggle{display:none;background:none;border:0;font-size:1.6rem}
+
+    @media (max-width: 920px){
+      .nav-links{position:fixed;inset:64px 0 auto 0;background:#fff;border-bottom:1px solid #e8eef3;display:none;flex-direction:column;padding:1rem 5vw}
+      .nav-links.open{display:flex}
+      .nav-toggle{display:block}
+    }
+
+    a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+     /* FOOTER */
+    footer{padding:2.5rem 0 2rem;border-top:1px solid #e9eef3;background:#fff}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
+    .foot h5{font:700 1rem Poppins,Inter,sans-serif;margin:.3rem 0 .6rem}
+    .foot a{display:block;color:var(--muted);padding:.25rem 0}
+    .copy{margin-top:1.2rem;color:#94a3b8;font-size:.9rem}
+    @media (max-width: 920px){.foot-grid{grid-template-columns:1fr}}
+
+
+
+    </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav" role="navigation" aria-label="Main Navigation">
+    
+        <!-- <span class="brand-logo" aria-hidden="true"></span> -->
+       <img src="Logo1.png" alt="Maidhan Logo" class = "brand-logo">
+
+
+      <!-- <button class="nav-toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Toggle menu">☰</button> -->
+
+      <nav id="navmenu" class="nav-links">
+        <a href="#services">Services</a>
+       
+        <a href="#contact">Contact</a>     <a class="btn primary" href="mailto:Naresh@maidaansportsinfra.com">Mail us</a>
+      </nav>
+    </div>
+  </header>
+    <h1>Executed Projects</h1>
+    <p class="subtitle">Our Innovations in Sports Design and Construction</p>
+
+    <div class="list">
+        <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Multiple Courts</p>
+                <h3>Sri Chaitanya college</h3>
+                <h4>Hyderabad</h4>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Multiple Courts</p>
+                <h3>Basil woods international school</h3>
+                <h4>Hyderabad</h4>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Multiple Courts</p>
+                <h3>Global Indian International school</h3>
+                <h4>Ahmedabad</h4>
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Multiple Courts</p>
+                <h3>Sri Chaitanya Global Vista school</h3>
+                <h4>Khammam</h4>
+            </div>
+        </div>
+
+         <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Pickleball  Courts</p>
+                <h3>One All Arena for Sports </h3>
+                <h4>Hyderabad</h4>
+            </div>
+        </div>
+
+  <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Tennis  Courts</p>
+                <h3>Filmnagar Club</h3>
+                <h4>Hyderabad</h4>
+            </div>
+        </div>
+  <div class="card">
+            <div class="overlay"></div>
+            <div class="content">
+                <p class="txt">Badminton  Court</p>
+                <h3>Greenko</h3>
+                <h4>Hyderabad</h4>
+            </div>
+        </div>
+    </div>
+  <footer>
+    <div class="container foot-grid">
+      <div class="foot">
+        <h5>Maidaan</h5>
+        <p >Sports infrastructure done right—from design to execution—across India.</p>
+      </div>
+      <div class="foot">
+        <h5>Explore</h5>
+        <a href="#about">About Us</a>
+        <a href="services.html">Services</a>
+      
+      </div>
+      <div class="foot">
+        <h5>Connect</h5>
+        <a href="mailto:Naresh@maidaansportsinfra.com">Naresh@maidaansportsinfra.com</a>
+        <a href="tel:+917702245549">+91-7702245549</a>
+        <div class="copy">© 2025 Maidaan. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+    <script>
+
+
+      let slides = document.querySelectorAll(".slide");
+  let index1 = 0;
+
+  setInterval(() => {
+    slides[index1].classList.remove("active");
+    index1 = (index1 + 1) % slides.length;
+    slides[index1].classList.add("active");
+  }, 3000);
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('navmenu');
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+
+
+
+
+
+
+        const cards = document.querySelectorAll('.card');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.4 });
+
+        cards.forEach(card => observer.observe(card));
+    </script>
+
+</body>
+</html>
