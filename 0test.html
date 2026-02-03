@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>We Build Courts</title>
- 
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
 <style>
   * {
@@ -1016,7 +1016,17 @@
 
 
 function closeVideo() {
-    document.getElementById('floatingVideo').style.display = 'none';
+    const videoContainer = document.getElementById('floatingVideo');
+    const video = videoContainer.querySelector('video'); // get the <video> inside
+
+    // Pause the video
+    if (video) {
+        video.pause();
+        video.currentTime = 0; // optional: reset to start
+    }
+
+    // Hide the container
+    videoContainer.style.display = 'none';
 }
 
 
