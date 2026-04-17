@@ -1035,6 +1035,156 @@ align-items: center;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* ✅ animated progress line */
+.build-progress {
+  position: absolute;
+  left: 50%;
+
+  top: 0;
+  width: 2px;
+  left : 19px;
+  height: 0%;
+  background: #fff;
+  z-index: 2;
+}
+
+
+
+  .build-section {
+  padding: 120px 20px;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+.build-title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 80px;
+  font-weight: 700;
+}
+
+/* Timeline line */
+.build-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.build-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #333;
+  transform: translateX(-50%);
+}
+
+/* Steps */
+.build-step {
+  width: 50%;
+  padding: 40px;
+  position: relative;
+}
+
+.build-step.left {
+  left: 0;
+  text-align: right;
+}
+
+.build-step.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* Dot */
+.build-step::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  /* left: 50%; 
+  transform: translateX(-50%);  */
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+/* Card */
+.build-content {
+  background: #1a1a1a;
+  padding: 20px 25px;
+  border-radius: 12px;
+
+  /* 🔥 NEW */
+  transform: scale(0.85);
+  opacity: 0.3;
+
+  transition: all 0.4s ease;
+}
+/* ✅ active step animation */
+.build-step.active .build-content {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+}
+
+/* ✅ glowing dot */
+.build-step.active::before {
+  background: #fff;
+  box-shadow: 0 0 12px #fff;
+}
+
+.build-content:hover {
+  transform: translateY(-5px);
+}
+
+/* Text */
+.build-content h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.build-content p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .build-step {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    padding-left: 60px;
+  }
+.build-progress{
+    left: 20px;
+}
+  .build-timeline::before {
+    left: 20px;
+  }
+
+  .build-step::before {
+    left: 13px !important;
+  }
+}
+
+
 </style>
 </head>
 
@@ -1205,6 +1355,75 @@ align-items: center;
 
 
 
+
+
+
+
+
+<section class="build-section">
+
+  <h2 class="build-title">From Ground to Game-Ready</h2>
+
+  <div class="build-timeline">
+  <div class="build-progress" id="buildProgress"></div>
+    <div class="build-step left">
+      <div class="build-content">
+        <h3>01. Site Inspection</h3>
+        <p>Analyzing land condition, measurements, and feasibility before planning.</p>
+      </div>
+    </div>
+
+    <div class="build-step right">
+      <div class="build-content">
+        <h3>02. Planning & Design</h3>
+        <p>Layout design, drainage planning, and surface selection.</p>
+      </div>
+    </div>
+
+    <div class="build-step left">
+      <div class="build-content">
+        <h3>03. Ground Preparation</h3>
+        <p>Excavation, leveling, soil compaction, and base foundation work.</p>
+      </div>
+    </div>
+
+    <div class="build-step right">
+      <div class="build-content">
+        <h3>04. Surface Installation</h3>
+        <p>Installing turf, acrylic, synthetic or wooden sports surfaces.</p>
+      </div>
+    </div>
+
+    <div class="build-step left">
+      <div class="build-content">
+        <h3>05. Marking & Finishing</h3>
+        <p>Accurate line marking, fencing, lighting and finishing touches.</p>
+      </div>
+    </div>
+
+    <div class="build-step right">
+      <div class="build-content">
+        <h3>06. Handover</h3>
+        <p>Final inspection and delivery of a game-ready professional facility.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="impact-container">
     <video autoplay muted loop playsinline>
         <source src="stats.mp4" type="video/mp4">
@@ -1354,6 +1573,45 @@ align-items: center;
     </div>
   </footer>
 <script>
+
+
+
+
+const steps = document.querySelectorAll(".build-step");
+const progressLine = document.getElementById("buildProgress");
+const timeline = document.querySelector(".build-timeline");
+
+window.addEventListener("scroll", () => {
+  const rect = timeline.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  let progress = (windowHeight - rect.top) / (rect.height + windowHeight);
+  progress = Math.min(Math.max(progress, 0), 1);
+
+  // fill line
+  progressLine.style.height = progress * 100 + "%";
+
+  steps.forEach((step, index) => {
+    let stepTrigger = (index + 0.5) / steps.length;
+
+    // 🔥 make last 2 steps appear earlier
+    if (index >= steps.length - 2) {
+      stepTrigger -= 0.1; // 👈 adjust this value (0.05–0.15 range)
+    }
+
+    if (progress > stepTrigger) {
+      step.classList.add("active");
+    } else {
+      step.classList.remove("active");
+    }
+  });
+});
+
+
+
+
+
+
 
 
 
