@@ -806,7 +806,7 @@ align-items: center;
 
         .custom-color-container {
             max-width: 1100px;
-            margin: 60px auto;
+            margin: 200px auto;
             background: #ffffff;
             border-radius: 18px;
             overflow: hidden;
@@ -897,6 +897,144 @@ align-items: center;
             box-shadow: 0 14px 35px rgba(0,0,0,0.25);
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.headline-wrapper {
+  width: 100%;
+  height: 60vh;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.headline-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* space between lines */
+  overflow: hidden;
+}
+
+.headline-text {
+  font-size: clamp(28px, 5vw, 80px);
+  font-weight: bold;
+  white-space: nowrap;
+   display: flex; 
+  color: white;
+  will-change: transform;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .updated-section {
+    position: relative;
+  }
+
+  .updated-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .updated-intro {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 30;
+  }
+
+  .updated-intro h1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .updated-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    will-change: transform, opacity; /* ✅ smooth */
+  }
+
+  .updated-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .updated-overlay {
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: 0.5;
+  }
+
+  .updated-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+  }
+
+  .updated-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .updated-content p {
+    max-width: 600px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .updated-content h1 {
+      font-size: 30px;
+    }
+  }
+
+
+
+
+
+
+
 </style>
 </head>
 
@@ -940,6 +1078,33 @@ align-items: center;
     </div>
   </section>
    
+
+
+
+
+
+
+
+
+
+
+<section class="headline-wrapper">
+  <div class="headline-inner">
+    <div class="headline-text" id="headlineText1">
+      A Place where you find real construction • A Place where you find real construction • A Place where you find real construction •
+    </div>
+
+    <div class="headline-text reverse" id="headlineText2">
+      A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction •
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
   <section class="services-section" id="services">
     <h1>Our Services</h1>
 <p style="text-align: center;">From concept and design to execution and handover—one accountable team for timelines and quality.</p>
@@ -1008,6 +1173,38 @@ align-items: center;
 
 
 
+
+
+
+<section id="updatedSection" class="updated-section">
+  <div class="updated-sticky">
+
+    <!-- Intro -->
+    <div id="updatedIntro" class="updated-intro">
+<h1 style="
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #111;
+">
+  Our Services
+</h1>
+    
+    </div>
+
+    <!-- Cards -->
+  </div>
+</section>
+
+
+
+
+
+
+
+
 <div class="impact-container">
     <video autoplay muted loop playsinline>
         <source src="stats.mp4" type="video/mp4">
@@ -1036,7 +1233,7 @@ align-items: center;
         
     </div>
 </div>
-<h1 style="text-align: center; color: #0f0f14; margin-top: 50px;">Recent Build</h1>
+<h1 style="text-align: center; color: #0f0f14; margin-top: 200px;">Recent Build</h1>
 <p style="text-align: center; color: #0f0f14;">Showcasing Our Latest Innovations in Sports Design & Construction</p>
 <div class="list">
     <div class="card">
@@ -1157,6 +1354,215 @@ align-items: center;
     </div>
   </footer>
 <script>
+
+
+
+
+ 
+const updatedServices = [
+  {
+    title: "Tennis Courts",
+    desc: "Professional tennis court construction with durable surfaces and precision finishing.",
+    img: "https://images.unsplash.com/photo-1597893311798-9911ea4af043?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Football Grounds",
+    desc: "High-quality football turfs designed for performance and longevity.",
+    img: "https://images.unsplash.com/photo-1604412132568-9d5c14de13c4?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Badminton Courts",
+    desc: "Indoor badminton courts with professional flooring and lighting setup.",
+    img: "https://images.unsplash.com/photo-1708312604064-b86b97f2a3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJhZG1pbnRvbiUyMGNvdXJ0fGVufDB8fDB8fHww",
+  },
+  {
+    title: "Athletic Tracks",
+    desc: "Standard athletic tracks built for schools, stadiums, and training facilities.",
+    img: "https://images.unsplash.com/photo-1617646339087-654bc92e57c7?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Cricket Grounds & Box Cricket",
+    desc: "From full-size cricket grounds to compact box cricket arenas.",
+    img: "https://images.unsplash.com/photo-1563184956-7a02a2852738?q=80&w=1197&auto=format&fit=crop",
+  },
+  {
+    title: "Volleyball Courts",
+    desc: "Well-structured volleyball courts for both indoor and outdoor use.",
+    img: "https://images.unsplash.com/photo-1479859546309-cd77fa21c8f6?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Hockey Fields",
+    desc: "Advanced hockey field construction with professional turf systems.",
+    img: "https://images.unsplash.com/photo-1759365839764-23a859cb82b2?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Indoor Gym",
+    desc: "Modern indoor gym spaces with optimized layouts and infrastructure.",
+    img: "https://images.unsplash.com/photo-1728486145245-d4cb0c9c3470?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Pickleball Courts",
+    desc: "Dedicated pickleball courts designed for fast-growing sports demand.",
+    img: "https://images.unsplash.com/photo-1737476990369-9cf356085909?w=600&auto=format&fit=crop&q=60",
+  },
+];
+  const updatedSection = document.getElementById("updatedSection");
+  const updatedSticky = document.querySelector(".updated-sticky");
+
+  // ✅ FIXED HEIGHT (prevents early scroll exit)
+  updatedSection.style.height = (updatedServices.length + 2) * 100 + "vh";
+
+  // Create cards
+  updatedServices.forEach((service, index) => {
+    const card = document.createElement("div");
+    card.className = "updated-card";
+    card.style.zIndex = index;
+
+    card.innerHTML = `
+      <div class="updated-bg" style="background-image:url(${service.img})"></div>
+      <div class="updated-overlay"></div>
+      <div class="updated-content">
+        <h1>${service.title}</h1>
+        <p>${service.desc}</p>
+      </div>
+    `;
+
+    updatedSticky.appendChild(card);
+  });
+
+  const updatedCards = document.querySelectorAll(".updated-card");
+  const updatedIntro = document.getElementById("updatedIntro");
+
+  // ✅ SMOOTH SCROLL ENGINE
+  let updatedTarget = 0;
+  let updatedCurrent = 0;
+
+  window.addEventListener("scroll", () => {
+    const rect = updatedSection.getBoundingClientRect();
+
+    updatedTarget = Math.min(
+      Math.max(-rect.top / rect.height, 0),
+      1
+    );
+  });
+
+  function updatedAnimate() {
+    // smooth interpolation
+    updatedCurrent += (updatedTarget - updatedCurrent) * 0.08;
+
+   const progress = Math.min(updatedCurrent, 0.92);
+
+    /* INTRO */
+    if (progress < 0.15) {
+      updatedIntro.style.opacity = 1 - progress / 0.15;
+      updatedIntro.style.transform = `translateY(${progress * -40}%)`;
+    } else {
+      updatedIntro.style.opacity = 0;
+    }
+
+    /* CARDS */
+    updatedCards.forEach((card, index) => {
+      const total = updatedServices.length;
+
+const start = (index + 1) / (total + 2);
+const end = (index + 2) / (total + 2);
+
+      let p = (progress - start) / (end - start);
+      p = Math.min(Math.max(p, 0), 1);
+
+      const yStart = index === 0 ? 20 : 100;
+      const y = yStart * (1 - p);
+
+      const scale = 0.95 + 0.05 * p;
+      const opacity = index === 0 ? 0.85 + 0.15 * p : p;
+
+      card.style.transform = `translateY(${y}%) scale(${scale})`;
+      card.style.opacity = opacity;
+    });
+
+    requestAnimationFrame(updatedAnimate);
+  }
+
+  updatedAnimate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const text1 = document.getElementById("headlineText1");
+  const text2 = document.getElementById("headlineText2");
+
+  if (text1 && text2) {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const isMobile = window.innerWidth < 768;
+      const speed = isMobile ? 0.6 : 1.2;
+
+      const moveX = scrollY * speed;
+
+      const width = text1.scrollWidth / 2;
+
+      // ✅ LEFT (works fine)
+      const x1 = -(moveX % width);
+
+      // ✅ RIGHT (FIXED with offset)
+      const x2 = -(width - (moveX % width));
+
+      text1.style.transform = `translateX(${x1}px)`;
+      text2.style.transform = `translateX(${x2}px)`;
+
+      ticking = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
