@@ -1,82 +1,746 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maidaan – Sports Infra & Courts</title>
-  <meta name="description" content="Maidaan builds world-class tennis, football, cricket, badminton, pickleball, basketball courts and athletic tracks across India." />
-  <meta name="theme-color" content="#0b3b4a" />
-  <meta property="og:title" content="Maidaan – Sports Infra & Courts" />
-  <meta property="og:description" content="Sports infrastructure specialists: design to execution for courts & tracks across India." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1600&auto=format&fit=crop" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Build Courts</title>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      referrerpolicy="no-referrer">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+   font-family: 'Poppins', sans-serif;
+    background: white;
+  }
+
+
+  .hero {
+    position: relative;
+    height: 70vh;
+    min-height: 60vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+
+  /* Two layers for smooth cross-fade */
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1.2s ease-in-out;
+  }
+
+  .bg.top {
+    opacity: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+  }
+
+  .text-content {
+    position: relative;
+    z-index: 2;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 90%;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+  }
+
+  .constant {
+    display: block;
+    opacity: 0.9;
+    margin-bottom: 8px;
+  }
+
+  .changing {
+    display: block;
+    color: #00ffcc;
+    animation: fadeText 1s ease;
+  }
+
+  @keyframes fadeText {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .hero { height: 55vh; }
+  }
+
+
+
+
+
+
+
+
+
 
   
-  <style>
-    :root {
-      --brand-900:#0b3b4a; /* deep teal */
-      --brand-700:#135b6e;
-      --brand-500:#17809a;
-      --brand-300:#7bd3e1;
-      --accent:#f7b500; /* warm gold */
-      --ink:#0f172a; /* slate-900 */
-      --muted:#475569; /* slate-600 */
-      --bg:#f8fafc; /* slate-50 */
-      --card:#ffffff;
-      --radius:18px;
-      --shadow:0 10px 30px rgba(16,24,40,.08);
+    /* GRID CONTAINER */
+    .courts-grid {
+      display: grid;
+      padding: 20px;
+      grid-template-columns: 1fr; /* mobile default */
+      gap: 16px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1120px,92%);margin-inline:auto}
-    .btn{display:inline-flex;gap:.6rem;align-items:center;padding:.85rem 1.2rem;border-radius:12px;font-weight:600;border:1px solid transparent;cursor:pointer;transition:.2s ease-in-out}
-/* Primary button – bold gradient */
-.btn.primary {
-  background: linear-gradient(135deg, #0b3b4a, #135b6e); /* bright pink → purple */
-  color: #fff;
-  border: none;
-  border-radius: 0.75rem;
-  padding: 0.7rem 1.4rem;
-  font-weight: 600;
-  box-shadow: 0 8px 20px rgba(120, 115, 245, 0.35);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(120, 115, 245, 0.45);
+
+    /* TABLET */
+    @media (min-width: 600px) {
+      .courts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* LAPTOP / DESKTOP */
+    @media (min-width: 1024px) {
+      .courts-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* CARD */
+    .court-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .court-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    /* IMAGE */
+    .court-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* TEXT OVERLAY */
+    .court-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.2),
+        transparent
+      );
+      color: #fff;
+    }
+
+    .court-type {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .court-place {
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    .court-city {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+
+
+
+
+        /* CTA SECTION */
+    .build-cta {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 60px;
+      color: #fff;
+      background-image: url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGZvb3RiYWxsJTIwZmllbGR8ZW58MHx8MHx8fDA%3D");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    /* Dark overlay for readability */
+    .build-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    /* CONTENT */
+    .cta-content {
+      position: relative;
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .cta-content h1 {
+      font-size: 48px;
+      margin: 0 0 20px;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 0.9s ease forwards;
+    }
+
+    .cta-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0 0 32px;
+      opacity: 0;
+      transform: translateX(60px);
+      animation: slideRight 0.9s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .cta-content a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideLeft 0.9s ease forwards;
+      animation-delay: 0.8s;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-content a:hover {
+      background: #43a047;
+      transform: translateX(0) scale(1.05);
+    }
+
+    /* ANIMATIONS */
+    @keyframes slideLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .build-cta {
+        padding: 40px 24px;
+        min-height: 60vh;
+      }
+
+      .cta-content h1 {
+        font-size: 36px;
+      }
+
+      .cta-content p {
+        font-size: 16px;
+      }
+    }
+
+
+
+
+
+
+
+
+
+    /* =======================
+       SERVICES SECTION
+    ======================== */
+    .services-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .services-section h1 {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+
+    /* GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Tablet */
+    @media (min-width: 600px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Laptop */
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* CARD */
+    .services-card {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* IMAGE (slides from LEFT) */
+    .services-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: services-slide-left 0.8s ease forwards;
+    }
+
+    /* TEXT OVERLAY (slides from RIGHT) */
+    .services-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #fff;
+      animation: services-slide-right 0.8s ease forwards;
+      animation-delay: 0.3s;
+      opacity: 0;
+    }
+
+    .services-card-content h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes services-slide-left {
+      from {
+        transform: translateX(-60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes services-slide-right {
+      from {
+        transform: translateX(60px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+
+
+    
+/* 📱 Mobile */
+.impact-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* Ghost button – semi-transparent glassy */
-.btn.ghost {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 0.75rem;
-  padding: 0.7rem 1.4rem;
-  font-weight: 500;
-  backdrop-filter: blur(8px);
-  transition: background .2s ease, transform .2s ease;
+/* 📟 Tablet */
+@media (min-width: 600px) {
+    .impact-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 18px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
 }
-.btn.ghost:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
+
+/* 💻 Laptop & Desktop */
+@media (min-width: 1024px) {
+    .impact-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 18px;
+    }
+}
+
+/* =========================
+   VIDEO BACKGROUND
+   ========================= */
+.impact-container video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+/* =========================
+   STATS CONTENT
+   ========================= */
+.stats {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 40px 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 🔠 SMALLER, SAFE TEXT */
+.stats h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.stat {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.stat .number {
+    font-size: 36px;
+    font-weight: 700;
+    color: #00ffd5;
+}
+
+.stat p {
+    margin-top: 6px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* 📱 Extra small phones */
+@media (max-width: 400px) {
+    .stats h2 {
+        font-size: 24px;
+    }
+
+    .stat .number {
+        font-size: 30px;
+    }
+
+    .stat p {
+        font-size: 13px;
+    }
+}
+
+/* 💻 Bigger screens */
+@media (min-width: 1024px) {
+    .stats h2 {
+        font-size: 32px;
+    }
+
+    .stat .number {
+        font-size: 42px;
+    }
+
+    .stat p {
+        font-size: 16px;
+    }
 }
 
 
-    /* NAV */
-    header.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
+
+
+
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .card {
+        position: relative;
+        height: 320px;
+        overflow: hidden;
+        border-radius: 18px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    }
+
+    /* Background image */
+    .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transform: translateX(-120%);
+        transition: transform 1.1s cubic-bezier(.22,1,.36,1);
+    }
+
+    .card:nth-child(1)::before { background-image: url("global.PNG"); }
+    .card:nth-child(2)::before { background-image: url("basil.PNG"); }
+    .card:nth-child(3)::before { background-image: url("sri.PNG"); }
+
+    /* Dark overlay */
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
+        z-index: 1;
+    }
+
+    /* Text content */
+    .content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        max-width: 65%;
+        transform: translateX(120%);
+        opacity: 0;
+        transition: all 1.1s cubic-bezier(.22,1,.36,1);
+    }
+
+    h1 {
+        font-size: 2.4rem;
+        margin: 0 0 10px;
+    }
+
+    h3 {
+        font-weight: 400;
+        margin: 0 0 8px;
+        color: white;
+    }
+
+    h4 {
+        font-weight: 300;
+        margin: 0;
+        color: #aaa;
+    }
+
+    /* Active animation */
+    .card.active::before {
+        transform: translateX(0);
+    }
+
+    .card.active .content {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .txt{
+      color: #fff;
+      font-size: 32px;
+    }
+
+
+
+
+
+
+    .cta-card {
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px;
+
+     /* background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9)); */
+   /* background-image: url('contact.png'); */
+    background-size: cover; /* or 'contain' if you want the whole image visible */
+    background-position: center;
+    border-radius: 16px;
+    overflow: hidden;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+align-items: center;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    min-height: 300px; /* optional: ensures card isn’t too small */
+}
+
+
+    /* Dark overlay */
+    .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        color: black;
+        background: white;
+        z-index: 0;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta-content span {
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 0.5rem;
+        word-wrap: break-word;
+    }
+
+    .cta-content h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+        color: #000;
+        font-weight: 500;
+        word-wrap: break-word;
+    }
+
+    .cta-content p {
+        margin: 0 0 1rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #000;
+        word-wrap: break-word;
+    }
+  .ctp {
+        margin: 0 0 1rem;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: white;
+        word-wrap: break-word;
+    }
+    .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-weight: 500;
+        text-decoration: none;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease;
+        color: lightgrey;
+        word-wrap: break-word;
+    }
+
+    .btn.primary {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+    }
+
+    .btn.primary:hover {
+        background-color: #e65c00;
+    }
+
+    .btn.ghost {
+        background-color: lightgray;
+        color: black;
+        border: 1px solid white;
+    }
+
+    .btn.ghost:hover {
+        background-color: lightgray;
+    }
+
+    .muted {
+        color: rgba(255,255,255,0.8);
+        font-size: 0.85rem;
+        word-wrap: break-word;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+        .cta-card {
+            padding: 20px;
+        }
+
+        .cta-content span {
+            font-size: 1rem;
+        }
+
+        .cta-content h3 {
+            font-size: 1.3rem;
+        }
+
+        .cta-content p {
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            font-size: 0.9rem;
+            padding: 0.45rem 0.8rem;
+        }
+    }
+
+
+
+
+     /* FOOTER */
+    footer{padding:2.5rem 0 2rem;border-top:1px solid #e9eef3;background:#fff}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
+    .foot h5{font:700 1rem Poppins,Inter,sans-serif;margin:.3rem 0 .6rem}
+    .foot a{display:block;color:var(--muted);padding:.25rem 0}
+    .copy{margin-top:1.2rem;color:#94a3b8;font-size:.9rem}
+    @media (max-width: 920px){.foot-grid{grid-template-columns:1fr}}
+
+
+
+
+
+        header.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eef2f7}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
     .brand{display:flex;align-items:center;gap:.75rem}
-    .brand-logo{width:105px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand-900),var(--brand-500));box-shadow:inset 0 0 0 2px #fff}
+    .brand-logo{height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand-900),var(--brand-500));}
     .brand h1{font:700 1.2rem Poppins,Inter,sans-serif;margin:0}
     .nav-links{display:flex;gap:1rem;align-items:center}
     .nav-links a{padding:.5rem .75rem;border-radius:10px;color:var(--muted);font-weight:600}
@@ -89,259 +753,437 @@
       .nav-toggle{display:block}
     }
 
-    /* HERO */
-    .hero{position:relative;isolation:isolate}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(1200px 600px at 80% -10%, rgba(255, 218, 185, 0.3), transparent),
-   ;
-  z-index: -1;
+    a {
+    text-decoration: none;
 }
- .h2style{font:700 clamp(2rem,4.6vw,3.2rem) Poppins,Inter,sans-serif;margin:0;color:var(--brand-900);letter-spacing:-.5px}
 
 
-    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2.2rem;align-items: center;padding:4.2rem 0 3rem}
-    .hero h2{font:700 clamp(2rem,4.6vw,3.2rem) Poppins,Inter,sans-serif;margin:0;color:var(--brand-900);letter-spacing:-.5px}
-    /* .hero p{color:var(--muted);font-size:1.05rem;margin:.6rem 0 1.2rem} */
-    .hero-badges{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0 1.6rem}
-    .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .7rem;border-radius:999px;background:#0b3b4a10;border:1px solid #d6e6ec;font-weight:600;color:var(--brand-700);font-size:.9rem}
-    .hero-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .hero-card img{aspect-ratio:4/3;object-fit:cover}
-    .hero-card .meta{padding:1rem}
-.imageandstart{
+
+
+
+
+
+.floating-video {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 9999;
+    text-align: center;
+    padding: 10px;
+}
+
+.floating-video video {
+    width: auto;
+    max-width: 300px; /* adjust for smaller screens */
+    height: 250px;
+    display: block;
+    border-radius: 8px;
+}
+
+.floating-video .close-btn {
+    display: flex;
+    margin-bottom: 8px; /* space above video */
+    width: auto;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.floating-video .close-btn:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+
+
+
+
+
+        .custom-color-container {
+            max-width: 1100px;
+            margin: 200px auto;
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .custom-color-image {
+            flex: 1 1 45%;
+             background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("https://images.unsplash.com/photo-1550422487-27fe1986dd89?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHx0ZW5uaXMlMjBjb3VydHxlbnwwfHwwfHx8MA%3D%3D");
+                /* background-image: url("https://images.unsplash.com/photo-1550422487-27fe1986dd89?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAxfHx0ZW5uaXMlMjBjb3VydHxlbnwwfHwwfHx8MA%3D%3D");
+            background: linear-gradient(135deg, #1e90ff, #32cd32); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            color: #fff;
+                background-size: cover;
+    background-position: center;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .custom-color-content {
+            flex: 1 1 55%;
+            padding: 45px;
+        }
+
+        .custom-color-content h2 {
+            font-size: 34px;
+            color: #1c1c1c;
+            margin-bottom: 18px;
+        }
+
+        .custom-color-content p {
+            font-size: 16.5px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .sport-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .sport-item {
+            background: #f0f3f7;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #1e90ff;
+            font-weight: 600;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 38px;
+            background: linear-gradient(135deg, #1e90ff, #00b894);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        .view-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.headline-wrapper {
+  width: 100%;
+  height: 60vh;
+  background: #111;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.start-project-sports{
-  padding-top: 1000;
-}
-    @media (max-width: 920px){
-      .hero-inner{grid-template-columns:1fr;gap:1.5rem;padding:2.2rem 0}
-    }
-
-    /* COUNTERS */
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.5rem 0 0}
-    .stat{background:var(--card);border-radius:16px;padding:1.1rem;box-shadow:var(--shadow);text-align:center}
-    .stat h3{font:700 2rem Poppins,Inter,sans-serif;margin:0;color:var(--brand-900)}
-    .stat p{margin:.2rem 0 0;color:var(--muted);font-weight:600}
-    @media (max-width: 740px){.stats{grid-template-columns:repeat(2,1fr)}}
-
-    /* SECTION */
-    section{padding:3.5rem 0}
-    .section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.6rem;gap:1rem}
-    .section-title{font:700 clamp(1.4rem,3vw,2rem) Poppins,Inter,sans-serif;color:var(--ink);margin:0}
-   /* Muted text */
-.muted {
-  color: #9ca3af; /* light slate gray */
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  transition: color .25s ease;
-}
-
-/* Muted inside cards or sections */
-.card .muted {
-  color: #d1d5db; /* lighter gray for glassy cards */
-}
-
-/* Optional hover effect (for links using .muted) */
-.muted:hover {
-  color: #ff6ec4; /* neon pink accent */
-  background: linear-gradient(135deg, #ff6ec4, #7873f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-    /* WHAT WE DO */
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-  .card {
-  background: rgba(255, 255, 255, 0.08); /* glass effect */
-  border-radius: 1.25rem;
-  padding: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-/* Card title */
-.card h4 {
-  margin: 0 0 .6rem;
-  font: 700 1.2rem Poppins, Inter, sans-serif;
-  background: linear-gradient(135deg, #0b3b4a, #135b6e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Card description */
-.card p {
-  margin: 0;
-  color: #374151; /* dark grey (Tailwind slate-700) */
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-
-    @media (max-width: 920px){.grid-3{grid-template-columns:1fr}}
-
-    /* CLIENTS STRIP */
-    .logos{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;align-items:center}
-    .logo{background:#fff;border:1px solid #eef4f7;border-radius:12px;aspect-ratio:3/1.1;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--brand-700)}
-    @media (max-width: 920px){.logos{grid-template-columns:repeat(2,1fr)}}
-
-    /* PROJECTS */
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-    .project{border-radius:18px;overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
-    .project img{aspect-ratio:4/3;object-fit:cover}
-    .project .info{padding:1rem}
-    .project .tag{display:inline-block;background:#eef7f9;color:var(--brand-700);font-weight:700;font-size:.8rem;border-radius:999px;padding:.25rem .6rem;margin-bottom:.5rem}
-    .projectsoverlay{  position: absolute;     /* 👈 layers on top of card */
-  top: 0;
-  left: 0;
-  width: 100%;
-top: 60%;
-  height: 40%;
-background: linear-gradient(
-  to bottom,
-  transparent 10%,
-  white
- 90%
-);
-
-
-padding-top: 5%;
-  display: flex;          /* center button */
-justify-content: center;
-  align-items: start;
-
-  z-index: 1;}
-    .projectsoverlay1{position: relative; }
-.nice-btn {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-
-  color: white;
-  background: #374151;
-
-  border: none;
-  border-radius: 999px; /* pill shape */
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-
-  cursor: pointer;
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
-}
-
-.nice-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
- color: #374151;
-  background: white;
-
-}
-
-.nice-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-}
-
-    @media (max-width: 920px){.projects{grid-template-columns:1fr}
-  .projectsoverlay{
-top: 90%;
-height: 10%;
-  }}
-.logo {
-  height: 50px; /* Adjust height as needed */
-  object-fit: contain;
-}
-
-    /* TESTIMONIALS */
-.testimonial {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 1rem;
-  align-items: center; /* centers avatar + text vertically */
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1.1rem;
-}
-
-.avatar {
-  width: 100%;
-  height: 120px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-.quote {
-  font-size: 1rem;
-  color: var(--ink);
-}
-
-
-    /* SURFACES */
-    .chips{display:flex;flex-wrap:wrap;gap:.6rem}
-    .chip{background:#fff;border:1px solid #e6edf2;border-radius:999px;padding:.5rem .8rem;font-weight:700;color:var(--brand-700)}
-
-    /* CTA */
-    .cta{background:linear-gradient(135deg,var(--brand-900),#123c4a 60%, var(--brand-500));color:#fff;border-radius:24px;padding:2rem;display:grid;grid-template-columns:1.4fr .6fr;align-items:center;gap:1rem}
-    .cta h3{font:700 clamp(1.4rem,3.2vw,2rem) Poppins,Inter,sans-serif;margin:.2rem 0}
-    .cta p{margin:.2rem 0 1rem;color:#e2f4f7}
-    @media (max-width: 920px){.cta{grid-template-columns:1fr}}
-
-    /* FOOTER */
-    footer{padding:2.5rem 0 2rem;border-top:1px solid #e9eef3;background:#fff}
-    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
-    .foot h5{font:700 1rem Poppins,Inter,sans-serif;margin:.3rem 0 .6rem}
-    .foot a{display:block;color:var(--muted);padding:.25rem 0}
-    .copy{margin-top:1.2rem;color:#94a3b8;font-size:.9rem}
-    @media (max-width: 920px){.foot-grid{grid-template-columns:1fr}}
-
-
- .slider {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  height: 300px;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
+.headline-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* space between lines */
+  overflow: hidden;
+}
+
+.headline-text {
+  font-size: clamp(28px, 5vw, 80px);
+  font-weight: bold;
+  white-space: nowrap;
+   display: flex; 
+  color: white;
+  will-change: transform;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .updated-section {
+    position: relative;
+  }
+
+  .updated-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .updated-intro {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 30;
+  }
+
+  .updated-intro h1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  .updated-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    will-change: transform, opacity; /* ✅ smooth */
+  }
+
+  .updated-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .updated-overlay {
+    position: absolute;
+    inset: 0;
+    background: black;
+    opacity: 0.5;
+  }
+
+  .updated-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+  }
+
+  .updated-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .updated-content p {
+    max-width: 600px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 768px) {
+    .updated-content h1 {
+      font-size: 30px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ✅ animated progress line */
+.build-progress {
+  position: absolute;
+  left: 50%;
+
+  top: 0;
+  width: 2px;
+
+  height: 0%;
+  background: #fff;
+  z-index: 2;
+}
+
+
+
+  .build-section {
+  padding: 120px 20px;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+.build-title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 80px;
+  font-weight: 700;
+}
+
+/* Timeline line */
+.build-timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.build-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #333;
+  transform: translateX(-50%);
+}
+
+/* Steps */
+.build-step {
+  width: 50%;
+  padding: 40px;
+  position: relative;
+}
+
+.build-step.left {
+  left: 0;
+  text-align: right;
+}
+
+.build-step.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* Dot */
+.build-step::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  /* left: 50%; 
+  transform: translateX(-50%);  */
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+/* Card */
+.build-content {
+  background: #1a1a1a;
+  padding: 20px 25px;
+  border-radius: 12px;
+
+  /* 🔥 NEW */
+  transform: scale(0.85);
+  opacity: 0.3;
+
+  transition: all 0.4s ease;
+}
+/* ✅ active step animation */
+.build-step.active .build-content {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+}
+
+/* ✅ glowing dot */
+.build-step.active::before {
+  background: #fff;
+  box-shadow: 0 0 12px #fff;
+}
+
+.build-content:hover {
+  transform: translateY(-5px);
+}
+
+/* Text */
+.build-content h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.build-content p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .slider {
-    height: 400px;
+  .build-step {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    padding-left: 60px;
+  }
+.build-progress{
+    left: 20px;
+}
+  .build-timeline::before {
+    left: 20px;
+  }
+
+  .build-step::before {
+    left: 13px !important;
   }
 }
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;      /* vertical center */
-  justify-content: center;  /* horizontal center */
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-}
 
 
 
@@ -355,98 +1197,55 @@ height: 10%;
 
 
 
-
-
-
-
-
- .custom-color-container {
-        max-width: 1100px;
-        margin: 60px auto;
-        background: #ffffff;
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-        display: flex;
-        flex-wrap: wrap;
+    .loading-container {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .custom-color-image {
-        flex: 1 1 45%;
-        background: linear-gradient(135deg, #1e90ff, #32cd32);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 360px;
-        color: #fff;
-        font-size: 28px;
-        font-weight: bold;
-        text-align: center;
-        padding: 30px;
+    /* Top bar */
+    .loading-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #222;
     }
 
-    .custom-color-content {
-        flex: 1 1 55%;
-        padding: 45px;
+    .loading-progress {
+      height: 100%;
+      width: 0%;
+      background: white;
+      transition: width 0.1s linear;
     }
 
-    .custom-color-content h2 {
-        font-size: 34px;
-        color: #1c1c1c;
-        margin-bottom: 18px;
+    /* Center text */
+    .loading-text {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
     }
 
-    .custom-color-content p {
-        font-size: 16.5px;
-        line-height: 1.7;
-        color: #555;
-        margin-bottom: 18px;
+    @media (min-width: 768px) {
+      .loading-text {
+        font-size: 60px;
+      }
     }
 
-    .sport-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 12px;
-        margin: 25px 0;
-    }
-
-    .sport-item {
-        background: #f0f3f7;
-        padding: 12px 15px;
-        border-radius: 10px;
-        font-weight: 600;
-        color: #333;
-        text-align: center;
-    }
-
-    .highlight {
-        color: #1e90ff;
-        font-weight: 600;
-    }
-
-    .view-btn {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 14px 38px;
-        background: linear-gradient(135deg, #1e90ff, #00b894);
-        color: #fff;
-        font-size: 16px;
-        font-weight: 600;
-        border-radius: 30px;
-        text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-    }
-
-    .view-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 14px 35px rgba(0,0,0,0.25);
-    }
-
-    @media(max-width: 900px) {
-        .custom-color-container {
-            flex-direction: column;
-        }
+    /* Counter */
+    .loading-counter {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      font-size: 28px;
+      font-family: monospace;
     }
 
 
@@ -460,6 +1259,22 @@ height: 10%;
 
 
 
+
+
+
+
+
+
+
+
+
+  /* ANIMATIONS */
+  .show{
+    opacity:1;
+    transform:translateY(0)
+  }
+
+  
         .contact-container {
         position: fixed;
         bottom: 25px;
@@ -527,69 +1342,28 @@ height: 10%;
     .mail { background: #e74c3c; }
     .whatsapp { background: #25D366; }
     .call { background: #3498db; }
-.section-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.brand-logo{
-  width:120px;
-  height:40px;
-  border-radius:6px;
-  background:transparent;
-  box-shadow:none;
-  opacity:0.85;
-  transition:opacity 0.3s ease;
-}
-
-.brand-logo:hover{
-  opacity:1;
-}
-
-
-
-   .floating-video {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
- 
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      z-index: 9999;
-    }
-
-    .floating-video video {
-      width: auto;
-      height: 250px;
-      display: block;
-    }
-
-    .floating-video .close-btn {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 28px;
-      height: 28px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      line-height: 28px;
-      text-align: center;
-    }
-
-    .floating-video .close-btn:hover {
-      background: rgba(255, 0, 0, 0.8);
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <!-- NAVBAR -->
+    <div class="loading-container" id="loadingContainer">
+    
+    <!-- TOP LOADING BAR -->
+    <div class="loading-top-bar">
+      <div class="loading-progress" id="loadingProgress"></div>
+    </div>
+
+    <!-- CENTER TEXT -->
+    <div class="loading-text" id="loadingText">
+      We build apps
+    </div>
+
+    <!-- COUNTER -->
+    <div class="loading-counter" id="loadingCounter">
+      00
+    </div>
+
+  </div>
   <header class="site-header">
     <div class="container nav" role="navigation" aria-label="Main Navigation">
     
@@ -601,14 +1375,130 @@ height: 10%;
 
       <nav id="navmenu" class="nav-links">
         <a href="services.html">Services</a>
-       
-        <a href="#about">About</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-        <a class="btn primary" href="#contact">Get in touch</a>
+        <a href="#colors">Custom Colors</a>
+        <a href="0projects.html">Projects</a> 
+        <a href="#contact">Contact</a>     <a class="btn primary" href="mailto:Naresh@maidaansportsinfra.com">Mail us</a>
       </nav>
     </div>
   </header>
+<div class="hero">
+  <div class="bg bottom" id="bg1"></div>
+  <div class="bg top" id="bg2"></div>
+  <div class="overlay"></div>
+
+  <div class="text-content">
+    <span class="constant">We Build</span>
+    <span class="changing" id="courtText">Tennis Court</span>
+  </div>
+</div>
+
+
+<section class="build-cta">
+    <div class="cta-content">
+      <h1>Wanna Build?</h1>
+      <p style="color: white;">
+        From cricket nets to tennis courts — we bring your sports vision to life.
+      </p>
+      <a href="#contact">Start a Project</a>
+    </div>
+  </section>
+   
+
+
+
+
+
+
+
+
+
+
+<section class="headline-wrapper">
+  <div class="headline-inner">
+    <div class="headline-text" id="headlineText1">
+      A Place where you find real construction • A Place where you find real construction • A Place where you find real construction •
+    </div>
+
+    <div class="headline-text reverse" id="headlineText2">
+      A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction • A Place where you find real construction •
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <section class="services-section" id="services">
+    <h1>Our Services</h1>
+<p style="text-align: center;">From concept and design to execution and handover—one accountable team for timelines and quality.</p>
+    <div class="services-grid">
+
+      <div class="services-card">
+        <img src="https://images.unsplash.com/photo-1680445703071-0b71f659c92f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNwb3J0cyUyMGNvbnN0cnVjaXRvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Tennis Court">
+        <div class="services-card-content">
+          <h3>Greenfield Development (Build from Scratch)</h3>
+           <h4>These are full end-to-end services for new sports facilities</h4>
+        </div>
+      </div>
+
+      <div class="services-card">
+        <img src="https://images.unsplash.com/photo-1510679980-48540f7d5879?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BvcnRzJTIwcmVub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Football Turf">
+        <div class="services-card-content">
+          <h3>Renovation & Upgradation</h3>
+             <h4>Improving or modernizing existing facilities</h4>
+        </div>
+      </div>
+
+      <div class="services-card">
+        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1haW50ZW5hbmNlfGVufDB8fDB8fHww" alt="Badminton Court">
+        <div class="services-card-content">
+          <h3>Maintenance & Facility Management</h3>
+            <h4>Ongoing care to keep facilities in top condition</h4>
+        </div>
+      </div>
+
+      <div class="services-card">
+        <img src="https://plus.unsplash.com/premium_photo-1672354234377-38ef695dd2ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHN0YWRpdW0lMjBzZWF0c3xlbnwwfHwwfHx8MA%3D%3D" alt="Athletic Track">
+        <div class="services-card-content">
+          <h3>Ancillary Infrastructure</h3>
+               <h4>Beyond just the playing area</h4>
+        </div>
+      
+    
+     
+
+    </div>
+  </section>
+
+
+
+
+
+
+<section id="updatedSection" class="updated-section">
+  <div class="updated-sticky">
+
+    <!-- Intro -->
+    <div id="updatedIntro" class="updated-intro">
+<h1 style="
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #111;
+">
+ We Deliver Infrastructure
+</h1>
+    
+    </div>
+
+    <!-- Cards -->
+  </div>
+</section>
+
 
 
 
@@ -642,341 +1532,191 @@ height: 10%;
 
 
 
+<section class="build-section">
 
+  <h2 class="build-title">From Ground to Game-Ready</h2>
 
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="container hero-inner">
-      <div>
-      
-        <h2>World-class Sports Courts & Tracks, Built End-to-End</h2>
-        <p>
-          Maidaan brings together a team of experienced professionals in sports infrastructure—delivering technically sound, commercially viable, and beautifully designed facilities across India.
-        </p>
-          <div class="hero-badges">
-          <span class="badge" title="We build courts">We Build</span>
-          <!-- <span class="badge">Tennis • Football • Cricket • More</span> -->
-        </div>
-        <div class="hero-badges" aria-label="Specialisations">
-          <span class="chip">Tennis</span>
-          <span class="chip">Football</span>
-          <span class="chip">Cricket</span>
-          <span class="chip">Badminton</span>
-          <span class="chip">Pickleball</span>
-          <span class="chip">Basketball</span>
-          <span class="chip">Athletic Track</span>
-        </div>
-       
-
-        <!-- Stats -->
-          <h1 class="h2style">Our Impact</h1>
-        <div class="stats" aria-label="Key metrics">
-         
-          <div class="stat">
-            <h3 data-counter="563">0</h3>
-            <p>Projects</p>
-          </div>
-          <div class="stat">
-            <h3 data-counter="384">0</h3>
-            <p>Clients</p>
-          </div>
-          <div class="stat">
-            <h3 data-counter="11">0</h3>
-            <p>Cities</p>
-          </div>
-          <div class="stat">
-            <h3>Pan-India</h3>
-            <p>Coverage</p>
-          </div>
-        </div>
-      </div>
-<div class="imageandstart">
-      <div class="hero-card" aria-label="Featured visual">
-        <img src="https://o.quizlet.com/5ffUNaiddjdgREkTWDWfkg_b.jpg" alt="Freshly built tennis courts with clean line markings" />
-        <div class="meta">
-          <strong>Recent Build:</strong> High-performance tennis surface meeting international standards.
-        </div>
-        </div>
-<div style="margin-top: 50px; 
-            background-color: var(--brand-900); 
-            color: white; 
-            padding: 30px 30px; 
-            border-radius: 20px; 
-            text-align: center; 
-            max-width: 800px; 
-            margin-left: auto; 
-            margin-right: auto; 
-            font-family: Arial, sans-serif;">
-  <h1 style="font-size: 36px; margin-bottom: 15px;">Wanna Build?</h1>
-  <p style="font-size: 18px; margin-bottom: 30px;">From cricket nets to tennis courts — we bring your sports vision to life.</p>
-  <a href="#contact" 
-     style="background-color: white; 
-            color: var(--brand-900); 
-            padding: 14px 30px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 16px; 
-            display: inline-block; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-            transition: transform 0.2s ease, box-shadow 0.2s ease;">
-    Start a Project
-  </a>
-</div>
-
-
-
-
-
+  <div class="build-timeline">
+  <div class="build-progress" id="buildProgress"></div>
+    <div class="build-step left">
+      <div class="build-content">
+        <h3>01. Site Inspection</h3>
+        <p>Analyzing land condition, measurements, and feasibility before planning.</p>
       </div>
     </div>
-  </section>
 
-  <!-- WHAT WE DO -->
-   <a href="services.html" class="section-link">
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <h3 class="section-title">What We Do</h3>
-        <p class="muted">Design • Civil • Base • Surface • Line-marking • Lighting • Fencing • Accessories</p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <h4>End-to-End Delivery</h4>
-          <p>From concept and design to execution and handover—one accountable team for timelines and quality.</p>
-        </article>
-        <article class="card">
-          <h4>Multi-Sport Expertise</h4>
-          <p>Football turfs, tennis & badminton courts, cricket practice nets, pickleball, basketball, squash & athletic tracks.</p>
-        </article>
-        <article class="card">
-          <h4>Built to Standards</h4>
-          <p>Specification-driven construction aligned with international standards and usage profiles.</p>
-        </article>
-      </div>
-<span style="
-    display:inline-flex;
-    align-items:center;
-    gap:0.5rem;
-    padding:0.45rem 0.8rem;
-    margin-top:1rem;
-    border-radius:999px;
-    background:#0b3b4a10;
-    border:1px solid #d6e6ec;
-    font-weight:700;
-    color:#0b3b4a;
-    font-size:1rem;
-">
-    Who We Serve
-</span>
-
-
-
-      <div style="margin-top:1.2rem" class="logos" aria-label="Client industries">
-        <div class="logo" title="Education">Education</div>
-        <div class="logo" title="IT & Corporate">IT</div>
-        <div class="logo" title="Government">Government</div>
-        <div class="logo" title="Real Estate">Private Sector</div>
-        <div class="logo" title="Architects">Architects</div>
-         <div class="logo" title="Architects">Residential<br> Community</div>
+    <div class="build-step right">
+      <div class="build-content">
+        <h3>02. Planning & Design</h3>
+        <p>Layout design, drainage planning, and surface selection.</p>
       </div>
     </div>
-  </section>
-</a>
-   <!-- <section id="surfaces">
-    <div class="container">
-      <div class="section-head">
-        <h3 class="section-title">Surfaces — Deeper than the Surface</h3>
-        <p class="muted">Installation expertise across sports to meet international standards.</p>
-      </div>
-      <div class="chips" aria-label="Surface types">
-        <span class="chip">Badminton</span>
-        <span class="chip">Football</span>
-        <span class="chip">Tennis</span>
-        <span class="chip">Pickleball</span>
-        <span class="chip">Basketball</span>
-        <span class="chip">Squash</span>
-        <span class="chip">Athletic Track</span>
-        <span class="chip">Cricket</span>
+
+    <div class="build-step left">
+      <div class="build-content">
+        <h3>03. Ground Preparation</h3>
+        <p>Excavation, leveling, soil compaction, and base foundation work.</p>
       </div>
     </div>
-  </section> -->
 
-
-
-
-
-
-
-
-
-
-
-<div class="custom-color-container">
-    
-    <div class="custom-color-image">
-         New Concept
+    <div class="build-step right">
+      <div class="build-content">
+        <h3>04. Surface Installation</h3>
+        <p>Installing turf, acrylic, synthetic or wooden sports surfaces.</p>
+      </div>
     </div>
 
-    <div class="custom-color-content">
-        <h2>Custom Court Colors</h2>
-
-        <p>
-            Every court has its own identity, and color plays a powerful role in defining it.
-            We offer <span class="highlight">fully customizable color solutions</span> designed
-            to match your vision, sport, and surroundings.
-        </p>
-
-        <p>
-            Whether you prefer bold contrasts, classic tones, or modern combinations, our custom
-            color system allows you to personalize both the <span class="highlight">playing surface</span>
-            and the <span class="highlight">outer court layer</span> for a refined, professional finish.
-        </p>
-
-        <div class="sport-list">
-            <div class="sport-item">🎾 Tennis Courts</div>
-            <div class="sport-item">🏸 Badminton Courts</div>
-            <div class="sport-item">🏓 Pickleball Courts</div>
-            <div class="sport-item">🏟️ Custom Courts</div>
-        </div>
-
-        <p>
-            From the inner playing zones to the surrounding outer areas, every color is carefully
-            selected for durability, visibility, and visual impact — ensuring your court looks
-            stunning and performs flawlessly.
-        </p>
-
-        <a href="badminton_court.html" class="view-btn">View Color Options</a>
+    <div class="build-step left">
+      <div class="build-content">
+        <h3>05. Marking & Finishing</h3>
+        <p>Accurate line marking, fencing, lighting and finishing touches.</p>
+      </div>
     </div>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- PROJECTS -->
-  <section id="projects" >
-    <div   class="projectsoverlay1 container">
-      <div class="section-head">
-        <h3 class="section-title">Featured Projects</h3>
-        <a class="btn ghost" href="#contact">View All</a>
+    <div class="build-step right">
+      <div class="build-content">
+        <h3>06. Handover</h3>
+        <p>Final inspection and delivery of a game-ready professional facility.</p>
       </div>
-
-      <div class="projects">
-        <article class="project">
-          <img src="https://www.gwsportsapp.in/media/ground-images/gallery/MC4zMDM2OTkwMCAxNTQ2OTQzNjE3.jpeg" alt="Indoor arena with acrylic surface" />
-          <div class="info">
-            <span class="tag">Hyderabad</span>
-            <h4>Chintu Centre for Sports Excellence</h4>
-            <p class="muted">We design and build world-class Cricket ground with precision.</p>
-            <a class="btn ghost" href="#contact">View Details</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <img src="https://www.allcourts.co.uk/wp-content/uploads/2021/05/Cleatham-Centre-Court-006-2-1-scaled.jpeg" alt="Outdoor tennis courts at academy" />
-          <div class="info">
-            <span class="tag">Hyderabad</span>
-            <h4>Chintu Tennis Academy</h4>
-            <p class="muted">Acrylic court engineered for speed and durability.</p>
-            <a class="btn ghost" href="#contact">View Details</a>
-          </div>
-        </article>
-
-        <article class="project">
-          <img src="https://www.tualatinfarmersmarket.com/wp-content/uploads/2023/02/footbal-pitch-la-gi-3.jpg" alt="Football turf under lights"  />
-          <div class="info">
-            <span class="tag">Gujarat</span>
-            <h4>Football Turf Installations</h4>
-            <p class="muted">FIFA-inspired specs for player safety & performance.</p>
-            <a class="btn ghost" href="#contact">View Details</a>
-          </div>
-        </article>
-     
-      </div>
-       <div class="projectsoverlay">
-   <button class="nice-btn" onclick="window.location.href='projects.html'">
-  Checkout our Projects
-</button>
+    </div>
 
   </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="impact-container">
+    <video autoplay muted loop playsinline>
+        <source src="stats.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="stats">
+        <h2>Our Impact</h2>
+
+        <div class="stat">
+            <div class="number" data-target="11">0</div>
+            <p>+ Cities</p>
+        </div>
+
+        <div class="stat">
+            <div class="number" data-target="200">0</div>
+            <p>+ Projects</p>
+        </div>
+
+        <div class="stat">
+            <div class="number" data-target="1000000">0</div>
+            <p>+ Square Feet Executed</p>
+        </div>
+
+        
     </div>
-    
-  </section>
+</div>
+<h1 style="text-align: center; color: #0f0f14; margin-top: 200px;">Recent Build</h1>
+<p style="text-align: center; color: #0f0f14;">Showcasing Our Latest Innovations in Sports Design & Construction</p>
+<div class="list">
+    <div class="card">
+        <div class="overlay"></div>
+        <div class="content">
+            <p class="txt">Multiple Courts</p>
+            <h3>Global Indian International school</h3>
+            <h4>Ahmedabad</h4>
+        </div>
+    </div>
 
-  <!-- TESTIMONIALS -->
- 
+    <div class="card">
+        <div class="overlay"></div>
+        <div class="content">
+            <p class="txt">Multiple Courts</p>
+            <h3>Basil woods international school</h3>
+            <h4>Hyderabad</h4>
+        </div>
+    </div>
 
-  <!-- SURFACES -->
- 
+    <div class="card">
+        <div class="overlay"></div>
+        <div class="content">
+            <p class="txt">Multiple Courts</p>
+            <h3>Sri Chaitanya College</h3>
+            <h4>Hyderabad</h4>
+        </div>
+    </div>
+</div>
 
-  <!-- CTA -->
-  <section class="container">
-    <div class="cta" id="contact">
-      <div>
-        <span class="badge" style="background:#ffffff20;border-color:#ffffff40;color:#fff">Step into a field of possibilities</span>
+<a href="test.html" style="text-decoration: none; color: inherit;">
+    <div class="custom-color-container" id="colors">
+
+        <div class="custom-color-image">
+            Colors
+        </div>
+
+       <div class="custom-color-content">
+    <h2>Custom Court Colors</h2>
+
+    <p>
+        Every court has a unique identity. Our
+        <span class="highlight">custom color solutions</span> are designed
+        to match your sport, vision, and environment.
+    </p>
+
+    <p>
+        Choose bold, classic, or modern combinations to personalize both the
+        <span class="highlight">playing surface</span> and
+        <span class="highlight">outer court areas</span> with a clean,
+        professional finish.
+    </p>
+
+    <div class="sport-list">
+        <div class="sport-item">🎾 Tennis</div>
+        <div class="sport-item">🏸 Badminton</div>
+        <div class="sport-item">🏓 Pickleball</div>
+        <div class="sport-item">🏟️ Custom Courts</div>
+    </div>
+
+    <p>
+        Built for durability, visibility, and visual impact — ensuring
+        long-lasting performance and standout design.
+    </p>
+
+    <a href="test.html" class="view-btn">
+        View Color Options
+    </a>
+</div>
+
+
+    </div>
+    </a>
+
+<h1 style="text-align: center; color: #0f0f14; margin-top: 50px;">Build With Us</h1>
+<div class="cta-card" id="contact">
+    <div class="cta-content">
+        <span>Step into a field of possibilities</span>
         <h3>Let’s build your next sporting facility</h3>
         <p>Tell us about your site, sport, and timeline. We’ll propose the right spec and get you a detailed estimate.</p>
-        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-          <a class="btn primary" href="mailto:Naresh@maidaansportsinfra.com">Tap to Mail</a>
-            <a class="btn ghost" href="tel:+917702245549">+91‑7702245549</a>
-        </div>
-      </div>
-      <div>
-        <div class="card" style="height:100%">
-          <span class="badge" style="background:#ffffff20;border-color:#ffffff40;color:#fff">Visit Us</span>
-           <p class="muted" style="margin:.2rem 0 1rem">
-            1-33-116 , Rtc colony , Tirumalagirri , Secunderabad
-          </p>
-          <a class="btn ghost" target="_blank" rel="noopener" href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">View on Google Maps</a>
-        </div>
-      </div>
+        <a class="btn primary" href="mailto:Naresh@maidaansportsinfra.com">Tap to Mail</a>
+        <a class="btn ghost" href="tel:+917702245549">+91‑7702245549</a>
+        <span style="display:block; margin-top:1rem;">Visit Us</span>
+        <p class="muted">1-33-116, RTC Colony, Tirumalagirri, Secunderabad</p>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://maps.app.goo.gl/nbjB2LezKWRzvZQ78">View on Google Maps</a>
     </div>
-  </section>
- <section id="testimonials">
-    <div class=" container slider">
-      <div class="section-head">
-        <h3 class="section-title">Our Happy Customers</h3>
-      </div>
-
-      <div class="testimonial slide active" >
-        <img class="avatar" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=600&auto=format&fit=crop" alt="Portrait of Vivek Kumar" style="height: 150px;width: 150px;"/>
-        <div>
-          <p class="quote">“What impressed us most was the in-depth knowledge of sports surfaces and the options tailored to usage and budget. High standards and reliable service—this is Maidaan.”</p>
-          <p class="muted" style="margin:.4rem 0 0"><strong>Chintu</strong> — Founder, Chintu Group</p>
-        </div>
-      </div>
-        <div class="testimonial slide" >
-        <img class="avatar" src="https://www.mentorscapital.com/assets/students/Sahaj%20Mathur.png" alt="Portrait of Vivek Kumar" style="height: 150px;width: 150px;"/>
-        <div>
-          <p class="quote">“Expert guidance, thoughtfully tailored solutions, and uncompromising standards—Maidaan sets the benchmark for sports infrastructure.”</p>
-          <p class="muted" style="margin:.4rem 0 0"><strong>Ramesh</strong> — Founder, Boya Villas</p>
-        </div>
-      </div>
-        <div class="testimonial slide" >
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/69635759?v=4?s=400" alt="Portrait of Vivek Kumar" style="height: 150px;width: 150px;"/>
-        <div>
-          <p class="quote">“The team worked professionally at every stage, combining technical knowledge with a clear understanding of our needs.”</p>
-          <p class="muted" style="margin:.4rem 0 0"><strong>Salim</strong> — Founder, Salim Gated Community</p>
-        </div>
-  
-      </div>
-    </div>
-  </section>
+</div>
+  <!-- <div class="courts-grid" id="courtsGrid"></div> -->
    <div class="floating-video" id="floatingVideo">
     <button class="close-btn" onclick="closeVideo()">×</button>
     <video
-      src="overlaydrone.mp4"
+      src="overlaydrone1.mp4"
       autoplay
       muted
       loop
@@ -984,12 +1724,11 @@ height: 10%;
       controls
     ></video>
   </div>
-  <!-- FOOTER -->
   <footer>
     <div class="container foot-grid">
       <div class="foot">
         <h5>Maidaan</h5>
-        <p class="muted">Sports infrastructure done right—from design to execution—across India.</p>
+        <p >Sports infrastructure done right—from design to execution—across India.</p>
       </div>
       <div class="foot">
         <h5>Explore</h5>
@@ -1005,13 +1744,11 @@ height: 10%;
       </div>
     </div>
   </footer>
+<script>
 
-  <script>
-    // Mobile nav toggle
-     function closeVideo() {
-      document.getElementById('floatingVideo').style.display = 'none';
-    }
- function toggleContacts() {
+
+
+  function toggleContacts() {
         document.getElementById("contactOptions").classList.toggle("show");
     }
 
@@ -1019,13 +1756,332 @@ height: 10%;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let count = 0;
+let speed = 0.6; 
+
+    const progress = document.getElementById("loadingProgress");
+    const text = document.getElementById("loadingText");
+    const counter = document.getElementById("loadingCounter");
+    const loader = document.getElementById("loadingContainer");
+
+    const interval = setInterval(() => {
+      count += speed;
+
+      if (count >= 100) {
+        count = 100;
+        clearInterval(interval);
+
+        document.body.style.overflow = "auto";
+        loader.style.display = "none";
+      }
+
+      const displayCount = Math.floor(count);
+
+      progress.style.width = displayCount + "%";
+      counter.textContent = displayCount.toString().padStart(2, "0");
+
+      text.textContent =
+        displayCount < 50 ? "We Build" : "We Take Care";
+
+    }, 20);
+
+
+
+
+
+
+
+
+
+
+
+
+
+const steps = document.querySelectorAll(".build-step");
+const progressLine = document.getElementById("buildProgress");
+const timeline = document.querySelector(".build-timeline");
+
+window.addEventListener("scroll", () => {
+  const rect = timeline.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  let progress = (windowHeight - rect.top) / (rect.height + windowHeight);
+  progress = Math.min(Math.max(progress, 0), 1);
+
+  // fill line
+  progressLine.style.height = progress * 100 + "%";
+
+  steps.forEach((step, index) => {
+    let stepTrigger = (index + 0.5) / steps.length;
+
+    // 🔥 make last 2 steps appear earlier
+    if (index >= steps.length - 2) {
+      stepTrigger -= 0.1; // 👈 adjust this value (0.05–0.15 range)
+    }
+
+    if (progress > stepTrigger) {
+      step.classList.add("active");
+    } else {
+      step.classList.remove("active");
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+ 
+const updatedServices = [
+  {
+    title: "Tennis Courts",
+    desc: "Professional tennis court construction with durable surfaces and precision finishing.",
+    img: "https://images.unsplash.com/photo-1597893311798-9911ea4af043?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Football Grounds",
+    desc: "High-quality football turfs designed for performance and longevity.",
+    img: "https://images.unsplash.com/photo-1604412132568-9d5c14de13c4?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Badminton Courts",
+    desc: "Indoor badminton courts with professional flooring and lighting setup.",
+    img: "https://images.unsplash.com/photo-1708312604064-b86b97f2a3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJhZG1pbnRvbiUyMGNvdXJ0fGVufDB8fDB8fHww",
+  },
+  {
+    title: "Athletic Tracks",
+    desc: "Standard athletic tracks built for schools, stadiums, and training facilities.",
+    img: "https://images.unsplash.com/photo-1617646339087-654bc92e57c7?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Cricket Grounds & Box Cricket",
+    desc: "From full-size cricket grounds to compact box cricket arenas.",
+    img: "https://images.unsplash.com/photo-1563184956-7a02a2852738?q=80&w=1197&auto=format&fit=crop",
+  },
+  {
+    title: "Volleyball Courts",
+    desc: "Well-structured volleyball courts for both indoor and outdoor use.",
+    img: "https://images.unsplash.com/photo-1479859546309-cd77fa21c8f6?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Hockey Fields",
+    desc: "Advanced hockey field construction with professional turf systems.",
+    img: "https://images.unsplash.com/photo-1759365839764-23a859cb82b2?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Indoor Gym",
+    desc: "Modern indoor gym spaces with optimized layouts and infrastructure.",
+    img: "https://images.unsplash.com/photo-1728486145245-d4cb0c9c3470?w=600&auto=format&fit=crop&q=60",
+  },
+  {
+    title: "Pickleball Courts",
+    desc: "Dedicated pickleball courts designed for fast-growing sports demand.",
+    img: "https://images.unsplash.com/photo-1737476990369-9cf356085909?w=600&auto=format&fit=crop&q=60",
+  },
+];
+  const updatedSection = document.getElementById("updatedSection");
+  const updatedSticky = document.querySelector(".updated-sticky");
+
+  // ✅ FIXED HEIGHT (prevents early scroll exit)
+  updatedSection.style.height = (updatedServices.length + 2) * 100 + "vh";
+
+  // Create cards
+  updatedServices.forEach((service, index) => {
+    const card = document.createElement("div");
+    card.className = "updated-card";
+    card.style.zIndex = index;
+
+    card.innerHTML = `
+      <div class="updated-bg" style="background-image:url(${service.img})"></div>
+      <div class="updated-overlay"></div>
+      <div class="updated-content">
+        <h1>${service.title}</h1>
+        <p>${service.desc}</p>
+      </div>
+    `;
+
+    updatedSticky.appendChild(card);
+  });
+
+  const updatedCards = document.querySelectorAll(".updated-card");
+  const updatedIntro = document.getElementById("updatedIntro");
+
+  // ✅ SMOOTH SCROLL ENGINE
+  let updatedTarget = 0;
+  let updatedCurrent = 0;
+
+  window.addEventListener("scroll", () => {
+    const rect = updatedSection.getBoundingClientRect();
+
+    updatedTarget = Math.min(
+      Math.max(-rect.top / rect.height, 0),
+      1
+    );
+  });
+
+  function updatedAnimate() {
+    // smooth interpolation
+    updatedCurrent += (updatedTarget - updatedCurrent) * 0.08;
+
+   const progress = Math.min(updatedCurrent, 0.92);
+
+    /* INTRO */
+    if (progress < 0.15) {
+      updatedIntro.style.opacity = 1 - progress / 0.15;
+      updatedIntro.style.transform = `translateY(${progress * -40}%)`;
+    } else {
+      updatedIntro.style.opacity = 0;
+    }
+
+    /* CARDS */
+    updatedCards.forEach((card, index) => {
+      const total = updatedServices.length;
+
+const start = (index + 1) / (total + 2);
+const end = (index + 2) / (total + 2);
+
+      let p = (progress - start) / (end - start);
+      p = Math.min(Math.max(p, 0), 1);
+
+      const yStart = index === 0 ? 20 : 100;
+      const y = yStart * (1 - p);
+
+      const scale = 0.95 + 0.05 * p;
+      const opacity = index === 0 ? 0.85 + 0.15 * p : p;
+
+      card.style.transform = `translateY(${y}%) scale(${scale})`;
+      card.style.opacity = opacity;
+    });
+
+    requestAnimationFrame(updatedAnimate);
+  }
+
+  updatedAnimate();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const text1 = document.getElementById("headlineText1");
+  const text2 = document.getElementById("headlineText2");
+
+  if (text1 && text2) {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const isMobile = window.innerWidth < 768;
+      const speed = isMobile ? 0.6 : 1.2;
+
+      const moveX = scrollY * speed;
+
+      const width = text1.scrollWidth / 2;
+
+      // ✅ LEFT (works fine)
+      const x1 = -(moveX % width);
+
+      // ✅ RIGHT (FIXED with offset)
+      const x2 = -(width - (moveX % width));
+
+      text1.style.transform = `translateX(${x1}px)`;
+      text2.style.transform = `translateX(${x2}px)`;
+
+      ticking = false;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function closeVideo() {
+    const videoContainer = document.getElementById('floatingVideo');
+    const video = videoContainer.querySelector('video'); // get the <video> inside
+
+    // Pause the video
+    if (video) {
+        video.pause();
+        video.currentTime = 0; // optional: reset to start
+    }
+
+    // Hide the container
+    videoContainer.style.display = 'none';
+}
+
+
+
+
       let slides = document.querySelectorAll(".slide");
-  let index = 0;
+  let index1 = 0;
 
   setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
+    slides[index1].classList.remove("active");
+    index1 = (index1 + 1) % slides.length;
+    slides[index1].classList.add("active");
   }, 3000);
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.getElementById('navmenu');
@@ -1034,30 +2090,171 @@ height: 10%;
       toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // Smooth scroll (native CSS covers most modern browsers; this is fallback)
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const id = link.getAttribute('href');
-        if(!id || id === '#') return;
-        const el = document.querySelector(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
-        if(nav.classList.contains('open')) nav.classList.remove('open');
-      })
-    });
 
-    // Counter animation
-    const counters = document.querySelectorAll('[data-counter]');
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const el = entry.target; const target = +el.getAttribute('data-counter');
-          let cur = 0; const step = Math.max(1, Math.floor(target/80));
-          const tick = ()=>{ cur += step; if(cur >= target){ el.textContent = target.toLocaleString(); } else { el.textContent = cur.toLocaleString(); requestAnimationFrame(tick);} };
-          tick(); observer.unobserve(el);
+
+
+
+
+
+ const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.4 });
+
+    cards.forEach(card => observer.observe(card));
+
+// const counters = document.querySelectorAll('.number');
+
+// counters.forEach(counter => {
+//     let start = 0;
+//     const end = Number(counter.dataset.target);
+//     const duration = 2000;
+//     const step = Math.max(1, Math.floor(end / (duration / 20)));
+
+//     const interval = setInterval(() => {
+//         start += step;
+//         if (start >= end) {
+//             counter.textContent = end.toLocaleString();
+//             clearInterval(interval);
+//         } else {
+//             counter.textContent = start.toLocaleString();
+//         }
+//     }, 20);
+// });
+
+const counters = document.querySelectorAll('.number');
+
+// Function to animate a single counter
+const animateCounter = (counter) => {
+    let start = 0;
+    const end = Number(counter.dataset.target);
+    const duration = 2000; // total duration in ms
+    const step = Math.max(1, Math.floor(end / (duration / 20))); // increment per step
+
+    const interval = setInterval(() => {
+        start += step;
+        if (start >= end) {
+            counter.textContent = end.toLocaleString();
+            clearInterval(interval);
+        } else {
+            counter.textContent = start.toLocaleString();
         }
-      })
-    },{threshold: .4});
-    counters.forEach(c=>observer.observe(c));
-  </script>
+    }, 20);
+};
+
+// Intersection Observer to trigger animation when element comes into view
+const observer1 = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target); // stop observing after animation
+        }
+    });
+}, { threshold: 0.5 }); // trigger when 50% of element is visible
+
+// Observe each counter
+counters.forEach(counter => observer1.observe(counter));
+
+
+
+
+  const courts = [
+    {
+      name: "Tennis Court",
+      image: "https://images.unsplash.com/photo-1635089877059-500eb3720c61?w=1600"
+    },
+    {
+      name: "Cricket Ground",
+      image: "https://images.unsplash.com/photo-1702957317929-cd95c4fefbb9?w=1600"
+    },
+    {
+      name: "Badminton Court",
+      image: "https://images.unsplash.com/photo-1617696618050-b0fef0c666af?w=1600"
+    },
+    {
+      name: "Pickleball Court",
+      image: "https://plus.unsplash.com/premium_photo-1709932754766-92fb73829f76?w=1600"
+    },
+    {
+      name: "Football Ground",
+      image: "https://images.unsplash.com/photo-1652732876761-47eb529fa714?w=1600"
+    }
+  ];
+
+  const textEl = document.getElementById("courtText");
+  const bg1 = document.getElementById("bg1");
+  const bg2 = document.getElementById("bg2");
+
+  let index = 0;
+  let showTop = false;
+
+  /* 🔥 PRELOAD IMAGES */
+  const preloadImages = courts.map(court => {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.src = court.image;
+      img.onload = resolve;
+    });
+  });
+
+  Promise.all(preloadImages).then(startAnimation);
+
+  function startAnimation() {
+    bg1.style.backgroundImage = `url('${courts[0].image}')`;
+
+    setInterval(() => {
+      index = (index + 1) % courts.length;
+
+      const nextBg = showTop ? bg1 : bg2;
+      const currentBg = showTop ? bg2 : bg1;
+
+      nextBg.style.backgroundImage = `url('${courts[index].image}')`;
+      nextBg.style.opacity = 1;
+      currentBg.style.opacity = 0;
+
+      textEl.textContent = courts[index].name;
+      textEl.classList.remove("changing");
+      void textEl.offsetWidth;
+      textEl.classList.add("changing");
+
+      showTop = !showTop;
+    }, 3000);
+  }
+
+     const courts1 = [
+      { type: "Pickleball Court", place: "Greenfield Sports Complex", city: "Bengaluru", image: "https://th.bing.com/th/id/OIP.oqPSwP6aubbJ1q3TBBxZTAHaEH?w=329&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Tennis Court", place: "Elite Tennis Academy", city: "Chennai", image: "https://th.bing.com/th/id/OIP.Crh-ToIzczDMe5bcH4sMBAHaE8?w=235&h=150&c=6&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Basketball Court", place: "Downtown Sports Arena", city: "Ahmedabad", image: "https://th.bing.com/th/id/OIP.U8LbVgeL6qtHbujBdifcDgHaFj?w=186&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Volleyball Court", place: "Sunrise Recreation Centre", city: "Hyderabad", image: "https://th.bing.com/th/id/OIP.tyqm0HwmB_hZpKEb2gqr3AHaFj?w=176&h=150&c=6&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Badminton Court", place: "Lakeside Indoor Stadium", city: "Hyderabad", image: "https://tse4.mm.bing.net/th/id/OIP.CM4Ssomm8TLLXtYRPXFkfQHaE7?pid=ImgDet&w=184&h=122&c=7&dpr=1.3&o=7&rm=3" },
+      { type: "Indoor Gym Interior", place: "City Fitness Hub", city: "Delhi", image: "https://th.bing.com/th/id/OIP.ta2pzwEh61Xrxl8_AzT2VwHaE8?w=361&h=197&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Box Cricket Arena", place: "PowerPlay Sports Zone", city: "Ahmedabad", image: "https://th.bing.com/th/id/OIP.21mqi21vXRpODyCJ8DeyRgHaDt?w=350&h=175&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" },
+      { type: "Football Ground", place: "Community Sports Park", city: "Ahmedabad", image: "https://img.freepik.com/premium-photo/aerial-view-lush-green-football-field-which-appears-wellmaintained-ideal-athletic-competition_213438-7694.jpg" }
+    ];
+
+    const grid = document.getElementById("courtsGrid");
+
+    courts1.forEach(court => {
+      const card = document.createElement("div");
+      card.className = "court-card";
+
+      card.innerHTML = `
+        <img src="${court.image}" alt="${court.type}">
+        <div class="court-info">
+          <div class="court-type">${court.type}</div>
+          <div class="court-place">${court.place}</div>
+          <div class="court-city">${court.city}</div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+</script>
+
 </body>
 </html>
