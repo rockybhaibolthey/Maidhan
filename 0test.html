@@ -1053,7 +1053,7 @@ align-items: center;
 
   top: 0;
   width: 2px;
-  left : 19px;
+
   height: 0%;
   background: #fff;
   z-index: 2;
@@ -1185,10 +1185,91 @@ align-items: center;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    .loading-container {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Top bar */
+    .loading-top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #222;
+    }
+
+    .loading-progress {
+      height: 100%;
+      width: 0%;
+      background: white;
+      transition: width 0.1s linear;
+    }
+
+    /* Center text */
+    .loading-text {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .loading-text {
+        font-size: 60px;
+      }
+    }
+
+    /* Counter */
+    .loading-counter {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      font-size: 28px;
+      font-family: monospace;
+    }
+
 </style>
 </head>
 
 <body>
+    <div class="loading-container" id="loadingContainer">
+    
+    <!-- TOP LOADING BAR -->
+    <div class="loading-top-bar">
+      <div class="loading-progress" id="loadingProgress"></div>
+    </div>
+
+    <!-- CENTER TEXT -->
+    <div class="loading-text" id="loadingText">
+      We build apps
+    </div>
+
+    <!-- COUNTER -->
+    <div class="loading-counter" id="loadingCounter">
+      00
+    </div>
+
+  </div>
   <header class="site-header">
     <div class="container nav" role="navigation" aria-label="Main Navigation">
     
@@ -1261,62 +1342,38 @@ align-items: center;
     <div class="services-grid">
 
       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1597893311798-9911ea4af043?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRlbm5pcyUyMGNvdXJ0fGVufDB8fDB8fHww" alt="Tennis Court">
+        <img src="https://images.unsplash.com/photo-1680445703071-0b71f659c92f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNwb3J0cyUyMGNvbnN0cnVjaXRvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Tennis Court">
         <div class="services-card-content">
-          <h3>Tennis Courts</h3>
+          <h3>Greenfield Development (Build from Scratch)</h3>
+           <h4>These are full end-to-end services for new sports facilities</h4>
         </div>
       </div>
 
       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1604412132568-9d5c14de13c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZvb3RiYWxsJTIwZ3JvdW5kfGVufDB8fDB8fHww" alt="Football Turf">
+        <img src="https://images.unsplash.com/photo-1510679980-48540f7d5879?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BvcnRzJTIwcmVub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="Football Turf">
         <div class="services-card-content">
-          <h3>Football Grounds</h3>
+          <h3>Renovation & Upgradation</h3>
+             <h4>Improving or modernizing existing facilities</h4>
         </div>
       </div>
 
       <div class="services-card">
-        <img src="indoorbadminton.png" alt="Badminton Court">
+        <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1haW50ZW5hbmNlfGVufDB8fDB8fHww" alt="Badminton Court">
         <div class="services-card-content">
-          <h3>Badminton Courts</h3>
+          <h3>Maintenance & Facility Management</h3>
+            <h4>Ongoing care to keep facilities in top condition</h4>
         </div>
       </div>
 
       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1617646339087-654bc92e57c7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGF0aGxldGljJTIwdHJhY2t8ZW58MHx8MHx8fDA%3D" alt="Athletic Track">
+        <img src="https://plus.unsplash.com/premium_photo-1672354234377-38ef695dd2ed?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHN0YWRpdW0lMjBzZWF0c3xlbnwwfHwwfHx8MA%3D%3D" alt="Athletic Track">
         <div class="services-card-content">
-          <h3>Athletic Tracks</h3>
+          <h3>Ancillary Infrastructure</h3>
+               <h4>Beyond just the playing area</h4>
         </div>
-      </div>
-       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1563184956-7a02a2852738?q=80&w=1197&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Athletic Track">
-        <div class="services-card-content">
-          <h3>Cricket Grounds & Box Cricket</h3>
-        </div>
-      </div>
-       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1479859546309-cd77fa21c8f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dm9sbGV5YmFsbCUyMGNvdXJ0fGVufDB8fDB8fHww" alt="Athletic Track">
-        <div class="services-card-content">
-          <h3>Volley Ball</h3>
-        </div>
-      </div>
-       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1759365839764-23a859cb82b2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGhvY2tleSUyMGZpZWxkfGVufDB8fDB8fHww" alt="Athletic Track">
-        <div class="services-card-content">
-          <h3>Hockey Fields</h3>
-        </div>
-      </div>
-       <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1728486145245-d4cb0c9c3470?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D" alt="Athletic Track">
-        <div class="services-card-content">
-          <h3>Indoor Gym</h3>
-        </div>
-      </div>
-        <div class="services-card">
-        <img src="https://images.unsplash.com/photo-1737476990369-9cf356085909?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBpY2tsZWJhbGx8ZW58MHx8MHx8fDA%3D" alt="Athletic Track">
-        <div class="services-card-content">
-          <h3>Pickleball</h3>
-        </div>
-      </div>
+      
+    
+     
 
     </div>
   </section>
@@ -1339,7 +1396,7 @@ align-items: center;
   text-align: center;
   color: #111;
 ">
-  Our Services
+ We Deliver Infrastructure
 </h1>
     
     </div>
@@ -1573,6 +1630,44 @@ align-items: center;
     </div>
   </footer>
 <script>
+
+let count = 0;
+let speed = 0.6; 
+
+    const progress = document.getElementById("loadingProgress");
+    const text = document.getElementById("loadingText");
+    const counter = document.getElementById("loadingCounter");
+    const loader = document.getElementById("loadingContainer");
+
+    const interval = setInterval(() => {
+      count += speed;
+
+      if (count >= 100) {
+        count = 100;
+        clearInterval(interval);
+
+        document.body.style.overflow = "auto";
+        loader.style.display = "none";
+      }
+
+      const displayCount = Math.floor(count);
+
+      progress.style.width = displayCount + "%";
+      counter.textContent = displayCount.toString().padStart(2, "0");
+
+      text.textContent =
+        displayCount < 50 ? "We Build" : "We Take Care";
+
+    }, 20);
+
+
+
+
+
+
+
+
+
 
 
 
